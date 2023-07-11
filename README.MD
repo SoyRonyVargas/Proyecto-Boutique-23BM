@@ -12,6 +12,9 @@ Instrucciones para arrancar el proyecto
 - Visual Studio
 - Xampp
 
+En el archivo Context.cs verificar que el puerto y el usuario root sean iguales a los
+de tu Xampp. 
+
 ## Arrancar el proyecto
 
 Restaura los paquetes desde la consola con
