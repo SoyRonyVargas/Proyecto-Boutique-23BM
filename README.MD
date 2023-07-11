@@ -14,7 +14,10 @@ Instrucciones para arrancar el proyecto
 
 En el archivo Context.cs verificar que el puerto y el usuario root sean iguales a los
 de tu Xampp. 
-
+ 
+```sh                                                      // aqui cambiar el puerto y si tiene contraseña tambien.
+static readonly string connectionString = "Server=localhost;port=3306;User ID=root; Password=; Database=Boutique23BM";
+```
 ## Arrancar el proyecto
 
 Restaura los paquetes desde la consola con
