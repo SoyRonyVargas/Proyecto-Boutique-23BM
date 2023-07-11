@@ -3,6 +3,11 @@
 
 Instrucciones para arrancar el proyecto
 
+# Tareas
+[] Diseño (Beto y Martin)
+[] Eventos con la interfaz (Angel y Edison)
+[] Servicios Yo
+
 ## Necesitas
 - Visual Studio
 - Xampp
