@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Proyecto23BMBoutique2.Clases;
 
 namespace Proyecto23BMBoutique2.producto.services
 {
@@ -33,8 +34,8 @@ namespace Proyecto23BMBoutique2.producto.services
             }
             catch(Exception ex) 
             {
-               
-                RestauranteDataContext.handleErrors(ex);
+
+                Errors.handle(ex);
                 return new List<Producto> { };
             }
             
@@ -51,7 +52,7 @@ namespace Proyecto23BMBoutique2.producto.services
             }
             catch(Exception ex) 
             {
-                RestauranteDataContext.handleErrors(ex);
+                Errors.handle(ex);
                 return null;
             }
         }
@@ -82,7 +83,7 @@ namespace Proyecto23BMBoutique2.producto.services
             }
             catch(Exception ex) 
             {
-                RestauranteDataContext.handleErrors(ex);
+                Errors.handle(ex);
                 return false;
             }
         }
@@ -109,7 +110,7 @@ namespace Proyecto23BMBoutique2.producto.services
             }
             catch(Exception ex)
             {
-                RestauranteDataContext.handleErrors(ex);
+                Errors.handle(ex);
                 return false;
             }
         }

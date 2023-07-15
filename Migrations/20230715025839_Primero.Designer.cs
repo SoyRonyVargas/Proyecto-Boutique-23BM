@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoBoutique23BM.Clases;
 
@@ -10,9 +11,10 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    partial class RestauranteDataContextModelSnapshot : ModelSnapshot
+    [Migration("20230715025839_Primero")]
+    partial class Primero
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace Proyecto23BMBoutique2.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Categorias");
+                    b.ToTable("Categoria");
 
                     b.HasData(
                         new

@@ -5,7 +5,7 @@ using Proyecto23BMBoutique2.Clases;
 
 namespace ProyectoBoutique23BM.Clases
 {
-    public class Usuario : BaseEntity
+    public class Usuario
     {
         [Key]
         public int id { get; set; }
