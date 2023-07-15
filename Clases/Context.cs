@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Proyecto23BMBoutique2.Clases;
 using System;
+using System.Windows;
 
 namespace ProyectoBoutique23BM.Clases
 {
@@ -8,9 +10,14 @@ namespace ProyectoBoutique23BM.Clases
         static readonly string connectionString = "Server=localhost;port=3306;User ID=root; Password=; Database=Boutique23BM";
 
         public DbSet<Producto> Productos { get; set; }
-        //public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
 
+        public static void handleErrors(Exception e)
+        {
+            MessageBox.Show("Error en la conexion a la base de datos");
+            MessageBox.Show(e.Message);
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             try
