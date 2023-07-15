@@ -8,12 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clave.gif" />
+    <None Remove="informacion.gif" />
+    <None Remove="logo-black.png" />
+    <None Remove="perfil.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Vistas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="clave.gif" />
+    <Resource Include="informacion.gif" />
+    <Resource Include="logo-black.png" />
+    <Resource Include="perfil.gif" />
   </ItemGroup>
 
 </Project>

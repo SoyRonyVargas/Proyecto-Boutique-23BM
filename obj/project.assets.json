@@ -818,24 +818,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Upqroo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Beto Estrada\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Upqroo\\Documents\\Cosas\\WPF\\Proyecto23BMBoutique2\\Proyecto23BMBoutique2.csproj",
+      "projectUniqueName": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
       "projectName": "Proyecto23BMBoutique2",
-      "projectPath": "C:\\Users\\Upqroo\\Documents\\Cosas\\WPF\\Proyecto23BMBoutique2\\Proyecto23BMBoutique2.csproj",
-      "packagesPath": "C:\\Users\\Upqroo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Upqroo\\Documents\\Cosas\\WPF\\Proyecto23BMBoutique2\\obj\\",
+      "projectPath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+      "packagesPath": "C:\\Users\\Beto Estrada\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Upqroo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Beto Estrada\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -895,7 +890,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
