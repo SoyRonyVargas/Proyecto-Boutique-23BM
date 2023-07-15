@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Proyecto23BMBoutique2.Clases;
+
 
 namespace ProyectoBoutique23BM.Clases
 {
@@ -15,5 +13,10 @@ namespace ProyectoBoutique23BM.Clases
         public string? apellidos { get; set; }
         public string? password { get; set; }
         public string correo { get; set; }
+        public string nombreUsuario { get; set; }
+
+        [ForeignKey("Rol")]
+        public int RolFK { get; set; }
+        public Rol Rol { get; set; }
     }
 }
