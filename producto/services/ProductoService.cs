@@ -1,8 +1,8 @@
-﻿using ProyectoBoutique23BM.Clases;
+﻿using Proyecto23BMBoutique2.Clases;
+using ProyectoBoutique23BM.Clases;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using Proyecto23BMBoutique2.Clases;
 
 namespace Proyecto23BMBoutique2.producto.services
 {
