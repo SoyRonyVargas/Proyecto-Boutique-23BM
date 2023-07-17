@@ -25,7 +25,8 @@
 
   <ItemGroup>
     <Folder Include="categoria\services\" />
-    <Folder Include="Vistas\" />
+    <Folder Include="Vistas\Vista-Gerente\" />
+    <Folder Include="Vistas\Vista-Empleado\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Darth\\Documents\\GitHub\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {}
+    "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Darth\\Documents\\GitHub\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {
+    "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Darth\\Documents\\GitHub\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+        "projectUniqueName": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
         "projectName": "Proyecto23BMBoutique2",
-        "projectPath": "C:\\Users\\Darth\\Documents\\GitHub\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
-        "packagesPath": "C:\\Users\\Darth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Darth\\Documents\\GitHub\\Proyecto-Boutique-23BM\\obj\\",
+        "projectPath": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+        "packagesPath": "C:\\Users\\Beto Estrada\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Darth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Beto Estrada\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,7 +74,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
