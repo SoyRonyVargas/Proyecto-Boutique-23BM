@@ -8,13 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="clave.gif" />
-    <None Remove="informacion.gif" />
-    <None Remove="logo-black.png" />
-    <None Remove="perfil.gif" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -27,13 +20,6 @@
     <Folder Include="categoria\services\" />
     <Folder Include="Vistas\Vista-Gerente\" />
     <Folder Include="Vistas\Vista-Empleado\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="clave.gif" />
-    <Resource Include="informacion.gif" />
-    <Resource Include="logo-black.png" />
-    <Resource Include="perfil.gif" />
   </ItemGroup>
 
 </Project>
