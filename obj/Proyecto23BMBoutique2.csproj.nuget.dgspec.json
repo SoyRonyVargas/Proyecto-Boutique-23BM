@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {}
+    "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {
+    "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+        "projectUniqueName": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
         "projectName": "Proyecto23BMBoutique2",
-        "projectPath": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+        "projectPath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
         "packagesPath": "C:\\Users\\Beto Estrada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Beto Estrada\\Download\\Proyecto-Boutique-23BM\\obj\\",
+        "outputPath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Beto Estrada\\AppData\\Roaming\\NuGet\\NuGet.Config",

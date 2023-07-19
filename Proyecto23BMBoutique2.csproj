@@ -8,6 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clave.gif" />
+    <None Remove="informacion.gif" />
+    <None Remove="logo-black.png" />
+    <None Remove="perfil.gif" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\caja-registradora.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\carrito-de-compra-anadir.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\gestion-de-equipos.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\listas-de-control.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\logo-black.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuario\usuario.png" />
+    <None Remove="Vistas\VistaAdministrador\Inventario\orden.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +34,20 @@
     <Folder Include="categoria\services\" />
     <Folder Include="Vistas\Vista-Gerente\" />
     <Folder Include="Vistas\Vista-Empleado\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="clave.gif" />
+    <Resource Include="informacion.gif" />
+    <Resource Include="logo-black.png" />
+    <Resource Include="perfil.gif" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\caja-registradora.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\carrito-de-compra-anadir.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\gestion-de-equipos.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\listas-de-control.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\logo-black.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuario\usuario.png" />
+    <Resource Include="Vistas\VistaAdministrador\Inventario\orden.png" />
   </ItemGroup>
 
 </Project>
