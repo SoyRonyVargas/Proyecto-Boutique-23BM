@@ -44,33 +44,30 @@ namespace Proyecto23BMBoutique2.ventas.services
             }
         }
 
-        public bool AddVentaProductos(int ventaId, List<VentaProducto> ventaProductos)
-        {
-            try
-            {
+        //public bool AddVentaProductos(int ventaId, List<VentaProducto> ventaProductos)
+        //{
+        //    try
+        //    {
                 
-                Venta venta = this.db.Ventas.FirstOrDefault(v => v.id == ventaId);
+        //        Venta? venta = this.db.Ventas.FirstOrDefault(v => v.id == ventaId);
 
-                Debugger.Break();
+        //        if (venta == null) return false;
 
-                if (venta == null)
-                    return false;
+        //        foreach (VentaProducto ventaProducto in ventaProductos)
+        //        {
+        //            venta.Productos.Add(ventaProducto);
+        //        }
 
-                foreach (VentaProducto ventaProducto in ventaProductos)
-                {
-                    venta.Productos.Add(ventaProducto);
-                }
+        //        this.db.SaveChanges();
 
-                this.db.SaveChanges();
-
-                return true;
-            }
-            catch (Exception err)
-            {
-                Errors.handle(err);
-                return false;
-            }
-        }
+        //        return true;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        Errors.handle(err);
+        //        return false;
+        //    }
+        //}
 
 
         public bool UpdateVenta(Venta venta)

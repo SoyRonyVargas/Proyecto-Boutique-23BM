@@ -11,8 +11,8 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    [Migration("20230717132542_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20230719152149_EntradasProveedores")]
+    partial class EntradasProveedores
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,21 @@ namespace Proyecto23BMBoutique2.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("EntradaProducto", b =>
+                {
+                    b.Property<int>("Entradasid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Productosid")
+                        .HasColumnType("int");
+
+                    b.HasKey("Entradasid", "Productosid");
+
+                    b.HasIndex("Productosid");
+
+                    b.ToTable("EntradaProducto");
+                });
 
             modelBuilder.Entity("Proyecto23BMBoutique2.Clases.Categoria", b =>
                 {
@@ -82,6 +97,104 @@ namespace Proyecto23BMBoutique2.Migrations
                             id = 3,
                             nombre = "Vendedor"
                         });
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ProveedorFK")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioFK")
+                        .HasColumnType("int");
+
+                    b.Property<double>("importe")
+                        .HasColumnType("double");
+
+                    b.Property<double>("iva")
+                        .HasColumnType("double");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
+
+                    b.Property<double>("total")
+                        .HasColumnType("double");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("ProveedorFK");
+
+                    b.HasIndex("UsuarioFK");
+
+                    b.ToTable("Entradas");
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada_Has_Producto", b =>
+                {
+                    b.Property<int>("EntradaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("int");
+
+                    b.Property<int>("id")
+                        .HasColumnType("int");
+
+                    b.HasKey("EntradaId", "ProductoId");
+
+                    b.HasIndex("ProductoId");
+
+                    b.ToTable("Entrada_Has_Producto");
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.proveedores.entities.Proveedor", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("contacto")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("correo_electronico")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("direccion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("empresa")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("nombre")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("telefono")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Proveedores");
                 });
 
             modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
@@ -285,6 +398,59 @@ namespace Proyecto23BMBoutique2.Migrations
                         });
                 });
 
+            modelBuilder.Entity("EntradaProducto", b =>
+                {
+                    b.HasOne("Proyecto23BMBoutique2.entradas.entities.Entrada", null)
+                        .WithMany()
+                        .HasForeignKey("Entradasid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoBoutique23BM.Clases.Producto", null)
+                        .WithMany()
+                        .HasForeignKey("Productosid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada", b =>
+                {
+                    b.HasOne("Proyecto23BMBoutique2.proveedores.entities.Proveedor", "Proveedor")
+                        .WithMany()
+                        .HasForeignKey("ProveedorFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoBoutique23BM.Clases.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioFK")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Proveedor");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada_Has_Producto", b =>
+                {
+                    b.HasOne("Proyecto23BMBoutique2.entradas.entities.Entrada", "Entrada")
+                        .WithMany("EntradaProductos")
+                        .HasForeignKey("EntradaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProyectoBoutique23BM.Clases.Producto", "Producto")
+                        .WithMany("EntradaProductos")
+                        .HasForeignKey("ProductoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Entrada");
+
+                    b.Navigation("Producto");
+                });
+
             modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
                 {
                     b.HasOne("ProyectoBoutique23BM.Clases.Usuario", "Vendedor")
@@ -337,9 +503,19 @@ namespace Proyecto23BMBoutique2.Migrations
                     b.Navigation("Rol");
                 });
 
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada", b =>
+                {
+                    b.Navigation("EntradaProductos");
+                });
+
             modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
                 {
                     b.Navigation("Productos");
+                });
+
+            modelBuilder.Entity("ProyectoBoutique23BM.Clases.Producto", b =>
+                {
+                    b.Navigation("EntradaProductos");
                 });
 #pragma warning restore 612, 618
         }

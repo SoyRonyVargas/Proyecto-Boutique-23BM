@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proyecto23BMBoutique2.Clases;
+using Proyecto23BMBoutique2.entradas.entities;
+using Proyecto23BMBoutique2.proveedores.entities;
 using Proyecto23BMBoutique2.ventas.entities;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows;
 
@@ -17,6 +20,9 @@ namespace ProyectoBoutique23BM.Clases
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<VentaProducto> VentasProductos { get; set; }
+        public DbSet<Entrada> Entradas { get; set; }
+        public DbSet<Proveedor> Proveedores { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -38,6 +44,20 @@ namespace ProyectoBoutique23BM.Clases
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<Entrada_Has_Producto>()
+                .HasKey(ep => new { ep.EntradaId, ep.ProductoId });
+
+            //modelBuilder.Entity<Entrada_Has_Producto>()
+            //    .HasOne(ep => ep.Entrada)
+            //    .WithMany(e => e.EntradaProductos)
+            //    .HasForeignKey(ep => ep.EntradaId);
+
+            modelBuilder.Entity<Entrada_Has_Producto>()
+                .HasOne(ep => ep.Producto)
+                .WithMany(p => p.EntradaProductos)
+                .HasForeignKey(ep => ep.ProductoId);
+
             modelBuilder.Entity<Rol>().HasData(
                 new Rol
                 {

@@ -59,7 +59,7 @@
         <Label Content="Contraseña:" HorizontalAlignment="Left" Height="47" Margin="152,373,0,0" VerticalAlignment="Top" Width="168" FontSize="30"/>
         <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="34" Margin="191,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="497"/>
         <Image HorizontalAlignment="Left" Height="48" Margin="138,432,0,0" VerticalAlignment="Top" Width="50" Source="/clave.gif"/>
-        <Button Style="{StaticResource RoundButtonStyle}" Content="Iniciar Sesion" HorizontalAlignment="Center" Height="61" Margin="0,540,0,0" VerticalAlignment="Top" Width="149"/>
+        <Button Style="{StaticResource RoundButtonStyle}" Content="Iniciar Sesion" HorizontalAlignment="Center" Height="61" Margin="0,540,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click"/>
 
     </Grid>
 </Window>

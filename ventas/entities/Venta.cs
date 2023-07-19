@@ -11,6 +11,7 @@ namespace Proyecto23BMBoutique2.ventas.entities
         {
             Productos = new List<VentaProducto>();
         }
+
         [Key]
         public int id { get; set; }
         public int status { get; set; }

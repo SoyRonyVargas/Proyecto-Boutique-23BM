@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="categoria\services\" />
+    <Folder Include="proveedores\services\" />
     <Folder Include="Vistas\" />
   </ItemGroup>
 
