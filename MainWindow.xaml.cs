@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Proyecto23BMBoutique2.ventas.entities;
+using Proyecto23BMBoutique2.ventas.services;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Proyecto23BMBoutique2.Vistas.VistaAdministrador.GestionUsuario;
 
 namespace Proyecto23BMBoutique2
 {
@@ -23,6 +27,35 @@ namespace Proyecto23BMBoutique2
         public MainWindow()
         {
             InitializeComponent();
+            //VentaService service = new VentaService();
+            //Venta venta = new Venta();
+            //venta.total = 116;
+            //venta.iva = 16;
+            //venta.importe = 100;
+            //venta.status = 0;
+            //venta.VendedorFK = 1;
+
+            //VentaProducto producto1 = new VentaProducto();
+            //producto1.total = 116;
+            //producto1.iva = 16;
+            //producto1.importe = 100;
+            //producto1.status = 0;
+            //producto1.ProductoFK = 1;
+            //producto1.cantidad = 1;
+            //List<VentaProducto> produtos = new List<VentaProducto>();
+            //produtos.Add(producto1);
+            //Venta venta_nueva = service.AddVenta(venta);
+            //bool response = service.AddVentaProductos(venta_nueva.id, produtos);
+            //Venta? ventaBusc = service.GetVentaById(4);
+            //Debugger.Break();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GestionUsuario usuario = new GestionUsuario();
+            Close();
+            usuario.Show();
+
         }
     }
 }
