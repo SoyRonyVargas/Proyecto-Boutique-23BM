@@ -1,14 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Proyecto23BMBoutique2.router;
-using Proyecto23BMBoutique2.usuario.services;
-using ProyectoBoutique23BM.Clases;
-using System;
-using System.Windows;
-﻿using Proyecto23BMBoutique2.ventas.entities;
-using Proyecto23BMBoutique2.ventas.services;
+﻿using Proyecto23BMBoutique2.Vistas;
+using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using Proyecto23BMBoutique2.Vistas.VistaAdministrador.GestionUsuario;
 
 namespace Proyecto23BMBoutique2
 {
@@ -104,6 +96,9 @@ namespace Proyecto23BMBoutique2
             //GestionUsuario usuario = new GestionUsuario();
             Close();
             //usuario.Show();
+           Bienvenida bienvenida = new Bienvenida();
+            Close();
+            bienvenida.Show();  
         }
     }
 }

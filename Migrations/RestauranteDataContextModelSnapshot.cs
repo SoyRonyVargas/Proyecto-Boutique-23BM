@@ -496,7 +496,6 @@ namespace Proyecto23BMBoutique2.Migrations
 
                     b.Navigation("Entradas");
                 });
-#pragma warning restore 612, 618
         }
     }
 }

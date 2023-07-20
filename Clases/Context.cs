@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proyecto23BMBoutique2.Clases;
-using Proyecto23BMBoutique2.entradas.entities;
-using Proyecto23BMBoutique2.proveedores.entities;
-using Proyecto23BMBoutique2.ventas.entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,7 +13,9 @@ namespace ProyectoBoutique23BM.Clases
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
         public DbSet<Categoria> Categorias { get; set; }
+
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<VentaProducto> VentasProductos { get; set; }
