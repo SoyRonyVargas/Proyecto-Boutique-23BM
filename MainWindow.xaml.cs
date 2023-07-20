@@ -104,12 +104,10 @@ namespace Proyecto23BMBoutique2
             {
                 Autenticacion.usuario = service.ObtenerUsuarioPorNombreUsuario(username);
                 Bienvenida bienvenida = new Bienvenida();
-                
+
                 bienvenida.Show();
             }
             else { MessageBox.Show("Has ingresado información incorrecta"); }
-
-
 
             // Router.Navigate("/prueba");
             // this.Close();
@@ -119,8 +117,6 @@ namespace Proyecto23BMBoutique2
             //Bienvenida bienvenida = new Bienvenida();
             //Close();
             //bienvenida.Show();
-
-
         }
     }
 }

@@ -22,9 +22,9 @@ namespace Proyecto23BMBoutique2.Vistas
     public partial class GestionUsuario : Window
     {
 
-    
 
-        
+
+
 
         public GestionUsuario()
         {
@@ -46,9 +46,9 @@ namespace Proyecto23BMBoutique2.Vistas
         }
         private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Bienvenida bienvenida = new Bienvenida();
-            Close();
-            bienvenida.Show();
+            //Bienvenida bienvenida = new Bienvenida();
+            //Close();
+            //bienvenida.Show();
 
         }
     }
