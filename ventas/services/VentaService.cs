@@ -4,7 +4,6 @@ using ProyectoBoutique23BM.Clases;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto23BMBoutique2.ventas.services
@@ -16,14 +15,16 @@ namespace Proyecto23BMBoutique2.ventas.services
         public Venta? GetVentaById(int id)
         {
             return this.db.Ventas
-                .Include( v => v.Productos )
+                .Include(v => v.Productos)
                 .ThenInclude(vp => vp.Producto)
                 .FirstOrDefault(v => v.id == id);
         }
 
         public List<Venta> GetAllVentas()
         {
-            return this.db.Ventas.ToList();
+            return this.db.Ventas
+                .Include(v => v.Productos)
+                .ToList();
         }
 
         public Venta? AddVenta(Venta venta)

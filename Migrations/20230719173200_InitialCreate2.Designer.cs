@@ -11,8 +11,8 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    [Migration("20230719160139_EntradasProveedores2")]
-    partial class EntradasProveedores2
+    [Migration("20230719173200_InitialCreate2")]
+    partial class InitialCreate2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -414,7 +414,7 @@ namespace Proyecto23BMBoutique2.Migrations
             modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada_Has_Producto", b =>
                 {
                     b.HasOne("Proyecto23BMBoutique2.entradas.entities.Entrada", "Entrada")
-                        .WithMany()
+                        .WithMany("EntradaProductos")
                         .HasForeignKey("EntradaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -480,6 +480,11 @@ namespace Proyecto23BMBoutique2.Migrations
                         .IsRequired();
 
                     b.Navigation("Rol");
+                });
+
+            modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada", b =>
+                {
+                    b.Navigation("EntradaProductos");
                 });
 
             modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>

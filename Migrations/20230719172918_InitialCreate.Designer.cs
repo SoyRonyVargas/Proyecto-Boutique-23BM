@@ -11,8 +11,8 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    [Migration("20230719152149_EntradasProveedores")]
-    partial class EntradasProveedores
+    [Migration("20230719172918_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,21 +20,6 @@ namespace Proyecto23BMBoutique2.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("EntradaProducto", b =>
-                {
-                    b.Property<int>("Entradasid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Productosid")
-                        .HasColumnType("int");
-
-                    b.HasKey("Entradasid", "Productosid");
-
-                    b.HasIndex("Productosid");
-
-                    b.ToTable("EntradaProducto");
-                });
 
             modelBuilder.Entity("Proyecto23BMBoutique2.Clases.Categoria", b =>
                 {
@@ -108,6 +93,9 @@ namespace Proyecto23BMBoutique2.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int?>("Productoid")
+                        .HasColumnType("int");
+
                     b.Property<int>("ProveedorFK")
                         .HasColumnType("int");
 
@@ -127,6 +115,8 @@ namespace Proyecto23BMBoutique2.Migrations
                         .HasColumnType("double");
 
                     b.HasKey("id");
+
+                    b.HasIndex("Productoid");
 
                     b.HasIndex("ProveedorFK");
 
@@ -398,23 +388,12 @@ namespace Proyecto23BMBoutique2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("EntradaProducto", b =>
-                {
-                    b.HasOne("Proyecto23BMBoutique2.entradas.entities.Entrada", null)
-                        .WithMany()
-                        .HasForeignKey("Entradasid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProyectoBoutique23BM.Clases.Producto", null)
-                        .WithMany()
-                        .HasForeignKey("Productosid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Proyecto23BMBoutique2.entradas.entities.Entrada", b =>
                 {
+                    b.HasOne("ProyectoBoutique23BM.Clases.Producto", null)
+                        .WithMany("Entradas")
+                        .HasForeignKey("Productoid");
+
                     b.HasOne("Proyecto23BMBoutique2.proveedores.entities.Proveedor", "Proveedor")
                         .WithMany()
                         .HasForeignKey("ProveedorFK")
@@ -516,6 +495,8 @@ namespace Proyecto23BMBoutique2.Migrations
             modelBuilder.Entity("ProyectoBoutique23BM.Clases.Producto", b =>
                 {
                     b.Navigation("EntradaProductos");
+
+                    b.Navigation("Entradas");
                 });
 #pragma warning restore 612, 618
         }

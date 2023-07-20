@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto23BMBoutique2.Migrations
 {
-    public partial class EntradasProveedores : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -140,11 +140,17 @@ namespace Proyecto23BMBoutique2.Migrations
                     total = table.Column<double>(type: "double", nullable: false),
                     ProveedorFK = table.Column<int>(type: "int", nullable: false),
                     UsuarioFK = table.Column<int>(type: "int", nullable: false),
+                    Productoid = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Entradas", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Entradas_Productos_Productoid",
+                        column: x => x.Productoid,
+                        principalTable: "Productos",
+                        principalColumn: "id");
                     table.ForeignKey(
                         name: "FK_Entradas_Proveedores_ProveedorFK",
                         column: x => x.ProveedorFK,
@@ -206,31 +212,6 @@ namespace Proyecto23BMBoutique2.Migrations
                     table.ForeignKey(
                         name: "FK_Entrada_Has_Producto_Productos_ProductoId",
                         column: x => x.ProductoId,
-                        principalTable: "Productos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "EntradaProducto",
-                columns: table => new
-                {
-                    Entradasid = table.Column<int>(type: "int", nullable: false),
-                    Productosid = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EntradaProducto", x => new { x.Entradasid, x.Productosid });
-                    table.ForeignKey(
-                        name: "FK_EntradaProducto_Entradas_Entradasid",
-                        column: x => x.Entradasid,
-                        principalTable: "Entradas",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_EntradaProducto_Productos_Productosid",
-                        column: x => x.Productosid,
                         principalTable: "Productos",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -313,9 +294,9 @@ namespace Proyecto23BMBoutique2.Migrations
                 column: "ProductoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EntradaProducto_Productosid",
-                table: "EntradaProducto",
-                column: "Productosid");
+                name: "IX_Entradas_Productoid",
+                table: "Entradas",
+                column: "Productoid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entradas_ProveedorFK",
@@ -359,28 +340,25 @@ namespace Proyecto23BMBoutique2.Migrations
                 name: "Entrada_Has_Producto");
 
             migrationBuilder.DropTable(
-                name: "EntradaProducto");
-
-            migrationBuilder.DropTable(
                 name: "VentasProductos");
 
             migrationBuilder.DropTable(
                 name: "Entradas");
 
             migrationBuilder.DropTable(
-                name: "Productos");
+                name: "Ventas");
 
             migrationBuilder.DropTable(
-                name: "Ventas");
+                name: "Productos");
 
             migrationBuilder.DropTable(
                 name: "Proveedores");
 
             migrationBuilder.DropTable(
-                name: "Categorias");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Categorias");
 
             migrationBuilder.DropTable(
                 name: "Roles");

@@ -10,7 +10,7 @@ namespace Proyecto23BMBoutique2.entradas.entities
     {
         public Entrada()
         {
-            //EntradaProductos = new List<Entrada_Has_Producto>();
+            EntradaProductos = new List<Entrada_Has_Producto>();
         }
 
         [Key]
@@ -28,8 +28,7 @@ namespace Proyecto23BMBoutique2.entradas.entities
         public int UsuarioFK { get; set; }
         // quien crea la entrada
         public Usuario Usuario { get; set; }
-        //public ICollection<Entrada_Has_Producto>? EntradaProductos { get; set; }
-        //public ICollection<Producto> Productos { get; set; }
+        public ICollection<Entrada_Has_Producto>? EntradaProductos { get; set; }
 
     }
 }

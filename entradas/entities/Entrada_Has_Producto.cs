@@ -13,14 +13,16 @@ namespace Proyecto23BMBoutique2.entradas.entities
     {
         [Key]
         public int id { get; set; }
+        public int Cantidad { get; set; }
+
         [ForeignKey("Entrada")]
         public int EntradaId { get; set; }
         public Entrada Entrada { get; set; }
-        [ForeignKey("Producto")]
 
+        [ForeignKey("Producto")]
         public int ProductoId { get; set; }
         public Producto Producto { get; set; }
 
-        public int Cantidad { get; set; }
+        
     }
 }
