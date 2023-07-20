@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoBoutique23BM.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,14 @@ namespace Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida
     /// Lógica de interacción para Bienvenida.xaml
     /// </summary>
     public partial class Bienvenida : Window
-    {
+    {    
+        public Usuario usuario { get; set; }
         public Bienvenida()
         {
             InitializeComponent();
         }
+    
+   
         private void GestionUser(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             GestionUsuario ges = new GestionUsuario();

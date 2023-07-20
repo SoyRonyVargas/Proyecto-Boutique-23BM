@@ -22,6 +22,7 @@ namespace Proyecto23BMBoutique2.usuario.services
                 if (user == null) return false;
 
                 // Comparar la contraseña proporcionada con la contraseña del usuario
+
                 return user.password == password;
             }
             catch
@@ -33,6 +34,12 @@ namespace Proyecto23BMBoutique2.usuario.services
         // Create
         // Agrega un nuevo usuario a la base de datos.
         // Devuelve true si se agrega correctamente, de lo contrario devuelve false.
+
+        public void PersistirUsuario()
+        {
+
+        }
+
         public bool AgregarUsuario(Usuario usuario)
         {
             try

@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
+using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,11 @@ namespace Proyecto23BMBoutique2.Vistas
     /// </summary>
     public partial class GestionUsuario : Window
     {
+
+    
+
+        
+
         public GestionUsuario()
         {
             InitializeComponent();
@@ -34,7 +40,7 @@ namespace Proyecto23BMBoutique2.Vistas
         {
 
         }
-        private void EditItem (object sender, RoutedEventArgs e)
+        private void EditItem(object sender, RoutedEventArgs e)
         {
 
         }

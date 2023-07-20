@@ -1,10 +1,13 @@
-﻿using Proyecto23BMBoutique2.usuario.services;
+﻿using Microsoft.Windows.Themes;
+using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.Vistas;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,7 +31,7 @@ namespace Proyecto23BMBoutique2
         private RestauranteDataContext db = new RestauranteDataContext();
         public MainWindow()
         {
-            
+
             InitializeComponent();
             //Window ventana = (Window)Activator.CreateInstance(Router.routes[0].WindowType);
 
@@ -93,14 +96,31 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            UsuarioService service = new UsuarioService();
+            string username = txtUserName.Text;
+            string password = Password.Password;
+
+            if (service.AutenticarUsuario(username, password))
+            {
+                Autenticacion.usuario = service.ObtenerUsuarioPorNombreUsuario(username);
+                Bienvenida bienvenida = new Bienvenida();
+                
+                bienvenida.Show();
+            }
+            else { MessageBox.Show("Has ingresado información incorrecta"); }
+
+
+
             // Router.Navigate("/prueba");
             // this.Close();
             //GestionUsuario usuario = new GestionUsuario();
-            Close();
+            //Close();
             //usuario.Show();
-           Bienvenida bienvenida = new Bienvenida();
-            Close();
-            bienvenida.Show();  
+            //Bienvenida bienvenida = new Bienvenida();
+            //Close();
+            //bienvenida.Show();
+
+
         }
     }
 }
