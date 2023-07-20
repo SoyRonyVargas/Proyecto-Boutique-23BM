@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto23BMBoutique2.Vistas;
+using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,13 @@ namespace Proyecto23BMBoutique2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           Bienvenida bienvenida = new Bienvenida();
+            Close();
+            bienvenida.Show();  
         }
     }
 }

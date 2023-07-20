@@ -12,26 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Proyecto23BMBoutique2.Vistas
+namespace Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida
 {
     /// <summary>
-    /// Lógica de interacción para AgregarProducto.xaml
+    /// Lógica de interacción para Bienvenida.xaml
     /// </summary>
-    public partial class AgregarProducto : Window
+    public partial class Bienvenida : Window
     {
-        public AgregarProducto()
+        public Bienvenida()
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GestionUser(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            GestionUsuario ges = new GestionUsuario();
+            Close();
+            ges.Show();
         }
-
-        private void UserTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void PuntoVenta(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-
+            
         }
     }
 }

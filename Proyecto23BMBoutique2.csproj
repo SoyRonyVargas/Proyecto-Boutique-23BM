@@ -8,6 +8,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Vistas\VistaAdministrador\Inventario\**" />
+    <Compile Remove="Vistas\Vista-Empleado\**" />
+    <Compile Remove="Vistas\Vista-Gerente\**" />
+    <EmbeddedResource Remove="Vistas\VistaAdministrador\Inventario\**" />
+    <EmbeddedResource Remove="Vistas\Vista-Empleado\**" />
+    <EmbeddedResource Remove="Vistas\Vista-Gerente\**" />
+    <None Remove="Vistas\VistaAdministrador\Inventario\**" />
+    <None Remove="Vistas\Vista-Empleado\**" />
+    <None Remove="Vistas\Vista-Gerente\**" />
+    <Page Remove="Vistas\VistaAdministrador\Inventario\**" />
+    <Page Remove="Vistas\Vista-Empleado\**" />
+    <Page Remove="Vistas\Vista-Gerente\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="clave.gif" />
+    <None Remove="logo-black.png" />
+    <None Remove="perfil.gif" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\usuario.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\carrito-de-compras.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\gestion-de-equipos.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\listas-de-control.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\logo-black.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\orden.png" />
+    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\usuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -18,9 +51,24 @@
 
   <ItemGroup>
     <Folder Include="categoria\services\" />
-    <Folder Include="Vistas\Vista-Administrador\Inventario\" />
-    <Folder Include="Vistas\Vista-Gerente\" />
-    <Folder Include="Vistas\Vista-Empleado\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="clave.gif" />
+    <Resource Include="logo-black.png" />
+    <Resource Include="perfil.gif" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\usuario.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\carrito-de-compras.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\gestion-de-equipos.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\listas-de-control.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\logo-black.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\orden.png" />
+    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\usuario.png" />
   </ItemGroup>
 
 </Project>

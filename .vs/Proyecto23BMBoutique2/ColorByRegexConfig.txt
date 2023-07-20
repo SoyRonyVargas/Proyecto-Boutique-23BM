@@ -1,0 +1,9 @@
+Este archivo contiene reglas para colorear las pestañas de documentos por expresiones regulares. Cada línea contiene una expresión regular que se probará con la ruta de acceso de un archivo. Todos los archivos que coincidan con una expresión regular compartirán un color.
+// Las expresiones regulares se compararán en el orden en que aparecen en este archivo. Consulte https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expressions para ver la sintaxis.
+// Edite este archivo y guarde los cambios para ver los cambios que se acaban de aplicar. Los errores que se encuentren durante el análisis o la evaluación de expresiones aparecerán en el archivo XML del registro de actividad.
+// Puede personalizar el color asignado a cualquier grupo de archivos haciendo clic con el botón secundario en la pestaña y eligiendo "Establecer color de pestaña".
+^.*\.cs$
+^.*\.fs$
+^.*\.vb$
+^.*\.cp?p?$
+^.*\.hp?p?$

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "n1enQqP+wbykYOoii9q5LZAQcuXoMGVscds/ogYuvj+xM9unIrKLVySpg4avKQyyXMnFPXrcxveiQ1ntNx3fWA==",
+  "dgSpecHash": "mxeEIAAxM6oQpBZc9HB+GvcW4c+zpq0rENyTYjHsa2D4EwxJz4PU8D2j5g/CsanwXwRhZ1hKKvtYUUz/QtP4sA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
+  "projectFilePath": "C:\\Users\\Beto Estrada\\Desktop\\Proyecto-Boutique-23BM\\Proyecto-Boutique-23BM\\Proyecto23BMBoutique2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Beto Estrada\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Beto Estrada\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
