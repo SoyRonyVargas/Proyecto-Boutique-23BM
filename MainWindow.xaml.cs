@@ -1,5 +1,7 @@
-﻿using Proyecto23BMBoutique2.Vistas;
+﻿using Proyecto23BMBoutique2.usuario.services;
+using Proyecto23BMBoutique2.Vistas;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
+using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proyecto23BMBoutique2.Clases;
+using Proyecto23BMBoutique2.entradas.entities;
+using Proyecto23BMBoutique2.proveedores.entities;
+using Proyecto23BMBoutique2.ventas.entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
