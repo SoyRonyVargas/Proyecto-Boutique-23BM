@@ -8,6 +8,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Vistas\Vista-Empleado\**" />
+    <Compile Remove="Vistas\Vista-Gerente\**" />
+    <Compile Remove="Vistas\VistaAdministrador\**" />
+    <EmbeddedResource Remove="Vistas\Vista-Empleado\**" />
+    <EmbeddedResource Remove="Vistas\Vista-Gerente\**" />
+    <EmbeddedResource Remove="Vistas\VistaAdministrador\**" />
+    <None Remove="Vistas\Vista-Empleado\**" />
+    <None Remove="Vistas\Vista-Gerente\**" />
+    <None Remove="Vistas\VistaAdministrador\**" />
+    <Page Remove="Vistas\Vista-Empleado\**" />
+    <Page Remove="Vistas\Vista-Gerente\**" />
+    <Page Remove="Vistas\VistaAdministrador\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="clave.gif" />
     <None Remove="informacion.gif" />
     <None Remove="logo-black.png" />
@@ -25,13 +40,6 @@
 
   <ItemGroup>
     <Folder Include="categoria\services\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="clave.gif" />
-    <Resource Include="informacion.gif" />
-    <Resource Include="logo-black.png" />
-    <Resource Include="perfil.gif" />
   </ItemGroup>
 
 </Project>

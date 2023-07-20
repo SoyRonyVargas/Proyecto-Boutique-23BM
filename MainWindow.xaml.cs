@@ -4,7 +4,24 @@ using Proyecto23BMBoutique2.usuario.services;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Windows;
-
+﻿using Proyecto23BMBoutique2.ventas.entities;
+using Proyecto23BMBoutique2.ventas.services;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+//using Proyecto23BMBoutique2.Vistas.VistaAdministrador.GestionUsuario;
 
 namespace Proyecto23BMBoutique2
 {
@@ -82,8 +99,11 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Router.Navigate("/prueba");
-            this.Close();
+            // Router.Navigate("/prueba");
+            // this.Close();
+            //GestionUsuario usuario = new GestionUsuario();
+            Close();
+            //usuario.Show();
         }
     }
 }
