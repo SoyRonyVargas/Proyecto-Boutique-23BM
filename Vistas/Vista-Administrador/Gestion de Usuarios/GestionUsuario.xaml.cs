@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Proyecto23BMBoutique2
+namespace Proyecto23BMBoutique2.Vistas
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para AgregarProducto.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AgregarProducto : Window
     {
-        public MainWindow()
+        public AgregarProducto()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UserTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

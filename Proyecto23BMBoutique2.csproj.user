@@ -6,12 +6,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vistas\VistaAdministrador\GestionUsuario\GestionUsuario.xaml">
+    <Page Update="Vistas\Vista-Administrador\Gestion de Usuarios\GestionUsuario.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

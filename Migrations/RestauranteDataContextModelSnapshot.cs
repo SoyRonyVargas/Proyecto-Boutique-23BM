@@ -82,76 +82,6 @@ namespace Proyecto23BMBoutique2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("VendedorFK")
-                        .HasColumnType("int");
-
-                    b.Property<double>("importe")
-                        .HasColumnType("double");
-
-                    b.Property<double>("iva")
-                        .HasColumnType("double");
-
-                    b.Property<int>("status")
-                        .HasColumnType("int");
-
-                    b.Property<double>("total")
-                        .HasColumnType("double");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("VendedorFK");
-
-                    b.ToTable("Ventas");
-                });
-
-            modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.VentaProducto", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductoFK")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VentaFK")
-                        .HasColumnType("int");
-
-                    b.Property<double>("cantidad")
-                        .HasColumnType("double");
-
-                    b.Property<double>("importe")
-                        .HasColumnType("double");
-
-                    b.Property<double>("iva")
-                        .HasColumnType("double");
-
-                    b.Property<double>("precio_pieza")
-                        .HasColumnType("double");
-
-                    b.Property<int>("status")
-                        .HasColumnType("int");
-
-                    b.Property<double>("total")
-                        .HasColumnType("double");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("ProductoFK");
-
-                    b.HasIndex("VentaFK");
-
-                    b.ToTable("VentasProductos");
-                });
-
             modelBuilder.Entity("ProyectoBoutique23BM.Clases.Producto", b =>
                 {
                     b.Property<int>("id")
@@ -283,36 +213,6 @@ namespace Proyecto23BMBoutique2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
-                {
-                    b.HasOne("ProyectoBoutique23BM.Clases.Usuario", "Vendedor")
-                        .WithMany()
-                        .HasForeignKey("VendedorFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vendedor");
-                });
-
-            modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.VentaProducto", b =>
-                {
-                    b.HasOne("ProyectoBoutique23BM.Clases.Producto", "Producto")
-                        .WithMany()
-                        .HasForeignKey("ProductoFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Proyecto23BMBoutique2.ventas.entities.Venta", "Venta")
-                        .WithMany("Productos")
-                        .HasForeignKey("VentaFK")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Producto");
-
-                    b.Navigation("Venta");
-                });
-
             modelBuilder.Entity("ProyectoBoutique23BM.Clases.Producto", b =>
                 {
                     b.HasOne("Proyecto23BMBoutique2.Clases.Categoria", "CatActual")
@@ -333,11 +233,6 @@ namespace Proyecto23BMBoutique2.Migrations
                         .IsRequired();
 
                     b.Navigation("Rol");
-                });
-
-            modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
-                {
-                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }
