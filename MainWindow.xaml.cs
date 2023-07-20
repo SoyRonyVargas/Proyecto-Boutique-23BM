@@ -106,6 +106,7 @@ namespace Proyecto23BMBoutique2
                 Bienvenida bienvenida = new Bienvenida();
 
                 bienvenida.Show();
+                this.Close();
             }
             else { MessageBox.Show("Has ingresado información incorrecta"); }
 
@@ -120,3 +121,4 @@ namespace Proyecto23BMBoutique2
         }
     }
 }
+
