@@ -1,4 +1,5 @@
-﻿using ProyectoBoutique23BM.Clases;
+﻿using Proyecto23BMBoutique2.Auth;
+using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,9 @@ namespace Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida
         public Bienvenida()
         {
             InitializeComponent();
+            txtName.Text = Autenticacion.usuario.nombre;
+            txtUserName.Text = Autenticacion.usuario.nombreUsuario;
+            txtHoraEntrada.Text = DateTime.Now.ToString();
         }
 
 

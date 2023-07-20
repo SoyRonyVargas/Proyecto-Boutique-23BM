@@ -1,4 +1,6 @@
-﻿using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
+﻿using Proyecto23BMBoutique2.rol.services;
+using Proyecto23BMBoutique2.usuario.services;
+using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -21,14 +23,12 @@ namespace Proyecto23BMBoutique2.Vistas
     /// </summary>
     public partial class GestionUsuario : Window
     {
-
-
-
-
-
+       
         public GestionUsuario()
         {
             InitializeComponent();
+            UpdateSelectRol();
+            UpdateUserTable();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,10 +46,50 @@ namespace Proyecto23BMBoutique2.Vistas
         }
         private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            //Bienvenida bienvenida = new Bienvenida();
-            //Close();
-            //bienvenida.Show();
+            Bienvenida bienvenida = new Bienvenida();
+            Close();
+            bienvenida.Show();
 
+        }
+
+        private void btnAddUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContraseña.Text) && !string.IsNullOrEmpty(txtRepetirContraseña.Text))
+            {
+                if (txtContraseña.Text == txtRepetirContraseña.Text)
+                {
+                    UsuarioService usuarioServices = new UsuarioService();
+                    Usuario usuario = new Usuario();
+
+                    usuario.nombre = txtNombre.Text;
+                    usuario.apellidos = txtApellido.Text;
+                    usuario.nombreUsuario = txtUsuario.Text;
+                    usuario.correo = txtCorreo.Text;
+                    usuario.password = txtContraseña.Text;
+                    usuario.RolFK = int.Parse(SelectRol.SelectedValue.ToString());
+
+                    usuarioServices.AgregarUsuario(usuario);
+
+                    MessageBox.Show("Usuario añadido correctamente");
+                    UpdateUserTable();
+                }
+                else MessageBox.Show("La contraseña no coincide");
+            }
+            else MessageBox.Show("No has ingresado todos los datos necesarios");
+            
+        }
+
+        public void UpdateSelectRol()
+        {
+            RolService rolServices = new RolService();
+            SelectRol.ItemsSource = rolServices.ObtenerTodosLosRoles();
+            SelectRol.DisplayMemberPath = "nombre";
+            SelectRol.SelectedValuePath = "id";
+        }
+        public void UpdateUserTable()
+        {
+            UsuarioService usuarioServices = new UsuarioService();
+            UserTable.ItemsSource = usuarioServices.ObtenerTodosLosUsuarios();
         }
     }
 }

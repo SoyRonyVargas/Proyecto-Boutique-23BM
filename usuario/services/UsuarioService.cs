@@ -1,4 +1,5 @@
-﻿using Proyecto23BMBoutique2.Clases;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto23BMBoutique2.Clases;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -60,7 +61,7 @@ namespace Proyecto23BMBoutique2.usuario.services
         {
             try
             {
-                return db.Usuarios.ToList();
+                return db.Usuarios.Include(x=>x.Rol).ToList(); 
             }
             catch (Exception ex)
             {

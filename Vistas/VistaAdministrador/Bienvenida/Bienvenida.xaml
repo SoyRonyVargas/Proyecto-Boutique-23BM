@@ -58,13 +58,13 @@
         <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="241,77,0,0" VerticalAlignment="Top"/>
         <Label Content="BIENVENIDO: " HorizontalAlignment="Center" Height="54" Margin="0,144,0,0" VerticalAlignment="Top" Width="302" FontSize="48" FontFamily="Consolas" Foreground="DarkTurquoise"/>
         <Image x:Name="Imagen" Style="{StaticResource CircularImageStyle}" HorizontalAlignment="Left" Height="250" Margin="528,271,0,0" VerticalAlignment="Top" Width="250" Source="/Vistas/VistaAdministrador/Bienvenida/299157410_1692436947783317_6374977674242083958_n.jpg"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,271,0,0" Text="Alberto Estrada Canto" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <TextBox x:Name="txtName" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,271,0,0" Text="Alberto Estrada Canto" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
         <Label Content="Foto de Perfil " HorizontalAlignment="Left" Margin="587,539,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,392,0,0" Text="Bethop3" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <TextBox x:Name="txtUserName" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,392,0,0" Text="Bethop3" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="26,271,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label Content="Usuario:" HorizontalAlignment="Left" Margin="33,392,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Horade Entrada" HorizontalAlignment="Left" Margin="26,514,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,514,0,0" Text="10:32:34" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <Label Content="Hora de Entrada" HorizontalAlignment="Left" Margin="26,514,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="txtHoraEntrada" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,514,0,0" Text="10:32:34" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
         <Button x:Name="btnEditarFoto" Content="Editar foto de perfil" HorizontalAlignment="Left" Margin="587,584,0,0" VerticalAlignment="Top" Height="43" Width="123" Click="btnEditarFoto_Click"/>
 
 
