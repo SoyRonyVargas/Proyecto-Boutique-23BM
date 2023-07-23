@@ -24,7 +24,9 @@
 
   <ItemGroup>
     <None Remove="clave.gif" />
+    <None Remove="hamburguer.png" />
     <None Remove="logo-black.png" />
+    <None Remove="menu - copia.png" />
     <None Remove="menu.png" />
     <None Remove="perfil.gif" />
     <None Remove="productos.png" />
@@ -59,7 +61,9 @@
 
   <ItemGroup>
     <Resource Include="clave.gif" />
+    <Resource Include="hamburguer.png" />
     <Resource Include="logo-black.png" />
+    <Resource Include="menu - copia.png" />
     <Resource Include="menu.png" />
     <Resource Include="perfil.gif" />
     <Resource Include="productos.png" />
