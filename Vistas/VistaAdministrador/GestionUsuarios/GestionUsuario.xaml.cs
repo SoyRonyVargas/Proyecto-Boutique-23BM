@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
+using Proyecto23BMBoutique2.Vistas.VistaAdministrador.HacerPedido;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +41,24 @@ namespace Proyecto23BMBoutique2.Vistas
         }
         private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Bienvenida bienvenida = new Bienvenida();
+            Bienvenida1 bienvenida = new Bienvenida1();
             Close();
             bienvenida.Show();
+        }
+        private void HacerPedido(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            HacerPedidoss hacer = new HacerPedidoss();
+            Close();
+            hacer.Show();
+        }
+        private void PuntoVenta(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
 
         }
+        private void Inventario(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
+        }
+
     }
 }

@@ -96,12 +96,7 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Router.Navigate("/prueba");
-            // this.Close();
-            //GestionUsuario usuario = new GestionUsuario();
-            Close();
-            //usuario.Show();
-           Bienvenida bienvenida = new Bienvenida();
+           Bienvenida1 bienvenida = new Bienvenida1();
             Close();
             bienvenida.Show();  
         }
