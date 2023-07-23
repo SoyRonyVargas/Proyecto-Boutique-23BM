@@ -1,0 +1,16 @@
+﻿<Window x:Class="Proyecto23BMBoutique2.MessageBoxTrueFalse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto23BMBoutique2"
+        mc:Ignorable="d"
+        Title="CustomMessageBoxWindow" Height="150" Width="250">
+    <Grid>
+        <TextBlock Text="{Binding Message}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Aceptar" Width="80" Click="OnAcceptClicked"/>
+            <Button Content="Cancelar" Width="80" Click="OnCancelClicked"/>
+        </StackPanel>
+    </Grid>
+</Window>

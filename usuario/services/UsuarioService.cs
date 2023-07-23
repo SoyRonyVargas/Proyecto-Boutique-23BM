@@ -36,11 +36,6 @@ namespace Proyecto23BMBoutique2.usuario.services
         // Agrega un nuevo usuario a la base de datos.
         // Devuelve true si se agrega correctamente, de lo contrario devuelve false.
 
-        public void PersistirUsuario()
-        {
-
-        }
-
         public bool AgregarUsuario(Usuario usuario)
         {
             try
@@ -99,7 +94,6 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return null;
             }
         }
-
         // Update
         // Actualiza los datos de un usuario existente en la base de datos.
         // Devuelve true si se actualiza correctamente, de lo contrario devuelve false.
@@ -131,7 +125,6 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return false;
             }
         }
-
         // Elimina un usuario de la base de datos por su ID.
         // Devuelve true si se elimina correctamente, de lo contrario devuelve false.
         public bool EliminarUsuario(int id)

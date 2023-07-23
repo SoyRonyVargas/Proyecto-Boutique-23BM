@@ -14,7 +14,7 @@ namespace ProyectoBoutique23BM.Clases
     {
         static readonly string connectionString = "Server=localhost;port=3306;User ID=root; Password=qI_Nr)X(2XE5z-3M; Database=Boutique23BM";
 
-        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Producto>Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Categoria> Categorias { get; set; }
