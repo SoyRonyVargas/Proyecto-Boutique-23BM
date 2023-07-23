@@ -24,12 +24,12 @@
                     <RowDefinition Height="91*"/>
                 </Grid.RowDefinitions>-->
                 <!--<Border CornerRadius="0,0,0,10" Background="#EEEDED" Grid.RowSpan="2" />-->
-                <ContentControl Content="{Binding }" />
+                <ContentControl Content="{Binding }" Margin="0,50,0,0" />
             </Grid>
             <!--SIDEBAR-->
             <Grid x:Name="Sidebar" 
                   Background="Transparent" 
-                  Width="75" 
+                  Width="200" 
                   Height="600"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
@@ -102,7 +102,7 @@
                     </StackPanel>
                 </Border>
                 <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
-                <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="220">
+                <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="500">
                     <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <ListViewItem VerticalAlignment="Top"  Height="70" Selected="ListViewItem_Selected" >
                             <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="BtnInicio_Click">
@@ -113,7 +113,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock 
                                         Grid.Column="1" 
-                                        Text="Inicio" 
+                                        Text="Ventas" 
                                         FontWeight="Bold"
                                         FontSize="15"
                                         HorizontalAlignment="Left"
@@ -155,6 +155,167 @@
                                     >
                                         <Image.OpacityMask>
                                             <ImageBrush ImageSource="/productos.png"/>
+                                        </Image.OpacityMask>
+
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                       
+                        <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <Button  VerticalAlignment="Top" 
+                                     Cursor="Hand" 
+                                     HorizontalAlignment="Left" 
+                                     Background="Transparent" 
+                                     BorderBrush="Transparent" 
+                                     x:Name="btnEntradas" 
+                                     Height="40" 
+                                     Width="200" 
+                                     Click="btnProductos_Click"
+                                 >
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="99"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Entradas" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/cajas.png"
+                                    >
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="/cajas.png"/>
+                                        </Image.OpacityMask>
+
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <Button  VerticalAlignment="Top" 
+                                     Cursor="Hand" 
+                                     HorizontalAlignment="Left" 
+                                     Background="Transparent" 
+                                     BorderBrush="Transparent" 
+                                     x:Name="btnProveedores" 
+                                     Height="40" 
+                                     Width="200" 
+                                     Click="btnProductos_Click"
+                                 >
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="99"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Proveedores" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/proveedor.png"
+                                    >
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="/proveedor.png"/>
+                                        </Image.OpacityMask>
+
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <Button  VerticalAlignment="Top" 
+                                     Cursor="Hand" 
+                                     HorizontalAlignment="Left" 
+                                     Background="Transparent" 
+                                     BorderBrush="Transparent" 
+                                     x:Name="btnUsuarios" 
+                                     Height="40" 
+                                     Width="200" 
+                                     Click="btnProductos_Click"
+                                 >
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="99"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Usuarios" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/usuario.png"
+                                    >
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="/usuario.png"/>
+                                        </Image.OpacityMask>
+
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem VerticalAlignment="Bottom"  Height="70" >
+                            <Button  VerticalAlignment="Bottom" 
+                                     Cursor="Hand" 
+                                     HorizontalAlignment="Left" 
+                                     Background="Transparent" 
+                                     BorderBrush="Transparent" 
+                                     x:Name="btnCerrarSesion" 
+                                     Height="40" 
+                                     Width="200" 
+                                     Click="btnProductos_Click"
+                                 >
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="140"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Cerrar Sesión" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/logout.png"
+                                    >
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="/logout.png"/>
                                         </Image.OpacityMask>
 
                                     </Image>

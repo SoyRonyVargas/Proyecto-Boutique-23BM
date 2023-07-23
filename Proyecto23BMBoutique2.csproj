@@ -23,13 +23,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="cajas.png" />
     <None Remove="clave.gif" />
     <None Remove="hamburguer.png" />
     <None Remove="logo-black.png" />
+    <None Remove="logout.png" />
     <None Remove="menu - copia.png" />
     <None Remove="menu.png" />
     <None Remove="perfil.gif" />
     <None Remove="productos.png" />
+    <None Remove="proveedor.png" />
+    <None Remove="usuario.png" />
     <None Remove="ventas.png" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
@@ -61,13 +65,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="cajas.png" />
     <Resource Include="clave.gif" />
     <Resource Include="hamburguer.png" />
     <Resource Include="logo-black.png" />
+    <Resource Include="logout.png" />
     <Resource Include="menu - copia.png" />
     <Resource Include="menu.png" />
     <Resource Include="perfil.gif" />
     <Resource Include="productos.png" />
+    <Resource Include="proveedor.png" />
+    <Resource Include="usuario.png" />
     <Resource Include="ventas.png" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />

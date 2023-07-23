@@ -5,9 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.ventas.vistas"
              mc:Ignorable="d" 
-             d:DesignHeight="545" d:DesignWidth="925">
+             d:DesignHeight="545" d:DesignWidth="950">
     <Grid Background="White">
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <Grid Width="855">
+            <Button Content="Crear Venta" HorizontalAlignment="Left" Margin="739,40,0,0" VerticalAlignment="Top" Background="#FF1D5D9B" Click="Button_Click_1"/>
+
+            <DataGrid x:Name="gridVentas" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="0,91,0,0" Height="NaN" Width="NaN">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Numero Venta" Binding="{Binding id}" />
+                    <DataGridTextColumn Header="Status" Binding="{Binding status}" />
+                    <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
+                    <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding total}" />
+                    <DataGridTextColumn Header="Productos" Binding="{Binding Productos.Count}" />
+                    <DataGridTextColumn Header="Vendedor" Binding="{Binding Vendedor.nombre}" />
+
+                    <DataGridTemplateColumn Width="SizeToCells" Header="Editar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="#D69E2E" Content="Edit" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="SizeToCells" Header="Delete">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="#E53E3E" Content="Delete" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </Grid>
 
     </Grid>
 </UserControl>

@@ -118,6 +118,14 @@ namespace Proyecto23BMBoutique2
             DataContext = new VentasC();
         }
 
+        public void handleRouter( string ruta )
+        {
+            if( ruta == "crearVenta" )
+            {
+                DataContext = new CrearVenta();
+            }
+        }
+
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
