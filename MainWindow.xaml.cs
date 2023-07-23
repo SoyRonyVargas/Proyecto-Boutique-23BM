@@ -108,9 +108,9 @@ namespace Proyecto23BMBoutique2
             //GestionUsuario usuario = new GestionUsuario();
             Close();
             //usuario.Show();
-            Bienvenida bienvenida = new Bienvenida();
+            //Bienvenida bienvenida = new Bienvenida();
             Close();
-            bienvenida.Show();
+            //bienvenida.Show();
         }
 
         private void btnProductos_Click(object sender, RoutedEventArgs e)
