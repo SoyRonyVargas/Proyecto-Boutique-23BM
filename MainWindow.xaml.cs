@@ -29,7 +29,7 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           Bienvenida bienvenida = new Bienvenida();
+           Bienvenida1 bienvenida = new Bienvenida1();
             Close();
             bienvenida.Show();  
         }

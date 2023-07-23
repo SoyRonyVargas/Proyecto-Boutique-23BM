@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Vistas\VistaAdministrador\Bienvenida\Bienvenida.xaml.cs">
+    <Compile Update="Vistas\VistaAdministrador\Bienvenida\Bienvenida1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Vistas\VistaAdministrador\HacerPedido\HacerPedidoss.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -15,10 +18,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Vistas\VistaAdministrador\Bienvenida\Bienvenida.xaml">
+    <Page Update="Vistas\VistaAdministrador\Bienvenida\Bienvenida1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Vistas\VistaAdministrador\GestionUsuarios\GestionUsuario.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Vistas\VistaAdministrador\HacerPedido\HacerPedidoss.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -51,17 +51,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image Margin="14,17,724,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" Stretch="Fill"/>
-        <Image Margin="122,12,602,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" Stretch="Fill"/>
-        <Image Margin="511,14,214,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" Stretch="Fill" MouseDown="MenuP" />
-        <Image Margin="382,12,334,599" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
         <Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>
-        <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
-
-        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="6,64,0,0" VerticalAlignment="Top"/>
-        <Label Content="Inventario" HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top"/>
-        <Label Content="Menu Principal" HorizontalAlignment="Right" Margin="0,63,209,0" VerticalAlignment="Top"/>
-        <Label Content="Gestión de usuarios" Margin="366,64,312,0" VerticalAlignment="Top" Foreground="DarkTurquoise"/>
         <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,276,13,73">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding PkUsuario}" />
@@ -105,7 +95,16 @@
         <Label Content="Repetir contraseña:" HorizontalAlignment="Left" Height="26" Margin="346,200,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center"/>
         <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="329,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <Button Style="{StaticResource RoundButtonStyle}" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="340,627,0,0" VerticalAlignment="Top" Width="126"/>
-        <Image HorizontalAlignment="Left" Height="64" Margin="239,12,0,0" VerticalAlignment="Top" Width="74" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png"/>
-        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="239,63,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="70" Margin="241,12,0,0" VerticalAlignment="Top" Width="72" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png" MouseDown="HacerPedido" />
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="7,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" MouseDown="PuntoVenta" />
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="116,4,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" MouseDown="Inventario" />
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="515,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" MouseDown="MenuP" />
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="383,7,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png"/>
+        <Image HorizontalAlignment="Left" Margin="633,4,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png"/>
+        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="0,77,0,0" VerticalAlignment="Top" MouseDown="PuntoVenta"/>
+        <Label Content="Inventario" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top" MouseDown="Inventario"/>
+        <Label Content="Menu Principal&#xA;" HorizontalAlignment="Right" Margin="0,75,204,0" VerticalAlignment="Top" Height="28" MouseDown="MenuP" />
+        <Label Content="Gestión de usuarios" Margin="364,76,312,0" VerticalAlignment="Top" Foreground="DarkTurquoise" />
+        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="241,77,0,0" VerticalAlignment="Top" MouseDown="HacerPedido"/>
     </Grid>
 </Window>

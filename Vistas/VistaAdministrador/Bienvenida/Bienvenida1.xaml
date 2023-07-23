@@ -1,4 +1,4 @@
-﻿<Window x:Class="Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida.Bienvenida"
+﻿<Window x:Class="Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida.Bienvenida1"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -42,29 +42,31 @@
         </Style>
     </Window.Resources>
     <Grid >
-        <Image HorizontalAlignment="Left" Height="70" Margin="241,12,0,0" VerticalAlignment="Top" Width="72" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png"/>
+        <Image HorizontalAlignment="Left" Height="70" Margin="241,12,0,0" VerticalAlignment="Top" Width="72" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png" MouseDown="HacerPedido" />
         <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="7,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" MouseDown="PuntoVenta" />
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="116,4,591,594" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png"/>
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="521,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png"/>
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="373,7,334,589" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" MouseDown="GestionUser"/>
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="745,627,13,10" VerticalAlignment="Top" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="116,4,591,594" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" MouseDown="Inventario" />
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="515,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png"/>
+        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="383,7,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" MouseDown="GestionUser"/>
         <Image HorizontalAlignment="Left" Margin="633,4,13,576" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png"/>
 
-        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="0,77,0,0" VerticalAlignment="Top"/>
-        <Label Content="Inventario" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top"/>
+        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="0,77,0,0" VerticalAlignment="Top" MouseDown="PuntoVenta"/>
+        <Label Content="Inventario" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top" MouseDown="Inventario"/>
         <Label Content="Menu Principal&#xD;&#xA;" HorizontalAlignment="Right" Margin="0,75,204,0" VerticalAlignment="Top" Height="28" Foreground="DarkTurquoise"/>
-        <Label Content="Gestión de usuarios" Margin="364,76,312,0" VerticalAlignment="Top" />
+        <Label Content="Gestión de usuarios" Margin="364,76,312,0" VerticalAlignment="Top" MouseDown="GestionUser"/>
 
-        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="241,77,0,0" VerticalAlignment="Top"/>
+        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="241,77,0,0" VerticalAlignment="Top" MouseDown="HacerPedido"/>
         <Label Content="BIENVENIDO: " HorizontalAlignment="Center" Height="54" Margin="0,144,0,0" VerticalAlignment="Top" Width="302" FontSize="48" FontFamily="Consolas" Foreground="DarkTurquoise"/>
         <Image Style="{StaticResource CircularImageStyle}" HorizontalAlignment="Left" Height="250" Margin="528,271,0,0" VerticalAlignment="Top" Width="250" Source="/Vistas/VistaAdministrador/Bienvenida/299157410_1692436947783317_6374977674242083958_n.jpg"/>
         <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,271,0,0" Text="Alberto Estrada Canto" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
         <Label Content="Foto de Perfil " HorizontalAlignment="Left" Margin="587,539,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,392,0,0" Text="Bethop3" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,361,0,0" Text="Bethop3" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="26,271,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="33,392,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Label Content="Horade Entrada" HorizontalAlignment="Left" Margin="26,514,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,514,0,0" Text="10:32:34" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="33,361,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label Content="Hora de Entrada" HorizontalAlignment="Left" Margin="26,456,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="50" Margin="200,443,0,0" Text="10:32:34" VerticalAlignment="Top" Width="328" FontSize="24" TextAlignment="Center" TextWrapping="Wrap" IsEnabled="False"/>
+        <Image Margin="6,595,710,25" Source="/Vistas/VistaAdministrador/Bienvenida/cerrar-sesion.gif" MouseDown="LogOut" />
+        <Label Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="65,596,0,0" VerticalAlignment="Top" FontSize="20" MouseDown="LogOut" />
+
 
 
     </Grid>

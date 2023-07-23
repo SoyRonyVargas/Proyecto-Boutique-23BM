@@ -28,6 +28,7 @@
     <None Remove="perfil.gif" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
+    <None Remove="Vistas\VistaAdministrador\Bienvenida\cerrar-sesion.gif" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
@@ -59,6 +60,7 @@
     <Resource Include="perfil.gif" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
+    <Resource Include="Vistas\VistaAdministrador\Bienvenida\cerrar-sesion.gif" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
