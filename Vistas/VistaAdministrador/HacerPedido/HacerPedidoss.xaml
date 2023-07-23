@@ -51,52 +51,65 @@
         </Style>
     </Window.Resources>
     <Grid>
+
+
         <Image Margin="14,17,724,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" Stretch="Fill"/>
         <Image Margin="122,12,602,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" Stretch="Fill"/>
         <Image Margin="511,14,214,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" Stretch="Fill" MouseDown="MenuP" />
-        <Image Margin="382,12,334,599" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
+        <Image Margin="382,12,334,599" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill" MouseDown="GestionUser"/>
         <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
 
         <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="6,64,0,0" VerticalAlignment="Top"/>
         <Label Content="Inventario" HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top"/>
         <Label Content="Menu Principal" HorizontalAlignment="Right" Margin="0,63,209,0" VerticalAlignment="Top" MouseDown="MenuP" />
-        <Label Content="Gestión de usuarios" Margin="366,64,312,0" VerticalAlignment="Top" />
-        <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,276,13,73">
+        <Label Content="Gestión de usuarios" Margin="366,64,312,0" VerticalAlignment="Top" MouseDown="GestionUser" />
+        <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="309,222,32,36">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding PkUsuario}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" />
-                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Usuario" Binding="{Binding UserName}" />
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                <DataGridTextColumn Header="Rol" Binding="{Binding Roles.Nombre}" />
-
-                <DataGridTemplateColumn Header="Editar">
+                <DataGridTextColumn Header="Id" Binding="{Binding Producto.id}" />
+                <DataGridTextColumn Header="Produto" Binding="{Binding Producto.descripcion}" />
+                <DataGridTextColumn Header="Cantidad Disponible" Binding="{Binding Producto.descripcion}" />
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Producto.descripcion}" />
+                <DataGridTextColumn Header="Provedor" Binding="{Binding Producto.descripcion}" />
+                <DataGridTextColumn Header="Fecha" Binding="{Binding Producto.descripcion}" />
+                <DataGridTemplateColumn Header="Eliminar">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Edit" Click="EditItem" />
+                            <Button Content="EliminaPedido"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Delete">
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="RealizaPedido" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,218,530,37" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.319"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.794"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Producto.id}" />
+                <DataGridTextColumn Header="Descripcion" Binding="{Binding Producto.descripcion}" />
+                <DataGridTemplateColumn Header="Agregar">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete"/>
+                            <Button Content="Agregar"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="ID Producto" HorizontalAlignment="Left" Height="26" Margin="24,120,0,0" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.848,0.598" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="20,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" IsEnabled="False"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="32,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" IsEnabled="False"/>
         <Label Content="Cantidad:" HorizontalAlignment="Left" Height="26" Margin="185,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="149,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
-        <Label Content="Apellido:" HorizontalAlignment="Left" Height="26" Margin="406,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="366,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <Label Content="Categoria:" HorizontalAlignment="Left" Height="26" Margin="406,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
         <ComboBox x:Name="SelectRol"  HorizontalAlignment="Left" Margin="603,146,0,0" VerticalAlignment="Top" Width="154" Height="30"/>
-        <Label Content="Rol:" HorizontalAlignment="Left" Height="26" Margin="639,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <Button Style="{StaticResource RoundButtonStyle}" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="340,627,0,0" VerticalAlignment="Top" Width="126"/>
+        <Label Content="Proveedor:" HorizontalAlignment="Left" Height="26" Margin="639,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
         <Image HorizontalAlignment="Left" Height="64" Margin="239,12,0,0" VerticalAlignment="Top" Width="74" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png"/>
         <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="239,63,0,0" VerticalAlignment="Top" Foreground="DarkTurquoise"/>
+        <ComboBox x:Name="SelectRol_Copy"  HorizontalAlignment="Left" Margin="370,145,0,0" VerticalAlignment="Top" Width="154" Height="30"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="144,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" IsEnabled="False"/>
     </Grid>
 </Window>

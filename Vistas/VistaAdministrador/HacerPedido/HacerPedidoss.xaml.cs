@@ -52,5 +52,9 @@ namespace Proyecto23BMBoutique2.Vistas.VistaAdministrador.HacerPedido
         {
 
         }
+        private void EliminaPedido(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
