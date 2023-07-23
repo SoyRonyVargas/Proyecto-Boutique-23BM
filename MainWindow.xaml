@@ -3,10 +3,160 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Proyecto23BMBoutique2"
+         xmlns:viewmodels="clr-namespace:Proyecto23BMBoutique2.ventas.vistas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="800">
+        Title="MainWindow" 
+        Height="600" 
+        Width="1000"
+    >
+
+    <Border CornerRadius="10" Background="Transparent">
+
+        <Grid Name="Principal">
+            <!--sidebar-->
+            
+            <!--content-->
+            <Grid x:Name="Content" Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="600" Width="925">
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="18*"/>
+                    <RowDefinition Height="91*"/>
+                </Grid.RowDefinitions>-->
+                <!--<Border CornerRadius="0,0,0,10" Background="#EEEDED" Grid.RowSpan="2" />-->
+                <ContentControl Content="{Binding }" />
+            </Grid>
+            <!--SIDEBAR-->
+            <Grid x:Name="Sidebar" 
+                  Background="Transparent" 
+                  Width="200" 
+                  Height="600"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Margin="0,35,0,0"
+            >
+                <Border Background="#1D5D9B">
+                    <StackPanel Background="Transparent"
+                        VerticalAlignment="Top"            
+                    >
+                        <Grid 
+                            Background="Transparent"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                            Margin="0 , 10 , 10 , 0"
+                        >
+                            <ToggleButton x:Name="btnShowHide" Width="30" Height="30" BorderBrush="Transparent">
+                                <ToggleButton.Background>
+                                    <ImageBrush ImageSource="/menu.png" />
+                                </ToggleButton.Background>
+                                <ToggleButton.Triggers>
+                                    <!--region hide-->
+                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="HidePanel">
+                                                <DoubleAnimation 
+                                                    Storyboard.TargetName="Sidebar"
+                                                    Storyboard.TargetProperty="Width"
+                                                    BeginTime="0:0:0"
+                                                    From="200"
+                                                    To="75"
+                                                    Duration="0:0:0:0.5"
+                                                />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                        <BeginStoryboard>
+                                            <Storyboard x:Name="ShowPanel">
+                                                <DoubleAnimation 
+                                                    Storyboard.TargetName="Sidebar"
+                                                    Storyboard.TargetProperty="Width"
+                                                    BeginTime="0:0:0"
+                                                    From="75"
+                                                    To="200"
+                                                    Duration="0:0:0:0.5"
+                                                />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ToggleButton.Triggers>
+                            </ToggleButton>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
+                <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="220">
+                    <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListViewItem VerticalAlignment="Top"  Height="70" Selected="ListViewItem_Selected" >
+                            <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="BtnInicio_Click">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="99"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Inicio" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/ventas.png"
+                                    >
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                        <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="btnProductos" Height="40" Width="200" Click="btnProductos_Click">
+                                <Grid Width="200">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30" />
+                                        <ColumnDefinition Width="99"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Productos" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                    <Image 
+
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" 
+                                        Source="/productos.png"
+                                    >
+                                        <Image.OpacityMask>
+                                            <ImageBrush ImageSource="/productos.png"/>
+                                        </Image.OpacityMask>
+
+                                    </Image>
+                                </Grid>
+                            </Button>
+                        </ListViewItem>
+                    </ListView>
+                </StackPanel>
+            </Grid>
+            <Grid Name="Header" Height="35" VerticalAlignment="top" Background="#1D5D9B">
+                <Border CornerRadius="10">
+
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+
     <Window.Resources>
+        <DataTemplate x:Name="Ventas" DataType="{x:Type viewmodels:VentasC}">
+            <!--<viewmodels  />-->
+        </DataTemplate>
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="200"/>
@@ -69,7 +219,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <!--<Grid>
         <Image HorizontalAlignment="Left" Height="167" Margin="264,25,0,0" VerticalAlignment="Top" Width="259" Source="/logo-black.png" Stretch="UniformToFill"/>
         <Image HorizontalAlignment="Left" Height="70" Margin="709,10,0,0" VerticalAlignment="Top" Width="63" Source="/informacion.gif"/>
         <Label Content="Usuario: " HorizontalAlignment="Left" Height="64" Margin="152,234,0,0" VerticalAlignment="Top" Width="159" FontSize="30"/>
@@ -80,5 +230,5 @@
         <Image HorizontalAlignment="Left" Height="48" Margin="138,432,0,0" VerticalAlignment="Top" Width="50" Source="/clave.gif"/>
         <Button Style="{StaticResource RoundButtonStyle}" Content="Iniciar Sesion" HorizontalAlignment="Center" Height="61" Margin="0,540,0,0" VerticalAlignment="Top" Width="149" Click="Button_Click"/>
 
-    </Grid>
+    </Grid>-->
 </Window>

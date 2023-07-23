@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.usuario.services;
+using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Vistas;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
@@ -30,6 +31,8 @@ namespace Proyecto23BMBoutique2
         {
             
             InitializeComponent();
+
+            //new Ventas().Show();
             //Window ventana = (Window)Activator.CreateInstance(Router.routes[0].WindowType);
 
             //Router.openWindows.Add(ventana);
@@ -101,6 +104,33 @@ namespace Proyecto23BMBoutique2
            Bienvenida bienvenida = new Bienvenida();
             Close();
             bienvenida.Show();  
+        }
+
+        private void TBShow(object sender, RoutedEventArgs e)
+        {
+            // Router.Navigate("/prueba");
+            // this.Close();
+            //GestionUsuario usuario = new GestionUsuario();
+            Close();
+            //usuario.Show();
+            Bienvenida bienvenida = new Bienvenida();
+            Close();
+            bienvenida.Show();
+        }
+
+        private void btnProductos_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new VentasC();
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnInicio_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new BienvenidaControl();
         }
     }
 }
