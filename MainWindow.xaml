@@ -13,65 +13,100 @@
     >
 
     <Border CornerRadius="10" Background="Transparent">
+        <Grid>
+            <Grid x:Name="gridLogin" Background="Red">
+                <Grid Width="500" HorizontalAlignment="Left">
+                    <Image 
+                        HorizontalAlignment="Left"
+                        Height="600" 
+                        VerticalAlignment="Top" 
+                        Width="500" Source="/login-frame.png"
+                        />
+                </Grid>
+                <Grid Width="500" HorizontalAlignment="Right" Background="White">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Background="Transparent">
+                        <TextBox x:Name="input_usuario" FontSize="18" HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="36"/>
+                        <TextBox x:Name="input_password"  FontSize="18" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="36" Margin="0,285,0,0"/>
+                        <Label  FontSize="15" Content="Usuario" HorizontalAlignment="Left" Margin="0,174,0,0" VerticalAlignment="Top" Width="82"/>
+                        <Label  FontSize="15" Content="Contraseña" HorizontalAlignment="Left" Margin="0,252,0,0" VerticalAlignment="Top" Width="111"/>
+                        <Button Content="Iniciar Sesión" Background="#FF1D5D9B" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Width="222" Height="35" Click="Button_Click_1">
 
-        <Grid Name="Principal">
-            <!--sidebar-->
+                        </Button>
+                        <Label  FontSize="15" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="0,141,0,0" VerticalAlignment="Top" Width="111" FontWeight="Bold"/>
+                        <Image HorizontalAlignment="Center" Height="137" Margin="0,-2,0,0" VerticalAlignment="Top" Width="221" Source="/logo2.png" IsEnabled="False" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="-0.136"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="-0.164"/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                            <Image.OpacityMask>
+                                <ImageBrush ImageSource="/logo2.png" TileMode="Tile"/>
+                            </Image.OpacityMask>
+                        </Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid x:Name="gridPrincipal" Visibility="Collapsed">
+                <!--sidebar-->
 
-            <!--content-->
-            <Grid x:Name="Content" Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="600" Width="925">
-                <!--<Grid.RowDefinitions>
+                <!--content-->
+                <Grid x:Name="Content" Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="600" Width="925">
+                    <!--<Grid.RowDefinitions>
                     <RowDefinition Height="18*"/>
                     <RowDefinition Height="91*"/>
                 </Grid.RowDefinitions>-->
-                <!--<Border CornerRadius="0,0,0,10" Background="#EEEDED" Grid.RowSpan="2" />-->
-                <ContentControl Content="{Binding }" Margin="0,50,0,0" />
-            </Grid>
-            <!--SIDEBAR-->
-            <Grid x:Name="Sidebar" 
+                    <!--<Border CornerRadius="0,0,0,10" Background="#EEEDED" Grid.RowSpan="2" />-->
+                    <ContentControl Content="{Binding }" Margin="0,50,0,0" />
+                </Grid>
+                <!--SIDEBAR-->
+                <Grid x:Name="Sidebar" 
                   Background="Transparent" 
-                  Width="200" 
+                  Width="75" 
                   Height="600"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Top"
                   Margin="0,35,0,0"
             >
-                <Border Background="#1D5D9B">
-                    <StackPanel Background="Transparent"
+                    <Border Background="#1D5D9B">
+                        <StackPanel Background="Transparent"
                         VerticalAlignment="Top"            
                     >
-                        <Grid 
+                            <Grid 
                             Background="Transparent"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Right"
                             Margin="0,10,10,0"
                         >
-                            <ToggleButton x:Name="btnShowHide" Width="20" Height="20" BorderBrush="Transparent" Foreground="#FFC4D9EA">
-                                <ToggleButton.Background>
-                                    <ImageBrush ImageSource="/hamburguer.png"/>
-                                </ToggleButton.Background>
+                                <ToggleButton x:Name="btnShowHide" Width="20" Height="20" BorderBrush="Transparent" Foreground="#FFC4D9EA">
+                                    <ToggleButton.Background>
+                                        <ImageBrush ImageSource="/hamburguer.png"/>
+                                    </ToggleButton.Background>
 
-                                <ToggleButton.Style>
-                                    <Style TargetType="ToggleButton">
-                                        <Setter Property="Background" Value="Transparent" />
-                                        <Setter Property="BorderBrush" Value="Transparent" />
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="ToggleButton">
-                                                    <!-- Define aquí cómo quieres que se vea el botón -->
-                                                    <!-- Puedes usar Grid, Border, Image, etc. -->
-                                                    <!-- Por ejemplo, aquí se usa solo un Image -->
-                                                    <Image Source="/hamburguer.png" Stretch="Uniform" />
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ToggleButton.Style>
-                                <ToggleButton.Triggers>
-                                    <!--region hide-->
-                                    <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-                                        <BeginStoryboard>
-                                            <Storyboard x:Name="HidePanel">
-                                                <DoubleAnimation 
+                                    <ToggleButton.Style>
+                                        <Style TargetType="ToggleButton">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderBrush" Value="Transparent" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ToggleButton">
+                                                        <!-- Define aquí cómo quieres que se vea el botón -->
+                                                        <!-- Puedes usar Grid, Border, Image, etc. -->
+                                                        <!-- Por ejemplo, aquí se usa solo un Image -->
+                                                        <Image Source="/hamburguer.png" Stretch="Uniform" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                    <ToggleButton.Triggers>
+                                        <!--region hide-->
+                                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                            <BeginStoryboard>
+                                                <Storyboard x:Name="HidePanel">
+                                                    <DoubleAnimation 
                                                     Storyboard.TargetName="Sidebar"
                                                     Storyboard.TargetProperty="Width"
                                                     BeginTime="0:0:0"
@@ -79,13 +114,13 @@
                                                     To="75"
                                                     Duration="0:0:0:0.5"
                                                 />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                    <EventTrigger RoutedEvent="ToggleButton.Checked">
-                                        <BeginStoryboard>
-                                            <Storyboard x:Name="ShowPanel">
-                                                <DoubleAnimation 
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                            <BeginStoryboard>
+                                                <Storyboard x:Name="ShowPanel">
+                                                    <DoubleAnimation 
                                                     Storyboard.TargetName="Sidebar"
                                                     Storyboard.TargetProperty="Width"
                                                     BeginTime="0:0:0"
@@ -93,25 +128,25 @@
                                                     To="200"
                                                     Duration="0:0:0:0.5"
                                                 />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
-                                </ToggleButton.Triggers>
-                            </ToggleButton>
-                        </Grid>
-                    </StackPanel>
-                </Border>
-                <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
-                <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="500">
-                    <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <ListViewItem VerticalAlignment="Top"  Height="70" Selected="ListViewItem_Selected" >
-                            <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="BtnInicio_Click">
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="99"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </ToggleButton.Triggers>
+                                </ToggleButton>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
+                    <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="500">
+                        <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListViewItem VerticalAlignment="Top"  Height="70" Selected="ListViewItem_Selected" >
+                                <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="BtnInicio_Click">
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Ventas" 
                                         FontWeight="Bold"
@@ -120,24 +155,24 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/ventas.png"
                                     >
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                        <ListViewItem VerticalAlignment="Top"  Height="70" >
-                            <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="btnProductos" Height="40" Width="200" Click="btnProductos_Click">
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="99"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                                <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="btnProductos" Height="40" Width="200" Click="btnProductos_Click">
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Productos" 
                                         FontWeight="Bold"
@@ -146,24 +181,24 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/productos.png"
                                     >
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="/productos.png"/>
-                                        </Image.OpacityMask>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/productos.png"/>
+                                            </Image.OpacityMask>
 
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                       
-                        <ListViewItem VerticalAlignment="Top"  Height="70" >
-                            <Button  VerticalAlignment="Top" 
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+
+                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                                <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
                                      Background="Transparent" 
@@ -173,12 +208,12 @@
                                      Width="200" 
                                      Click="btnProductos_Click"
                                  >
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="99"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Entradas" 
                                         FontWeight="Bold"
@@ -187,23 +222,23 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/cajas.png"
                                     >
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="/cajas.png"/>
-                                        </Image.OpacityMask>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/cajas.png"/>
+                                            </Image.OpacityMask>
 
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                        <ListViewItem VerticalAlignment="Top"  Height="70" >
-                            <Button  VerticalAlignment="Top" 
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                                <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
                                      Background="Transparent" 
@@ -213,12 +248,12 @@
                                      Width="200" 
                                      Click="btnProductos_Click"
                                  >
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="99"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Proveedores" 
                                         FontWeight="Bold"
@@ -227,23 +262,23 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/proveedor.png"
                                     >
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="/proveedor.png"/>
-                                        </Image.OpacityMask>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/proveedor.png"/>
+                                            </Image.OpacityMask>
 
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                        <ListViewItem VerticalAlignment="Top"  Height="70" >
-                            <Button  VerticalAlignment="Top" 
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                                <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
                                      Background="Transparent" 
@@ -251,14 +286,14 @@
                                      x:Name="btnUsuarios" 
                                      Height="40" 
                                      Width="200" 
-                                     Click="btnProductos_Click"
+                                     Click="handleListarUsuarios"
                                  >
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="99"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Usuarios" 
                                         FontWeight="Bold"
@@ -267,23 +302,23 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/usuario.png"
                                     >
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="/usuario.png"/>
-                                        </Image.OpacityMask>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/usuario.png"/>
+                                            </Image.OpacityMask>
 
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                        <ListViewItem VerticalAlignment="Bottom"  Height="70" >
-                            <Button  VerticalAlignment="Bottom" 
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                            <ListViewItem VerticalAlignment="Bottom"  Height="70" >
+                                <Button  VerticalAlignment="Bottom" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
                                      Background="Transparent" 
@@ -293,12 +328,12 @@
                                      Width="200" 
                                      Click="btnProductos_Click"
                                  >
-                                <Grid Width="200">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30" />
-                                        <ColumnDefinition Width="140"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock 
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="140"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
                                         Grid.Column="1" 
                                         Text="Cerrar Sesión" 
                                         FontWeight="Bold"
@@ -307,28 +342,29 @@
                                         VerticalAlignment="Center"
                                         Margin="20,0,0,0"
                                     />
-                                    <Image 
+                                        <Image 
 
                                         Grid.Column="0" 
                                         Width="30" 
                                         HorizontalAlignment="Center" 
                                         Source="/logout.png"
                                     >
-                                        <Image.OpacityMask>
-                                            <ImageBrush ImageSource="/logout.png"/>
-                                        </Image.OpacityMask>
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/logout.png"/>
+                                            </Image.OpacityMask>
 
-                                    </Image>
-                                </Grid>
-                            </Button>
-                        </ListViewItem>
-                    </ListView>
-                </StackPanel>
-            </Grid>
-            <Grid Name="Header" Height="35" VerticalAlignment="top" Background="#1D5D9B">
-                <Border CornerRadius="10">
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                        </ListView>
+                    </StackPanel>
+                </Grid>
+                <Grid Name="Header" Height="35" VerticalAlignment="top" Background="#1D5D9B">
+                    <Border CornerRadius="10">
 
-                </Border>
+                    </Border>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

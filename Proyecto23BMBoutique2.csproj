@@ -26,7 +26,10 @@
     <None Remove="cajas.png" />
     <None Remove="clave.gif" />
     <None Remove="hamburguer.png" />
+    <None Remove="login-frame.png" />
     <None Remove="logo-black.png" />
+    <None Remove="logo.png" />
+    <None Remove="logo2.png" />
     <None Remove="logout.png" />
     <None Remove="menu - copia.png" />
     <None Remove="menu.png" />
@@ -61,6 +64,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Auth\vistas\" />
     <Folder Include="categoria\services\" />
   </ItemGroup>
 
@@ -68,7 +72,10 @@
     <Resource Include="cajas.png" />
     <Resource Include="clave.gif" />
     <Resource Include="hamburguer.png" />
+    <Resource Include="login-frame.png" />
     <Resource Include="logo-black.png" />
+    <Resource Include="logo.png" />
+    <Resource Include="logo2.png" />
     <Resource Include="logout.png" />
     <Resource Include="menu - copia.png" />
     <Resource Include="menu.png" />
