@@ -1,4 +1,5 @@
-﻿using Proyecto23BMBoutique2.Clases;
+﻿using Microsoft.EntityFrameworkCore;
+using Proyecto23BMBoutique2.Clases;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Proyecto23BMBoutique2.usuario.services
                 if (user == null) return false;
 
                 // Comparar la contraseña proporcionada con la contraseña del usuario
+
                 return user.password == password;
             }
             catch
@@ -33,6 +35,7 @@ namespace Proyecto23BMBoutique2.usuario.services
         // Create
         // Agrega un nuevo usuario a la base de datos.
         // Devuelve true si se agrega correctamente, de lo contrario devuelve false.
+
         public bool AgregarUsuario(Usuario usuario)
         {
             try
@@ -53,7 +56,7 @@ namespace Proyecto23BMBoutique2.usuario.services
         {
             try
             {
-                return db.Usuarios.ToList();
+                return db.Usuarios.Include(x=>x.Rol).ToList(); 
             }
             catch (Exception ex)
             {
@@ -91,7 +94,6 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return null;
             }
         }
-
         // Update
         // Actualiza los datos de un usuario existente en la base de datos.
         // Devuelve true si se actualiza correctamente, de lo contrario devuelve false.
@@ -123,7 +125,6 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return false;
             }
         }
-
         // Elimina un usuario de la base de datos por su ID.
         // Devuelve true si se elimina correctamente, de lo contrario devuelve false.
         public bool EliminarUsuario(int id)

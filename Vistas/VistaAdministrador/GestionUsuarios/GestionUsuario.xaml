@@ -51,60 +51,61 @@
         </Style>
     </Window.Resources>
     <Grid>
+        <Image Margin="14,17,724,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" Stretch="Fill"/>
+        <Image Margin="122,12,602,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" Stretch="Fill"/>
+        <Image Margin="511,13,214,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" Stretch="Fill" MouseDown="MenuP" />
+        <Image Margin="382,11,334,600" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
         <Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>
-        <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,276,13,73">
+        <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
+
+        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="6,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Inventario" HorizontalAlignment="Left" Margin="128,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="Menu Principal" HorizontalAlignment="Right" Margin="0,65,209,0" VerticalAlignment="Top"/>
+        <Label Content="Gestión de usuarios" Margin="366,64,312,0" VerticalAlignment="Top" Foreground="DarkTurquoise"/>
+        <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,287,13,62">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding PkUsuario}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" />
-                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
-                <DataGridTextColumn Header="Usuario" Binding="{Binding UserName}" />
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                <DataGridTextColumn Header="Rol" Binding="{Binding Roles.Nombre}" />
+                <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
+                <DataGridTextColumn Header="Apellido" Binding="{Binding apellidos}" />
+                <DataGridTextColumn Header="Correo" Binding="{Binding correo}" />
+                <DataGridTextColumn Header="Usuario" Binding="{Binding nombreUsuario}" />
+                <DataGridTextColumn Header="Password" Binding="{Binding password}" />
+                <DataGridTextColumn Header="Rol" Binding="{Binding Rol.nombre}" />
 
                 <DataGridTemplateColumn Header="Editar">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Edit" Click="EditItem" />
+                            <Button Content="Edit" Click="btnEditUsuario_Click" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="Delete">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete"/>
+                            <Button Content="Delete" Click="btnDeleteUsuario_Click"/>                       
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="ID:" HorizontalAlignment="Left" Height="26" Margin="23,115,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.848,0.598" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="20,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" IsEnabled="False"/>
+        <TextBox x:Name="txtID" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="20,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" IsEnabled="False"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Height="26" Margin="133,118,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="97,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtNombre" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="97,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <Label Content="Apellido:" HorizontalAlignment="Left" Height="26" Margin="300,115,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="264,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtApellido" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="264,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <Label Content="Correo:" HorizontalAlignment="Left" Height="26" Margin="471,118,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="437,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtCorreo" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="437,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <ComboBox x:Name="SelectRol"  HorizontalAlignment="Left" Margin="506,230,0,0" VerticalAlignment="Top" Width="154" Height="30"/>
         <Label Content="Rol:" HorizontalAlignment="Left" Height="26" Margin="542,200,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
         <Label Content="Usuario:" HorizontalAlignment="Left" Height="26" Margin="648,118,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="612,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtUsuario" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="612,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <Label Content="Contraseña:" HorizontalAlignment="Left" Height="26" Margin="193,200,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="157,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBox x:Name="txtContraseña" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="157,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
         <Label Content="Repetir contraseña:" HorizontalAlignment="Left" Height="26" Margin="346,200,0,0" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="329,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
-        <Button Style="{StaticResource RoundButtonStyle}" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="340,627,0,0" VerticalAlignment="Top" Width="126"/>
-        <Image HorizontalAlignment="Left" Height="70" Margin="241,12,0,0" VerticalAlignment="Top" Width="72" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png" MouseDown="HacerPedido" />
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="7,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" MouseDown="PuntoVenta" />
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="116,4,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" MouseDown="Inventario" />
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="515,12,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" MouseDown="MenuP" />
-        <Image HorizontalAlignment="Left" Height="70" Width="72" Margin="383,7,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png"/>
-        <Image HorizontalAlignment="Left" Margin="633,4,0,0" VerticalAlignment="Top" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png"/>
-        <Label Content="Punto de venta" HorizontalAlignment="Left" Margin="0,77,0,0" VerticalAlignment="Top" MouseDown="PuntoVenta"/>
-        <Label Content="Inventario" HorizontalAlignment="Left" Margin="125,77,0,0" VerticalAlignment="Top" MouseDown="Inventario"/>
-        <Label Content="Menu Principal&#xA;" HorizontalAlignment="Right" Margin="0,75,204,0" VerticalAlignment="Top" Height="28" MouseDown="MenuP" />
-        <Label Content="Gestión de usuarios" Margin="364,76,312,0" VerticalAlignment="Top" Foreground="DarkTurquoise" />
-        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="241,77,0,0" VerticalAlignment="Top" MouseDown="HacerPedido"/>
+        <TextBox x:Name="txtRepetirContraseña" Style="{StaticResource TextBoxStyle}" HorizontalAlignment="Left" Height="29" Margin="329,231,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <Button x:Name="btnAddUsuario" Style="{StaticResource RoundButtonStyle}" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="340,627,0,0" VerticalAlignment="Top" Width="126" Click="btnAddUsuario_Click"/>
+        <Image HorizontalAlignment="Left" Height="64" Margin="239,9,0,0" VerticalAlignment="Top" Width="74" Source="/Vistas/VistaAdministrador/GestionUsuarios/orden.png"/>
+        <Label Content="Hacer Pedido" HorizontalAlignment="Left" Margin="239,63,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

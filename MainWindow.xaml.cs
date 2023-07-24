@@ -1,4 +1,6 @@
-﻿using Proyecto23BMBoutique2.usuario.services;
+﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.usuario.services;
+using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Vistas;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
@@ -6,6 +8,7 @@ using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -29,7 +32,7 @@ namespace Proyecto23BMBoutique2
         private RestauranteDataContext db = new RestauranteDataContext();
         public MainWindow()
         {
-            
+
             InitializeComponent();
 
             //new Ventas().Show();
@@ -106,7 +109,7 @@ namespace Proyecto23BMBoutique2
             // Router.Navigate("/prueba");
             // this.Close();
             //GestionUsuario usuario = new GestionUsuario();
-            Close();
+            //Close();
             //usuario.Show();
             //Bienvenida bienvenida = new Bienvenida();
             Close();
@@ -124,8 +127,17 @@ namespace Proyecto23BMBoutique2
             {
                 DataContext = new CrearVenta();
             }
+            
+            if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
+            
+            if (ruta == "crearUsuario") DataContext = new CrearUsuario();
+            
         }
 
+        private void handleListarUsuarios(object sender, RoutedEventArgs e)
+        {
+            this.handleRouter("listarUsuarios");
+        }
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
 
@@ -135,5 +147,44 @@ namespace Proyecto23BMBoutique2
         {
             DataContext = new BienvenidaControl();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string usuario = input_usuario.Text;
+            string password = input_password.Text;
+
+            if( usuario.Trim().Length == 0 )
+            {
+
+                MessageBox.Show("Ingresa el campo usuario");
+
+                return;
+
+            }
+            if (password.Trim().Length == 0)
+            {
+
+                MessageBox.Show("Ingresa el campo contraseña");
+
+                return;
+
+            }
+
+            bool response = usuarioService.AutenticarUsuario(usuario, password);
+
+            if( !response )
+            {
+                MessageBox.Show("Usuario no valido");
+                return;
+            }
+
+            Autenticacion.usuario = this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario);
+
+            gridPrincipal.Visibility = Visibility.Visible;
+            gridLogin.Visibility = Visibility.Collapsed;
+
+
+        }
     }
 }
+
