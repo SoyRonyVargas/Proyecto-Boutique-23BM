@@ -33,6 +33,8 @@ namespace Proyecto23BMBoutique2
         public MainWindow()
         {
 
+            this.usuarioService.Load();
+            
             InitializeComponent();
 
             //new Ventas().Show();
@@ -123,10 +125,7 @@ namespace Proyecto23BMBoutique2
 
         public void handleRouter( string ruta )
         {
-            if( ruta == "crearVenta" )
-            {
-                DataContext = new CrearVenta();
-            }
+            if( ruta == "crearVenta" ) DataContext = new CrearVenta();
             
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
@@ -148,7 +147,15 @@ namespace Proyecto23BMBoutique2
             DataContext = new BienvenidaControl();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void handleCerrarSesion(object sender, RoutedEventArgs e)
+        {
+            Autenticacion.usuario = null;
+            gridPrincipal.Visibility = Visibility.Collapsed;
+            gridLogin.Visibility = Visibility.Visible;
+            input_usuario.Focus();
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
             string password = input_password.Text;
@@ -170,7 +177,7 @@ namespace Proyecto23BMBoutique2
 
             }
 
-            bool response = usuarioService.AutenticarUsuario(usuario, password);
+            bool response = await usuarioService.AutenticarUsuario(usuario, password);
 
             if( !response )
             {
@@ -178,11 +185,14 @@ namespace Proyecto23BMBoutique2
                 return;
             }
 
-            Autenticacion.usuario = this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario);
+            Autenticacion.usuario = await this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario);
 
             gridPrincipal.Visibility = Visibility.Visible;
             gridLogin.Visibility = Visibility.Collapsed;
 
+            input_password.Text = "";
+            
+            input_usuario.Text = "";
 
         }
     }

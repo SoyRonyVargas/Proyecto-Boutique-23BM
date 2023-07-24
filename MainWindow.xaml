@@ -326,7 +326,7 @@
                                      x:Name="btnCerrarSesion" 
                                      Height="40" 
                                      Width="200" 
-                                     Click="btnProductos_Click"
+                                     Click="handleCerrarSesion"
                                  >
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>

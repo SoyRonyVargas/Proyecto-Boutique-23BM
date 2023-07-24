@@ -4,6 +4,7 @@ using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Proyecto23BMBoutique2.usuario.services
 {
@@ -13,12 +14,12 @@ namespace Proyecto23BMBoutique2.usuario.services
 
         // Verifica si un usuario está autenticado.
         // Devuelve true si el usuario está autenticado, de lo contrario devuelve false.
-        public bool AutenticarUsuario(string usuario, string password)
+        public async Task<bool> AutenticarUsuario(string usuario, string password)
         {
             try
             {
                 // Obtener el usuario por nombre de usuario
-                Usuario? user = this.ObtenerUsuarioPorNombreUsuario(usuario);
+                Usuario? user = await this.ObtenerUsuarioPorNombreUsuario(usuario);
 
                 if (user == null) return false;
 
@@ -50,6 +51,17 @@ namespace Proyecto23BMBoutique2.usuario.services
             }
         }
 
+        public void Load()
+        {
+            try
+            {
+                db.Usuarios.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Errors.handle(ex);
+            }
+        }
         // Read
         // Obtiene una lista de todos los usuarios.
         public List<Usuario> ObtenerTodosLosUsuarios()
@@ -66,7 +78,7 @@ namespace Proyecto23BMBoutique2.usuario.services
         }
 
         // Obtiene un usuario por su nombre de usuario.
-        public Usuario? ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        public async Task<Usuario?> ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
         {
             try
             {
