@@ -10,6 +10,7 @@
         Width="1000"
         MaxHeight="600" 
         MaxWidth="1000"
+        WindowStartupLocation="CenterScreen"
     >
 
     <Border CornerRadius="10" Background="Transparent">
