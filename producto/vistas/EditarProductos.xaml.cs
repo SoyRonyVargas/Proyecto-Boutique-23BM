@@ -53,24 +53,29 @@ namespace Proyecto23BMBoutique2.producto.vistas
         }
         private void btnEditProducto_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtCodigo.Text) && !string.IsNullOrEmpty(txtStatus.Text) && !string.IsNullOrEmpty(txtImagen.Text) && SelectCategoria.SelectedItem != null)
+            try
             {
-                producto.id = AutenticacionProducto.producto.id;
-                producto.descripcion = txtDescripcion.Text;
-                producto.codigo = txtCodigo.Text;
-                producto.imagen = txtImagen.Text;
-                producto.status = int.Parse(txtStatus.Text);
-                producto.CategoriaFK = int.Parse(SelectCategoria.SelectedValue.ToString());
-
-                productoServices.ActualizarProducto(producto);
-
-                MessageBox.Show("Información del producto actualizado correctamente");
-                if (App.Current.MainWindow is MainWindow mainWindow)
+                if (!string.IsNullOrEmpty(txtDescripcion.Text) && !string.IsNullOrEmpty(txtCodigo.Text) && !string.IsNullOrEmpty(txtStatus.Text) && !string.IsNullOrEmpty(txtImagen.Text) && SelectCategoria.SelectedItem != null)
                 {
-                    mainWindow.handleRouter("listarProductos");
+                    producto.id = AutenticacionProducto.producto.id;
+                    producto.descripcion = txtDescripcion.Text;
+                    producto.codigo = txtCodigo.Text;
+                    producto.imagen = txtImagen.Text;
+                    producto.status = int.Parse(txtStatus.Text);
+                    producto.CategoriaFK = int.Parse(SelectCategoria.SelectedValue.ToString());
+
+                    productoServices.ActualizarProducto(producto);
+
+                    MessageBox.Show("Información del producto actualizado correctamente");
+                    if (App.Current.MainWindow is MainWindow mainWindow)
+                    {
+                        mainWindow.handleRouter("listarProductos");
+                    }
                 }
+                else MessageBox.Show("No has ingresado todos los datos necesarios");
             }
-            else MessageBox.Show("No has ingresado todos los datos necesarios");
+            catch(Exception ex) { Errors.handle(ex); }
+            
         }
 
         public void UpdateTextBox()
