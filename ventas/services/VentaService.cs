@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace Proyecto23BMBoutique2.ventas.services
 {
@@ -24,24 +25,36 @@ namespace Proyecto23BMBoutique2.ventas.services
         {
             return this.db.Ventas
                 .Include(v => v.Productos)
+                .Include(v => v.Vendedor)
+                .OrderByDescending( v => v.id )
                 .ToList();
         }
 
-        public Venta? AddVenta(Venta venta)
+        public bool AddVenta(Venta venta)
         {
             try
             {
+                // Limpio la relacion
+
+                foreach ( VentaProducto producto in venta.Productos )
+                {
+                    producto.Producto = null;
+                }
+
+                venta.CreatedDate = DateTime.Now;
+
                 this.db.Ventas.Add(venta);
                 
                 this.db.SaveChanges();
 
-                return venta;
+                return true;
 
             }
             catch(Exception err)
             {
+                Debugger.Break();
                 Errors.handle(err);
-                return null;
+                return false;
             }
         }
 

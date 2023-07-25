@@ -1,7 +1,10 @@
-﻿using Proyecto23BMBoutique2.producto.services;
+﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.producto.services;
 using Proyecto23BMBoutique2.ventas.entities;
+using Proyecto23BMBoutique2.ventas.services;
 using ProyectoBoutique23BM.Clases;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
@@ -17,6 +20,12 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
         private List<VentaProducto> productosSeleccionados = new List<VentaProducto>();
         private readonly ProductoService productoService = new ProductoService();
+        private readonly VentaService ventaService = new VentaService();
+
+        private double importe = 0;
+        private double total = 0;
+        private double iva = 0;
+
         public CrearVenta()
         {
             InitializeComponent();
@@ -131,7 +140,8 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
             foreach( VentaProducto _producto in this.productosSeleccionados )
             {
-                Producto producto = productoService.ObtenerProductoPorId(_producto.ProductoFK);
+                
+                Producto? producto = productoService.ObtenerProductoPorId(_producto.ProductoFK);
                 
                 _producto.Producto = producto;
                 
@@ -141,11 +151,22 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
                 _producto.total = _producto.importe + _producto.iva;
 
+                this.importe += _producto.importe;
+                this.iva += _producto.iva;
+                this.total += _producto.total;
+
                 relaciones.Add(_producto);
 
             }
 
+            //Debugger.Break();   
+
+            labelImporte.Content = this.importe.ToString("C2");
+            labelIVA.Content = this.iva.ToString("C2");
+            labelTotal.Content = this.total.ToString("C2");
+
             return relaciones;
+
         }
 
         private void RenderGrid()
@@ -181,5 +202,62 @@ namespace Proyecto23BMBoutique2.ventas.vistas
             //Debugger.Break();
 
         }
+
+        private bool hasProductosEnCero()
+        {
+            return productosSeleccionados.Any(p => p.cantidad == 0);
+        }
+
+        private void handleGuardarVenta(object sender, System.Windows.RoutedEventArgs e)
+        {
+            bool productosEnCero = hasProductosEnCero();
+
+            if( productosEnCero )
+            {
+                
+                MessageBox.Show("Algunos productos en la venta estan en 0");
+                
+                return;
+
+            }
+
+            MessageBoxResult resultado = MessageBox.Show("¿Estás seguro que deseas terminar la venta?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (resultado != MessageBoxResult.Yes) return;
+
+            Venta venta = new Venta()
+            {
+                importe = this.importe,
+                iva = this.iva,
+                total = this.total,
+                status = 0,
+                VendedorFK = Autenticacion.usuario!.id,
+            };
+            
+            List<VentaProducto>? datosDataGrid = gridProductosSeleccionados.ItemsSource as List<VentaProducto>;
+
+            venta.Productos = datosDataGrid!;
+
+            bool response = ventaService.AddVenta(venta);
+
+            if( response )
+            {
+                MessageBox.Show("Venta creada exitosamente");
+                
+                if (App.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.handleRouter("listasVentas");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Error al crear la venta");
+            }
+
+            Debugger.Break();
+
+        }
+
     }
 }

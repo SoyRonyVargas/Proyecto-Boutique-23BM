@@ -102,20 +102,20 @@
             <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right">
                 <Grid Height="35" VerticalAlignment="Top" Margin="20,40,20,0">
                     <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Importe" />
-                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Label x:Name="labelImporte" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
                     <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
                 </Grid>
                 <Grid VerticalAlignment="Top" Height="35" Margin="20,80,20,0">
                     <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="IVA" />
-                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Label x:Name="labelIVA" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
                     <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
                 </Grid>
                 <Grid VerticalAlignment="Top" Height="35" Margin="20,120,20,0">
                     <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Total" />
-                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Label x:Name="labelTotal" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
                     <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
                 </Grid>
-                <Button BorderBrush="#FF1D5D9B" Background="#FF1D5D9B" Click="EliminarButton_Click" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="20,170,20,345">
+                <Button Click="handleGuardarVenta" BorderBrush="#FF1D5D9B" Background="#FF1D5D9B" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="20,170,20,345">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <materialDesign:PackIcon Foreground="White" Kind="Payment" VerticalAlignment="Center" HorizontalAlignment="Center" />
                         <TextBlock Foreground="White" Text="Pagar" VerticalAlignment="Center" Margin="5 0 0 0" />
