@@ -41,50 +41,87 @@
                     <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="294,64,0,0" VerticalAlignment="Top" Width="114" Height="36"/>
                     <Button Content="Agregar" HorizontalAlignment="Left" Margin="424,71,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_2"/>
                     <Button Content="Buscar" HorizontalAlignment="Left" Margin="199,161,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29"/>
-                    <Grid Margin="0,217,0,0"/>
-                    <DataGrid x:Name="gridProductosSeleccionados" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="36,230,10,0" Height="NaN" Width="NaN" RenderTransformOrigin="0.5,0.5">
-                        <DataGrid.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleY="0.217"/>
-                                <RotateTransform/>
-                                <TranslateTransform Y="-0.996"/>
-                            </TransformGroup>
-                        </DataGrid.RenderTransform>
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="300"/>
+                            <!-- Puedes ajustar la altura según tus necesidades -->
+                            <RowDefinition Height="*"/>
+                            <!-- Puedes ajustar la altura según tus necesidades -->
+                        </Grid.RowDefinitions>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1" >
+                            <DataGrid x:Name="gridProductosSeleccionados" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="36,0,10,0" Height="NaN" Width="NaN" RenderTransformOrigin="0.5,0.5">
 
-                        <DataGrid.Columns>
+                                <!--<DataGrid.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleY="0.217"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform Y="-0.996"/>
+                                    </TransformGroup>
+                                </DataGrid.RenderTransform>-->
 
-                            <DataGridTextColumn Header="Producto" Binding="{Binding descripcion}" />
+                                <DataGrid.Columns>
 
-                            <DataGridTemplateColumn Width="100" Header="Cantidad">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <!-- Replace 'TextBoxBindingProperty' with the actual property to bind from your data item -->
-                                        <TextBox Text="{Binding cantidad}" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                    <DataGridTextColumn Width="100" Header="Producto" Binding="{Binding Producto.descripcion}" />
 
-                            <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
+                                    <DataGridTextColumn Width="70" Header="Precio" Binding="{Binding Producto.precio}" />
 
-                            <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
+                                    <DataGridTemplateColumn Width="100" Header="Cantidad">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <!-- Replace 'TextBoxBindingProperty' with the actual property to bind from your data item -->
+                                                <TextBox Loaded="CantidadTextBox_Loaded" x:Name="CantidadTextBox" Text="{Binding cantidad, UpdateSourceTrigger=PropertyChanged}" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
 
-                            <DataGridTextColumn Header="Total" Binding="{Binding total}" />
+                                    <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
 
-                            <DataGridTemplateColumn Width="SizeToCells" Header="Delete">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Background="#E53E3E" Content="Delete" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                    <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
 
-                        </DataGrid.Columns>
+                                    <DataGridTextColumn Header="Total" Binding="{Binding total}" />
 
-                    </DataGrid>
+                                    <DataGridTemplateColumn Width="80" Header="Eliminar">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Click="EliminarButton_Click" BorderBrush="#a11616" Background="#a11616" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                </DataGrid.Columns>
+
+                            </DataGrid>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
             </Grid>
-            <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right"/>
+            <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right">
+                <Grid Height="35" VerticalAlignment="Top" Margin="20,40,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Importe" />
+                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" Height="35" Margin="20,80,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="IVA" />
+                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" Height="35" Margin="20,120,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Total" />
+                    <Label FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+                <Button BorderBrush="#FF1D5D9B" Background="#FF1D5D9B" Click="EliminarButton_Click" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="20,170,20,345">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <materialDesign:PackIcon Foreground="White" Kind="Payment" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <TextBlock Foreground="White" Text="Pagar" VerticalAlignment="Center" Margin="5 0 0 0" />
+                    </StackPanel>
+                </Button>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>
