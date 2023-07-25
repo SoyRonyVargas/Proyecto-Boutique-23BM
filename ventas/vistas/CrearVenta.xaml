@@ -7,21 +7,84 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:vistas="clr-namespace:Proyecto23BMBoutique2.usuario.vistas" xmlns:ventas="clr-namespace:Proyecto23BMBoutique2.ventas" x:Class="Proyecto23BMBoutique2.ventas.vistas.CrearVenta"
              mc:Ignorable="d" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="545" d:DesignWidth="950">
 
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="0,8" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+            <Setter Property="Margin" Value="0,8" />
+        </Style>
+
+        <Style TargetType="{x:Type Viewbox}">
+            <Setter Property="Height" Value="18" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="18" />
+        </Style>
+
+    </UserControl.Resources>
 
     <Grid Background="#DDDDDD">
         <Grid Width="902" HorizontalAlignment="Right" >
-            <Grid HorizontalAlignment="Left" Width="602" Background="#dddddd">
-                <Grid Background="#DDDDDD" Margin="-5,0,5,0">
-                    <TextBox HorizontalAlignment="Left" Margin="37,64,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
+            <Grid HorizontalAlignment="Left" Width="652" Background="#dddddd">
+                <Grid Background="#DDDDDD" Margin="-5,0,0,0">
+                    <TextBox x:Name="input_nombre_producto" HorizontalAlignment="Left" Margin="37,64,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
                     <Label Content="Nombre" HorizontalAlignment="Left" Margin="37,36,0,0" VerticalAlignment="Top" />
-                    <TextBox HorizontalAlignment="Left" Margin="197,64,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
-                    <Label Content="Codigo" HorizontalAlignment="Left" Margin="197,35,0,0" VerticalAlignment="Top" />
-                    <Button Content="Buscar" HorizontalAlignment="Left" Margin="357,68,0,0" VerticalAlignment="Top" Background="#FF0667B5"/>
+                    <TextBox HorizontalAlignment="Left" Margin="37,154,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
+                    <Label Content="Codigo" HorizontalAlignment="Left" Margin="37,125,0,0" VerticalAlignment="Top" />
+                    <Button x:Name="btnBuscarPorNombre" Content="Buscar" HorizontalAlignment="Left" Margin="199,71,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_1"/>
+                    <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="294,64,0,0" VerticalAlignment="Top" Width="114" Height="36"/>
+                    <Button Content="Agregar" HorizontalAlignment="Left" Margin="424,71,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_2"/>
+                    <Button Content="Buscar" HorizontalAlignment="Left" Margin="199,161,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29"/>
+                    <Grid Margin="0,217,0,0"/>
+                    <DataGrid x:Name="gridProductosSeleccionados" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="36,230,10,0" Height="NaN" Width="NaN" RenderTransformOrigin="0.5,0.5">
+                        <DataGrid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleY="0.217"/>
+                                <RotateTransform/>
+                                <TranslateTransform Y="-0.996"/>
+                            </TransformGroup>
+                        </DataGrid.RenderTransform>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Producto" Binding="{Binding descripcion}" />
+
+                            <DataGridTemplateColumn Width="100" Header="Cantidad">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <!-- Replace 'TextBoxBindingProperty' with the actual property to bind from your data item -->
+                                        <TextBox Text="{Binding cantidad}" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
+
+                            <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
+
+                            <DataGridTextColumn Header="Total" Binding="{Binding total}" />
+
+                            <DataGridTemplateColumn Width="SizeToCells" Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Background="#E53E3E" Content="Delete" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
                 </Grid>
             </Grid>
-            <Grid Width="302" Background="#FFFF" Height="545" HorizontalAlignment="Right"/>
+            <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right"/>
         </Grid>
     </Grid>
 </UserControl>
