@@ -8,6 +8,7 @@ using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,17 +124,22 @@ namespace Proyecto23BMBoutique2
             DataContext = new VentasC();
         }
 
-        public void handleRouter( string ruta )
+        public void handleRouter( string ruta)
         {
             if( ruta == "crearVenta" ) DataContext = new CrearVenta();
             
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
-            if (ruta == "crearUsuario") DataContext = new CrearUsuario();
-
-            // if (ruta == "EditUser") DataContext = new EditUser(parametro);
-            
+            if (ruta == "crearUsuario") DataContext = new CrearUsuario();    
         }
+
+        public void handleRouterWithParament(string ruta, int id)
+        {
+            if (ruta == "EditUser") DataContext = new EditUser(id);
+
+        }
+
+
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
         {

@@ -123,11 +123,11 @@ namespace Proyecto23BMBoutique2.usuario.services
                     // Actualizar los datos del usuario
                     usuarioExistente.apellidos = usuarioDTO.apellidos;
                     usuarioExistente.password = usuarioDTO.password;
+                    usuarioExistente.nombreUsuario = usuarioDTO.nombreUsuario;
                     usuarioExistente.correo = usuarioDTO.correo;
                     usuarioExistente.nombre = usuarioDTO.nombre;
                     usuarioExistente.RolFK = usuarioDTO.RolFK;
                     usuarioExistente.Imagen = usuarioDTO.Imagen;
-
                     db.SaveChanges();
 
                     return true;

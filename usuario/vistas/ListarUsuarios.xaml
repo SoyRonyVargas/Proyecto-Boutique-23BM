@@ -56,12 +56,6 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Grid Width="855">
-            <Image Margin="14,17,724,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" Stretch="Fill"/>
-            <Image Margin="122,12,602,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" Stretch="Fill"/>
-            <Image Margin="511,13,214,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" Stretch="Fill" MouseDown="MenuP" />
-            <Image Margin="382,11,334,600" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
-            <!--<Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>-->
-            <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
             <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="-14,171,0,10" Background="{x:Null}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding id}" />

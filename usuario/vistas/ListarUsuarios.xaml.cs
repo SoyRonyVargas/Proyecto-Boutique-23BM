@@ -1,5 +1,6 @@
 ﻿using Proyecto23BMBoutique2.rol.services;
 using Proyecto23BMBoutique2.usuario.services;
+using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using Proyecto23BMBoutique2.Vistas.VistaAdministrador.HacerPedido;
 using ProyectoBoutique23BM.Clases;
@@ -31,34 +32,7 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             InitializeComponent();
             UpdateUserTable();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void UserTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Bienvenida1 bienvenida = new Bienvenida1();
-            //Close();
-            bienvenida.Show();
-        }
-        private void HacerPedido(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            HacerPedidoss hacer = new HacerPedidoss();
-            //Close();
-            hacer.Show();
-        }
-        private void PuntoVenta(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-
-        }
-
-       
         private void btnDeleteUsuario_Click(object sender, RoutedEventArgs e)
         {
             var confirmarDeleteUsuario = new MessageBoxTrueFalse("¿Deseas emliminar el usuario?");
@@ -76,13 +50,14 @@ namespace Proyecto23BMBoutique2.usuario.vistas
         }
         private void btnEditUsuario_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario = new Usuario();
-            usuario = (sender as FrameworkElement).DataContext as Usuario;
+            Usuario usuario = (sender as FrameworkElement).DataContext as Usuario;
+            int id = usuario.id;
+
             if (App.Current.MainWindow is MainWindow mainWindow)
             {
-                mainWindow.handleRouter("EditUser" , usuario.id);
-                
+                mainWindow.handleRouterWithParament("EditUser",id);
             }
+            
         }
 
         public void UpdateUserTable()
@@ -95,7 +70,7 @@ namespace Proyecto23BMBoutique2.usuario.vistas
         {
             if (App.Current.MainWindow is MainWindow mainWindow)
             {
-                //mainWindow.handleRouter("crearUsuario");
+                mainWindow.handleRouter("crearUsuario");
             }
         }
         private void btnVerFoto_Click(object sender, RoutedEventArgs e)

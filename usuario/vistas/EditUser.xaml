@@ -37,7 +37,7 @@
             <Image x:Name="Imagen" HorizontalAlignment="Left" Height="182" Margin="595,199,0,0" VerticalAlignment="Top" Width="182" Source="/usuario/vistas/perfil.gif"/>
 
             <Label Content="Foto de Perfil" HorizontalAlignment="Left" Height="42" Margin="609,145,0,0" VerticalAlignment="Top" Width="154" FontSize="24"/>
-            <Button Content="Cambiar Foto" HorizontalAlignment="Left" Height="35" Margin="615,381,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click"/>
+            <Button Content="Cambiar Foto" HorizontalAlignment="Left" Height="35" Margin="615,396,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click"/>
             <TextBox x:Name="RutaImagen" HorizontalAlignment="Left" Height="18" Margin="681,601,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
             <TextBox x:Name="Idtxt" HorizontalAlignment="Left" Height="34" Margin="254,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" FontSize="20" IsEnabled="False"/>
         </Grid>
