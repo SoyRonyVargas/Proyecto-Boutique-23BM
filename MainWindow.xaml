@@ -247,7 +247,7 @@
                                      x:Name="btnProveedores" 
                                      Height="40" 
                                      Width="200" 
-                                     Click="btnProductos_Click"
+                                     Click="btnProveedores_Click"
                                  >
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>

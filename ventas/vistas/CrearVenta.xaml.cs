@@ -33,12 +33,12 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            
-            int codigo = int.Parse(input_codigo.Text);
+
+            //int codigo = int.Parse(input_codigo.Text);
 
             //if (codigo) return;
 
-            this.productoService.ObtenerProductoPorId(codigo)
+            //this.productoService.ObtenerProductoPorId(codigo)
 
         }
     }
