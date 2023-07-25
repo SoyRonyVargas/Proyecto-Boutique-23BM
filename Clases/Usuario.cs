@@ -14,9 +14,11 @@ namespace ProyectoBoutique23BM.Clases
         public string? password { get; set; }
         public string correo { get; set; }
         public string nombreUsuario { get; set; }
+        public string Imagen { get; set; }
 
         [ForeignKey("Rol")]
         public int RolFK { get; set; }
         public Rol Rol { get; set; }
+        
     }
 }

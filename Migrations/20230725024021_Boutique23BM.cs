@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto23BMBoutique2.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Boutique23BM : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -113,6 +113,8 @@ namespace Proyecto23BMBoutique2.Migrations
                     correo = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     nombreUsuario = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Imagen = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RolFK = table.Column<int>(type: "int", nullable: false)
                 },
@@ -262,6 +264,18 @@ namespace Proyecto23BMBoutique2.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Proveedores",
+                columns: new[] { "id", "CreatedDate", "contacto", "correo_electronico", "direccion", "empresa", "nombre", "status", "telefono" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Contacto", "oscar@empresa1.com", "Dirección1", "Empresa1", "Oscar", 1, "123456789" },
+                    { 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Contacto", "lucia@empresa2.com", "Dirección2", "Empresa2", "Lucía", 1, "987654321" },
+                    { 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Contacto", "carlos@empresa3.com", "Dirección3", "Empresa3", "Carlos", 1, "456789123" },
+                    { 4, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Contacto", "laura@empresa4.com", "Dirección4", "Empresa4", "Laura", 1, "789123456" },
+                    { 5, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Contacto", "miguel@empresa5.com", "Dirección5", "Empresa5", "Miguel", 1, "321654987" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "id", "nombre" },
                 values: new object[,]
@@ -285,8 +299,8 @@ namespace Proyecto23BMBoutique2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
-                columns: new[] { "id", "RolFK", "apellidos", "correo", "nombre", "nombreUsuario", "password" },
-                values: new object[] { 1, 1, "Gomez", "prueba@gmail.com", "Adamaris", "cazadordeabuelas", "1234" });
+                columns: new[] { "id", "Imagen", "RolFK", "apellidos", "correo", "nombre", "nombreUsuario", "password" },
+                values: new object[] { 1, "123123123123123123123", 1, "Gomez", "prueba@gmail.com", "Adamaris", "cazadordeabuelas", "1234" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entrada_Has_Producto_ProductoId",

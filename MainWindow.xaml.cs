@@ -8,6 +8,7 @@ using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -135,9 +136,16 @@ namespace Proyecto23BMBoutique2
 
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
-            if (ruta == "crearUsuario") DataContext = new CrearUsuario();
-            
+            if (ruta == "crearUsuario") DataContext = new CrearUsuario();    
         }
+
+        public void handleRouterWithParament(string ruta, int id)
+        {
+            if (ruta == "EditUser") DataContext = new EditUser(id);
+
+        }
+
+
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
         {
@@ -164,7 +172,7 @@ namespace Proyecto23BMBoutique2
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
-            string password = input_password.Text;
+            string password = input_password.Password;
 
             if( usuario.Trim().Length == 0 )
             {
@@ -196,7 +204,7 @@ namespace Proyecto23BMBoutique2
             gridPrincipal.Visibility = Visibility.Visible;
             gridLogin.Visibility = Visibility.Collapsed;
 
-            input_password.Text = "";
+            input_password.Password = "";
             
             input_usuario.Text = "";
 
