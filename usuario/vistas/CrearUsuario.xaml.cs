@@ -35,11 +35,6 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             SelectRol.DisplayMemberPath = "nombre";
             SelectRol.SelectedValuePath = "id";
         }
-        public void UpdateUserTable()
-        {
-            //UsuarioService usuarioServices = new UsuarioService();
-            //UserTable.ItemsSource = usuarioServices.ObtenerTodosLosUsuarios();
-        }
         private void btnAddUsuario_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtApellido.Text))
@@ -62,7 +57,6 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                         usuarioServices.ActualizarUsuario(usuario);
 
                         MessageBox.Show("Usuario actualizado correctamente");
-                        UpdateUserTable();
                     }
                     else MessageBox.Show("La contraseña no coincide");
                 }
@@ -87,7 +81,6 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                         usuarioServices.AgregarUsuario(usuario);
 
                         MessageBox.Show("Usuario añadido correctamente");
-                        UpdateUserTable();
                     }
                     else MessageBox.Show("La contraseña no coincide");
                 }

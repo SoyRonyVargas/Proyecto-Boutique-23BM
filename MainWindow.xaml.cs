@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.producto.vistas;
 using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
@@ -120,7 +121,7 @@ namespace Proyecto23BMBoutique2
 
         private void btnProductos_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new VentasC();
+            DataContext = new ListarProductos();
         }
 
         public void handleRouter( string ruta )
@@ -128,9 +129,12 @@ namespace Proyecto23BMBoutique2
             if( ruta == "crearVenta" ) DataContext = new CrearVenta();
             
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
-            
-            if (ruta == "crearUsuario") DataContext = new CrearUsuario();
-            
+
+            if (ruta == "listarProductos") DataContext = new ListarProductos();
+
+            if (ruta == "añadirProductos") DataContext = new AñadirProductos();
+
+            if (ruta == "editarProductos") DataContext = new EditarProductos();
         }
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
