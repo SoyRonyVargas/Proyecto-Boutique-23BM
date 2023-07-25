@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.proveedores.vistas;
 using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
@@ -125,6 +126,7 @@ namespace Proyecto23BMBoutique2
         }
 
         public void handleRouter( string ruta , object? parametro = null )
+
         {
 
             if (ruta == "listasVentas") DataContext = new VentasC();
@@ -137,6 +139,16 @@ namespace Proyecto23BMBoutique2
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
             if (ruta == "crearUsuario") DataContext = new CrearUsuario();    
+       
+
+            if (ruta == "listasVentas") DataContext = new VentasC();
+            
+            if (ruta == "ListarProveedor") DataContext = new ListarProveedores();
+            
+            if (ruta == "crearproveedor") DataContext = new vista_agregar();
+            
+            if (ruta == "editarproveedor") DataContext = new vista_editar_proveedor();
+
         }
 
         public void handleRouterWithParament(string ruta, int id)
@@ -169,6 +181,10 @@ namespace Proyecto23BMBoutique2
             input_usuario.Focus();
         }
 
+        private void btnProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            this.handleRouter("ListarProveedor");
+        }
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
@@ -209,6 +225,7 @@ namespace Proyecto23BMBoutique2
             input_usuario.Text = "";
 
         }
+
     }
 }
 
