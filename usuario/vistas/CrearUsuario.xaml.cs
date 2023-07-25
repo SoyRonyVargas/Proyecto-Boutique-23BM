@@ -101,7 +101,7 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             txtRepetirContraseña.Password = usuario.password.ToString();
             usuarioServices.ActualizarUsuario(usuario);
             MessageBox.Show("Usuario actualizado correctamente");
-            UpdateUserTable();
+            //UpdateUserTable();
             
         }
         public void GetRoles()

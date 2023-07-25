@@ -176,7 +176,7 @@ namespace Proyecto23BMBoutique2
 
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new BienvenidaControl();
+            this.handleRouter("listasVentas");
         }
 
         private void handleCerrarSesion(object sender, RoutedEventArgs e)
