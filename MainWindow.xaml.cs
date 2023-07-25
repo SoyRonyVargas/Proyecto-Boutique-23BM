@@ -123,13 +123,16 @@ namespace Proyecto23BMBoutique2
             DataContext = new VentasC();
         }
 
-        public void handleRouter( string ruta )
+        public void handleRouter( string ruta , object? parametro = null )
         {
 
             if (ruta == "listasVentas") DataContext = new VentasC();
 
             if ( ruta == "crearVenta" ) DataContext = new CrearVenta();
-            
+
+            if (ruta == "editarVenta" && parametro is int numero)
+                DataContext = new EditarVenta(numero);
+
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
             if (ruta == "crearUsuario") DataContext = new CrearUsuario();

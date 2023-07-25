@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.ventas.vistas"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="545" d:DesignWidth="950"
              >
@@ -14,25 +15,18 @@
 
             <DataGrid x:Name="gridVentas" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="0,91,0,0" Height="NaN" Width="NaN">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Numero Venta" Binding="{Binding id}" />
-                    <DataGridTextColumn Header="Status" Binding="{Binding status}" />
-                    <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
-                    <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
-                    <DataGridTextColumn Header="Total" Binding="{Binding total}" />
+                    <DataGridTextColumn Width="50" Header="N°" Binding="{Binding id}" />
+                    <DataGridTextColumn Width="150" Header="Creado" Binding="{Binding CreatedDate,StringFormat=\{0:dd/MM/yyyy HH:mm:ss\}}" />
+                    <DataGridTextColumn Header="Importe"  Binding="{Binding importe, StringFormat=\{0:C\}}" />
+                    <DataGridTextColumn Header="IVA" Binding="{Binding iva,StringFormat=\{0:C\}}" />
+                    <DataGridTextColumn Header="Total" Binding="{Binding total, StringFormat=\{0:C\}}" />
                     <DataGridTextColumn Header="Productos" Binding="{Binding Productos.Count}" />
                     <DataGridTextColumn Header="Vendedor" Binding="{Binding Vendedor.nombre}" />
 
-                    <DataGridTemplateColumn Width="SizeToCells" Header="Editar">
+                    <DataGridTemplateColumn Width="SizeToCells" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Background="#D69E2E" Content="Edit" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="SizeToCells" Header="Delete">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Background="#E53E3E" Content="Delete" />
+                                <Button Click="handleVerVenta" Background="#D69E2E" Content="Editar" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
