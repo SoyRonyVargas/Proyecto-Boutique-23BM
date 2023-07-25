@@ -38,7 +38,7 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
             //if (codigo) return;
 
-            this.productoService.ObtenerProductoPorId(codigo)
+            this.productoService.ObtenerProductoPorId(codigo);
 
         }
     }

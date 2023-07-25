@@ -26,8 +26,9 @@ namespace Proyecto23BMBoutique2.usuario.vistas
         public CrearUsuario()
         {
             InitializeComponent();
+            GetRoles();
         }
-
+        RolService services = new RolService();
         public void UpdateSelectRol()
         {
             RolService rolServices = new RolService();
@@ -44,22 +45,21 @@ namespace Proyecto23BMBoutique2.usuario.vistas
         {
             if (!string.IsNullOrEmpty(txtApellido.Text))
             {
-                if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContraseña.Text) && !string.IsNullOrEmpty(txtRepetirContraseña.Text) && SelectRol.SelectedItem != null)
+                if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContraseña.Password) && !string.IsNullOrEmpty(txtRepetirContraseña.Password) && SelectRol.SelectedItem != null)
                 {
-                    if (txtContraseña.Text == txtRepetirContraseña.Text)
+                    if (txtContraseña.Password == txtRepetirContraseña.Password)
                     {
                         UsuarioService usuarioServices = new UsuarioService();
                         Usuario usuario = new Usuario();
-
-                        usuario.id = int.Parse(txtApellido.Text);
                         usuario.nombre = txtNombre.Text;
                         usuario.apellidos = txtApellido.Text;
                         usuario.nombreUsuario = txtUsuario.Text;
                         usuario.correo = txtCorreo.Text;
-                        usuario.password = txtContraseña.Text;
+                        usuario.password = txtContraseña.Password;
                         usuario.RolFK = int.Parse(SelectRol.SelectedValue.ToString());
+                        usuario.Imagen = usuarioServices.ConvertImageToBase64(RutaImagen.Text);
 
-                        usuarioServices.ActualizarUsuario(usuario);
+                        usuarioServices.AgregarUsuario(usuario);
 
                         MessageBox.Show("Usuario actualizado correctamente");
                         UpdateUserTable();
@@ -70,9 +70,9 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             }
             else
             {
-                if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContraseña.Text) && !string.IsNullOrEmpty(txtRepetirContraseña.Text) && SelectRol.SelectedItem != null)
+                if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtCorreo.Text) && !string.IsNullOrEmpty(txtContraseña.Password) && !string.IsNullOrEmpty(txtRepetirContraseña.Password) && SelectRol.SelectedItem != null)
                 {
-                    if (txtContraseña.Text == txtRepetirContraseña.Text)
+                    if (txtContraseña.Password == txtRepetirContraseña.Password)
                     {
                         UsuarioService usuarioServices = new UsuarioService();
                         Usuario usuario = new Usuario();
@@ -81,7 +81,7 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                         usuario.apellidos = txtApellido.Text;
                         usuario.nombreUsuario = txtUsuario.Text;
                         usuario.correo = txtCorreo.Text;
-                        usuario.password = txtContraseña.Text;
+                        usuario.password = txtContraseña.Password;
                         usuario.RolFK = int.Parse(SelectRol.SelectedValue.ToString());
 
                         usuarioServices.AgregarUsuario(usuario);
@@ -94,18 +94,47 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                 else MessageBox.Show("No has ingresado todos los datos necesarios");
             }
         }
-        private void btnEditUsuario_Click(object sender, RoutedEventArgs e)
+        private void EditarUser(Usuario request)
         {
+            UsuarioService usuarioServices = new UsuarioService();
             Usuario usuario = new Usuario();
-            usuario = (sender as FrameworkElement).DataContext as Usuario;
-
+            
             //t.Text = usuario.id.ToString();
             txtNombre.Text = usuario.nombre.ToString();
             txtApellido.Text = usuario.apellidos.ToString();
             txtUsuario.Text = usuario.nombreUsuario.ToString();
             txtCorreo.Text = usuario.correo.ToString();
-            txtContraseña.Text = usuario.password.ToString();
-            txtRepetirContraseña.Text = usuario.password.ToString();
+            txtContraseña.Password = usuario.password.ToString();
+            txtRepetirContraseña.Password = usuario.password.ToString();
+            usuarioServices.ActualizarUsuario(usuario);
+            MessageBox.Show("Usuario actualizado correctamente");
+            UpdateUserTable();
+            
         }
+        public void GetRoles()
+        {
+            SelectRol.ItemsSource = services.GetRoles();
+            SelectRol.DisplayMemberPath = "nombre";
+            SelectRol.SelectedValuePath = "id";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            // Establecer filtro para aceptar todos los archivos de imagen
+            dlg.Filter = "All Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif|JPEG Files|*.jpg;*.jpeg|PNG Files|*.png|BMP Files|*.bmp|GIF Files|*.gif";
+            // Mostrar el cuadro de diálogo de selección de archivo
+            Nullable<bool> result = dlg.ShowDialog();
+            // Obtener el nombre del archivo seleccionado y mostrarlo en el control Image
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                RutaImagen.Text = filename.ToString();
+                ImageSource imageSource = new BitmapImage(new Uri(filename));
+                Imagen.Source = imageSource;
+            }
+        }
+
+
     }
 }

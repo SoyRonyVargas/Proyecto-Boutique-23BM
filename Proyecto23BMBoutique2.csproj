@@ -37,6 +37,7 @@
     <None Remove="productos.png" />
     <None Remove="proveedor.png" />
     <None Remove="usuario.png" />
+    <None Remove="usuario\vistas\perfil.gif" />
     <None Remove="ventas.png" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
@@ -83,6 +84,7 @@
     <Resource Include="productos.png" />
     <Resource Include="proveedor.png" />
     <Resource Include="usuario.png" />
+    <Resource Include="usuario\vistas\perfil.gif" />
     <Resource Include="ventas.png" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />

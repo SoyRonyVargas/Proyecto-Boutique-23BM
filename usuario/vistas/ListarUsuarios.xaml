@@ -7,31 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="545" d:DesignWidth="950">
     <UserControl.Resources>
-    <ResourceDictionary>
-        <!-- Move the styles here, inside the UserControl.Resources -->
-        <Style TargetType="TextBox" x:Key="TextBoxStyle">
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Width" Value="200"/>
-            <Setter Property="BorderBrush" Value="Gray"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+        <ResourceDictionary>
+            <!-- Move the styles here, inside the UserControl.Resources -->
+            <Style TargetType="TextBox" x:Key="TextBoxStyle">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="BorderBrush" Value="Gray"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             CornerRadius="10">
-                            <ScrollViewer x:Name="PART_ContentHost"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+                                <ScrollViewer x:Name="PART_ContentHost"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
 
-        <Style TargetType="Button" x:Key="RoundButtonStyle">
+            <Style TargetType="Button" x:Key="RoundButtonStyle">
                 <Setter Property="Width" Value="100"/>
                 <Setter Property="Height" Value="30"/>
                 <Setter Property="Background" Value="DarkTurquoise"/>
@@ -52,7 +52,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-    </ResourceDictionary>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid Background="White">
         <Grid Width="855">
@@ -62,7 +62,7 @@
             <Image Margin="382,11,334,600" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
             <!--<Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>-->
             <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
-            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
+            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="-14,171,0,10" Background="{x:Null}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding id}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
@@ -86,10 +86,23 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Foto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Ver" Click="btnVerFoto_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Content="Crear usuario" HorizontalAlignment="Left" Margin="726,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="Button_Click_1"/>
-
+            <Button Content="Crear usuario" HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="Button_Click_1"/>
+            <Popup x:Name="popupImagen" Placement="Center" IsOpen="False">
+                <Border Background="White" BorderBrush="Black" BorderThickness="2">
+                    <Image x:Name="imagenPopup" Stretch="Uniform" />
+                </Border>
+            </Popup>
+            <Image x:Name="Imagen" HorizontalAlignment="Left" Height="101" Margin="726,59,0,0" VerticalAlignment="Top" Width="106"/>
+            <Label Content="Foto de Perfil" HorizontalAlignment="Left" Height="32" Margin="731,27,0,0" VerticalAlignment="Top" Width="92"/>
         </Grid>
     </Grid>
 </UserControl>
