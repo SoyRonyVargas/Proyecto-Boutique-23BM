@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -30,31 +31,48 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string nombre = txtNombre.Text;
-            string correo = TxtCorreo.Text;
-            string empresa = TxtEmpresa.Text;
-            string telefono = Txttelefono.Text;
-            string direccion = TxtDireccion.Text;
-            string contacto = Txtcontacto.Text;
-
-            Proveedor proveedor = new Proveedor();
-            proveedor.nombre = nombre;
-            proveedor.correo_electronico = correo;
-            proveedor.empresa= empresa;
-            proveedor.telefono = telefono;
-            proveedor.direccion = direccion;
-            proveedor.contacto = contacto;
-
-            this.proveedorService.AgregarProveedor(proveedor);
-
-            MessageBox.Show("SE HA GUARDADO CORRECTAMENTE EL PROVEEDOR");
-            
-            if (App.Current.MainWindow is MainWindow mainWindow)
+            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(Txtcontacto.Text) && !string.IsNullOrEmpty(TxtEmpresa.Text) && !string.IsNullOrEmpty(TxtDireccion.Text) && !string.IsNullOrEmpty(Txttelefono.Text) && !string.IsNullOrEmpty(TxtCorreo.Text))
             {
-                // Llama a la función handleClick en MainWindow
-                mainWindow.handleRouter("listasVentas");
+
+                string nombre = txtNombre.Text;
+                string correo = TxtCorreo.Text;
+                string empresa = TxtEmpresa.Text;
+                string telefono = Txttelefono.Text;
+                string direccion = TxtDireccion.Text;
+                string contacto = Txtcontacto.Text;
+
+                Proveedor proveedor = new Proveedor();
+                proveedor.nombre = nombre;
+                proveedor.correo_electronico = correo;
+                proveedor.empresa = empresa;
+                proveedor.telefono = telefono;
+                proveedor.direccion = direccion;
+                proveedor.contacto = contacto;
+
+
+
+                this.proveedorService.AgregarProveedor(proveedor);
+
+                MessageBox.Show("SE HA GUARDADO CORRECTAMENTE EL PROVEEDOR");
+
+                if (App.Current.MainWindow is MainWindow mainWindow)
+                {
+                    // Llama a la función handleClick en MainWindow
+                    mainWindow.handleRouter("ListarProveedor");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No has ingresado todos los datos");
             }
 
+
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
     }

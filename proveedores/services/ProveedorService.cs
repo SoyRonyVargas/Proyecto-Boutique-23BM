@@ -4,6 +4,7 @@ using ProyectoBoutique23BM.Clases;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Diagnostics;
 
 namespace Proyecto23BMBoutique2.proveedor.services
 {
@@ -62,6 +63,7 @@ namespace Proyecto23BMBoutique2.proveedor.services
             {
                 Proveedor? proveedorExistente = db.Proveedores.FirstOrDefault(p => p.id == proveedorDTO.id);
 
+                    Debugger.Break();
                 if (proveedorExistente != null)
                 {
                     proveedorExistente.nombre = proveedorDTO.nombre;
@@ -71,6 +73,9 @@ namespace Proyecto23BMBoutique2.proveedor.services
                     proveedorExistente.telefono = proveedorDTO.telefono;
                     proveedorExistente.correo_electronico = proveedorDTO.correo_electronico;
                     proveedorExistente.status = proveedorDTO.status;
+
+                    db.Proveedores.Update(proveedorExistente);
+
 
                     db.SaveChanges();
 

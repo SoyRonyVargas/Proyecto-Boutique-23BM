@@ -135,7 +135,8 @@ namespace Proyecto23BMBoutique2
 
             if (ruta == "listasVentas") DataContext = new VentasC();
             if (ruta == "ListarProveedor") DataContext = new ListarProveedores();
-            if (ruta == "Crearproveedor") DataContext = new vista_agregar();
+            if (ruta == "crearproveedor") DataContext = new vista_agregar();
+            if (ruta == "editarproveedor") DataContext = new vista_editar_proveedor();
         }
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)

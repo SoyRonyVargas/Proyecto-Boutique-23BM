@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Proyecto23BMBoutique2.proveedores.vistas.vista_agregar"
+﻿<UserControl x:Class="Proyecto23BMBoutique2.proveedores.vistas.vista_editar_proveedor"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,31 +7,31 @@
              mc:Ignorable="d" 
              d:DesignHeight="545" d:DesignWidth="950">
     <Grid Background="White">
+
         <Grid Width="855" Margin="48,-29,47,0">
 
-            <Label FontSize="18" Content="Agregar Nuevo Proveedor&#xD;&#xA;" HorizontalAlignment="Left" Height="34" Margin="340,51,0,0" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.848,0.598" HorizontalContentAlignment="Left"/>
+            <Label FontSize="18" Content="Editar proveedores" HorizontalAlignment="Left" Height="34" Margin="340,50,0,0" VerticalAlignment="Top" Width="227" RenderTransformOrigin="0.848,0.598" HorizontalContentAlignment="Left"/>
 
             <Label FontSize="18" Content="Nombre:" HorizontalAlignment="Left" Height="33" Margin="23,128,0,0" VerticalAlignment="Top" Width="159" HorizontalContentAlignment="Left" FontFamily="Open Sans"/>
-            <TextBox FontSize="18" x:Name="txtNombre" HorizontalAlignment="Left" Height="34" Margin="23,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="txtNombreedit" HorizontalAlignment="Left" Height="34" Margin="23,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Label FontSize="18" Content="contacto:" HorizontalAlignment="Left" Height="33" Margin="291,128,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Left"/>
-            <TextBox FontSize="18" x:Name="Txtcontacto" HorizontalAlignment="Left" Height="34" Margin="291,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="Txtcontactoedit" HorizontalAlignment="Left" Height="34" Margin="291,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Label FontSize="18" Content="Correo:" HorizontalAlignment="Left" Height="33" Margin="23,221,0,0" VerticalAlignment="Top" Width="82" HorizontalContentAlignment="Left"/>
-            <TextBox FontSize="18" x:Name="TxtCorreo"  HorizontalAlignment="Left" Height="34" Margin="23,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="TxtCorreoedit"  HorizontalAlignment="Left" Height="34" Margin="23,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Label FontSize="18" Content="Telefono&#xD;&#xA;:" HorizontalAlignment="Left" Height="32" Margin="291,217,0,0" VerticalAlignment="Top" Width="117" HorizontalContentAlignment="Left" RenderTransformOrigin="0.432,1.459"/>
-            <TextBox FontSize="18" x:Name="Txttelefono"  HorizontalAlignment="Left" Height="34" Margin="291,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="Txttelefonoedit"  HorizontalAlignment="Left" Height="34" Margin="291,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Label FontSize="18" Content="Empresa:" HorizontalAlignment="Left" Height="33" Margin="23,314,0,0" VerticalAlignment="Top" Width="126" HorizontalContentAlignment="Left"/>
-            <TextBox FontSize="18" x:Name="TxtEmpresa"  HorizontalAlignment="Left" Height="34" Margin="23,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="TxtEmpresaedit"  HorizontalAlignment="Left" Height="34" Margin="23,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Label FontSize="18" Content="Dirección:" HorizontalAlignment="Left" Height="33" Margin="291,314,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Left"/>
-            <TextBox FontSize="18" x:Name="TxtDireccion"  HorizontalAlignment="Left" Height="34" Margin="291,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
+            <TextBox FontSize="18" x:Name="TxtDireccionedit"  HorizontalAlignment="Left" Height="34" Margin="291,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
             <Button x:Name="btnAddUsuario" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="340,627,0,0" VerticalAlignment="Top" Width="126" />
-            <Button Content="Añadir" HorizontalAlignment="Left" Margin="23,506,0,0" VerticalAlignment="Top" Width="117" Background="#FF1D5D9B" Click="Button_Click"/>
+            <Button Content="Editar" HorizontalAlignment="Left" Margin="23,506,0,0" VerticalAlignment="Top" Width="117" Background="#FF1D5D9B" Click="Button_Click" />
         </Grid>
-
     </Grid>
 </UserControl>
