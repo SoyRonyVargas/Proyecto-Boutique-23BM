@@ -27,7 +27,7 @@
                 <Grid Width="500" HorizontalAlignment="Right" Background="White">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" Background="Transparent">
                         <TextBox x:Name="input_usuario" FontSize="18" HorizontalAlignment="Center" Margin="0,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="36"/>
-                        <TextBox x:Name="input_password"  FontSize="18" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Height="36" Margin="0,285,0,0"/>
+                        <PasswordBox x:Name="input_password"  FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Top" Width="222" Height="36" Margin="0,285,0,0"/>
                         <Label  FontSize="15" Content="Usuario" HorizontalAlignment="Left" Margin="0,174,0,0" VerticalAlignment="Top" Width="82"/>
                         <Label  FontSize="15" Content="Contraseña" HorizontalAlignment="Left" Margin="0,252,0,0" VerticalAlignment="Top" Width="111"/>
                         <Button Content="Iniciar Sesión" Background="#FF1D5D9B" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Width="222" Height="35" Click="Button_Click_1">
@@ -247,7 +247,7 @@
                                      x:Name="btnProveedores" 
                                      Height="40" 
                                      Width="200" 
-                                     Click="btnProductos_Click"
+                                     Click="btnProveedores_Click"
                                  >
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
@@ -371,9 +371,6 @@
     </Border>
 
     <Window.Resources>
-        <DataTemplate x:Name="Ventas" DataType="{x:Type viewmodels:VentasC}">
-            <!--<viewmodels  />-->
-        </DataTemplate>
         <Style TargetType="TextBox" x:Key="TextBoxStyle">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="200"/>

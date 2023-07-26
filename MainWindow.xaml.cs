@@ -1,4 +1,6 @@
 ﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.proveedores.vistas;
+using Proyecto23BMBoutique2.producto.vistas;
 using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
@@ -8,6 +10,7 @@ using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,21 +123,47 @@ namespace Proyecto23BMBoutique2
 
         private void btnProductos_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new VentasC();
+            DataContext = new ListarProductos();
         }
 
-        public void handleRouter( string ruta )
+        public void handleRouter( string ruta , object? parametro = null )
+
         {
 
             if (ruta == "listasVentas") DataContext = new VentasC();
 
             if ( ruta == "crearVenta" ) DataContext = new CrearVenta();
-            
+
+            if (ruta == "editarVenta" && parametro is int numero)
+                DataContext = new EditarVenta(numero);
+
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
             
-            if (ruta == "crearUsuario") DataContext = new CrearUsuario();
+            if (ruta == "crearUsuario") DataContext = new CrearUsuario();    
+       
+            if (ruta == "listasVentas") DataContext = new VentasC();
             
+            if (ruta == "ListarProveedor") DataContext = new ListarProveedores();
+            
+            if (ruta == "crearproveedor") DataContext = new vista_agregar();
+            
+            if (ruta == "editarproveedor") DataContext = new vista_editar_proveedor();
+
+            if (ruta == "listarProductos") DataContext = new ListarProductos();
+
+            if (ruta == "añadirProductos") DataContext = new AñadirProductos();
+
+            if (ruta == "editarProductos") DataContext = new EditarProductos();
+        
         }
+
+        public void handleRouterWithParament(string ruta, int id)
+        {
+            if (ruta == "EditUser") DataContext = new EditUser(id);
+
+        }
+
+
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
         {
@@ -147,7 +176,7 @@ namespace Proyecto23BMBoutique2
 
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new BienvenidaControl();
+            this.handleRouter("listasVentas");
         }
 
         private void handleCerrarSesion(object sender, RoutedEventArgs e)
@@ -158,10 +187,14 @@ namespace Proyecto23BMBoutique2
             input_usuario.Focus();
         }
 
+        private void btnProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            this.handleRouter("ListarProveedor");
+        }
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
-            string password = input_password.Text;
+            string password = input_password.Password;
 
             if( usuario.Trim().Length == 0 )
             {
@@ -193,11 +226,12 @@ namespace Proyecto23BMBoutique2
             gridPrincipal.Visibility = Visibility.Visible;
             gridLogin.Visibility = Visibility.Collapsed;
 
-            input_password.Text = "";
+            input_password.Password = "";
             
             input_usuario.Text = "";
 
         }
+
     }
 }
 

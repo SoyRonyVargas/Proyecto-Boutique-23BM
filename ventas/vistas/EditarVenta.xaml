@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="Proyecto23BMBoutique2.ventas.vistas.EditarVenta"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Proyecto23BMBoutique2.ventas.vistas"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+              d:DesignHeight="545" d:DesignWidth="950">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
+            <Setter Property="Margin" Value="0,8" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+            <Setter Property="Margin" Value="0,8" />
+        </Style>
+
+        <Style TargetType="{x:Type Viewbox}">
+            <Setter Property="Height" Value="18" />
+            <Setter Property="Margin" Value="0,0,8,0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="18" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid Background="#DDDDDD">
+        <Grid Width="902" HorizontalAlignment="Right" >
+            <Grid HorizontalAlignment="Left" Width="652" Background="#dddddd">
+                <Grid Background="#DDDDDD" Margin="-5,35,0,0">
+                    <DataGrid x:Name="gridEditProductos" ColumnWidth="*" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="{x:Null}"  IsSynchronizedWithCurrentItem="True" Margin="39,45,13,0" Height="NaN" Width="605" RenderTransformOrigin="0.5,0.5">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Width="100" Header="Producto" Binding="{Binding Producto.descripcion}" />
+
+                            <DataGridTextColumn Width="70" Header="Precio" Binding="{Binding Producto.precio,StringFormat=\{0:C\}}" />
+
+                            <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" />
+
+                            <DataGridTextColumn Header="Importe" Binding="{Binding importe,StringFormat=\{0:C\}}" />
+
+                            <DataGridTextColumn Header="IVA" Binding="{Binding iva,StringFormat=\{0:C\}}" />
+
+                            <DataGridTextColumn Header="Total" Binding="{Binding total,StringFormat=\{0:C\}}" />
+
+                            <!--<DataGridTemplateColumn Width="80" Header="Eliminar">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Button Click="EliminarButton_Click" BorderBrush="#a11616" Background="#a11616" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                                </Button>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>-->
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <Label FontSize="18" x:Name="labelId" Content="Venta: " HorizontalAlignment="Left" Margin="39,16,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                </Grid>
+            </Grid>
+            <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right">
+                <Grid Height="35" VerticalAlignment="Top" Margin="20,40,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Importe" />
+                    <Label x:Name="labelImporte" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" Height="35" Margin="20,80,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="IVA" />
+                    <Label x:Name="labelIVA" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+                <Grid VerticalAlignment="Top" Height="35" Margin="20,120,20,0">
+                    <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Total" />
+                    <Label x:Name="labelTotal" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
+                    <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
