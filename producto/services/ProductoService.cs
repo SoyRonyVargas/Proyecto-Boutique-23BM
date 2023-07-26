@@ -41,6 +41,21 @@ namespace Proyecto23BMBoutique2.producto.services
             
         }
 
+        public List<Producto> ObtenerProductosPorNombre(string nombre)
+        {
+            try
+            {
+                List<Producto> productos = db.Productos.Where(p => p.descripcion.Contains(nombre)).ToList();
+
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                Errors.handle(ex);
+                return null;
+            }
+        }
+
         public Producto? ObtenerProductoPorId(int id)
         {
             try
