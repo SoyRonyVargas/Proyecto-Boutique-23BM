@@ -1,5 +1,6 @@
 ﻿using Proyecto23BMBoutique2.Clases;
 using ProyectoBoutique23BM.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,6 +47,24 @@ namespace Proyecto23BMBoutique2.rol.services
             {
                 db.Roles.Remove(rol);
                 db.SaveChanges();
+            }
+        }
+        public List<Rol> GetRoles()
+        {
+            try
+            {
+                using (var _context = new RestauranteDataContext())
+                {
+                    List<Rol> roles = _context.Roles.ToList();
+
+                    return roles;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Succedio un error" + ex.Message);
             }
         }
     }

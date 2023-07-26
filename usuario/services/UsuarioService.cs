@@ -5,6 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Media.Imaging;
+using System.Windows;
+using Proyecto23BMBoutique2.usuario.vistas;
 
 namespace Proyecto23BMBoutique2.usuario.services
 {
@@ -91,7 +95,6 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return null;
             }
         }
-
         // Obtiene un usuario por su ID.
         public Usuario? ObtenerUsuarioPorId(int id)
         {
@@ -120,10 +123,11 @@ namespace Proyecto23BMBoutique2.usuario.services
                     // Actualizar los datos del usuario
                     usuarioExistente.apellidos = usuarioDTO.apellidos;
                     usuarioExistente.password = usuarioDTO.password;
+                    usuarioExistente.nombreUsuario = usuarioDTO.nombreUsuario;
                     usuarioExistente.correo = usuarioDTO.correo;
                     usuarioExistente.nombre = usuarioDTO.nombre;
                     usuarioExistente.RolFK = usuarioDTO.RolFK;
-
+                    usuarioExistente.Imagen = usuarioDTO.Imagen;
                     db.SaveChanges();
 
                     return true;
@@ -161,5 +165,25 @@ namespace Proyecto23BMBoutique2.usuario.services
                 return false;
             }
         }
+        public string ConvertImageToBase64(string imagePath)
+        {
+            try
+            {
+                // Leer el archivo de imagen en un arreglo de bytes
+                byte[] imageBytes = File.ReadAllBytes(imagePath);
+
+                // Convertir el arreglo de bytes a una cadena base64
+                string base64String = Convert.ToBase64String(imageBytes);
+
+                return base64String;
+            }
+            catch (Exception ex)
+            {
+                // Manejar excepciones si es necesario
+                Console.WriteLine("Error al convertir la imagen a base64: " + ex.Message);
+                return null;
+            }
+        }
+
     }
 }

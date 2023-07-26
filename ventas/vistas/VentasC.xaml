@@ -23,10 +23,10 @@
                     <DataGridTextColumn Header="Productos" Binding="{Binding Productos.Count}" />
                     <DataGridTextColumn Header="Vendedor" Binding="{Binding Vendedor.nombre}" />
 
-                    <DataGridTemplateColumn Width="SizeToCells" Header="Editar">
+                    <DataGridTemplateColumn Width="SizeToCells" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Background="#D69E2E" Content="Editar" />
+                                <Button Click="handleVerVenta" Background="#D69E2E" Content="Editar" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
