@@ -23,14 +23,13 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
     /// </summary>
     public partial class vista_editar_proveedor : UserControl
     {
-        private ProveedorService proveedorService = new ProveedorService();
-        
-
-        
-        public vista_editar_proveedor()
+        private readonly ProveedorService proveedorService = new ProveedorService();
+        private int? proveedor_id = null;
+        public vista_editar_proveedor(int id)
         {
+            this.proveedor_id = id;
             InitializeComponent();
-            update_Textbox();
+            mounted(id);
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,14 +45,14 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
                 string contacto = Txtcontactoedit.Text;
 
                 Proveedor proveedor = new Proveedor();
+
+                proveedor.id = this.proveedor_id ?? 0;
                 proveedor.nombre = nombre;
                 proveedor.correo_electronico = correo;
                 proveedor.empresa = empresa;
                 proveedor.telefono = telefono;
                 proveedor.direccion = direccion;
                 proveedor.contacto = contacto;
-
-                proveedor.id = 1;
 
                 this.proveedorService.ActualizarProveedor(proveedor);
 
@@ -71,28 +70,23 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
                 MessageBox.Show("No has ingresado todos los datos");
             }
            
-
-
-
         }
-        public void update_Textbox ()
+
+        public void mounted(int id_proveedor)
         {
 
-            txtNombreedit.Text = autenticacion_proveedor.proveedor.nombre;
-            Txtcontactoedit.Text = autenticacion_proveedor.proveedor.contacto;
-            TxtCorreoedit.Text = autenticacion_proveedor.proveedor.correo_electronico;
-            TxtDireccionedit.Text = autenticacion_proveedor.proveedor.direccion;
-            TxtEmpresaedit.Text = autenticacion_proveedor.proveedor.empresa;
-            Txttelefonoedit.Text = autenticacion_proveedor.proveedor.telefono;
+            Proveedor? proveedor = this.proveedorService.ObtenerProveedorPorId(id_proveedor);
 
+            if (proveedor == null) return;
 
-            
+            txtNombreedit.Text = proveedor.nombre;
+            Txtcontactoedit.Text = proveedor.contacto;
+            TxtCorreoedit.Text = proveedor.correo_electronico;
+            TxtDireccionedit.Text = proveedor.direccion;
+            TxtEmpresaedit.Text = proveedor.empresa;
+            Txttelefonoedit.Text = proveedor.telefono;
             
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

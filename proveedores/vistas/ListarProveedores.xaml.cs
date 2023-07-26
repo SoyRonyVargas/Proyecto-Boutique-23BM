@@ -43,12 +43,15 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
         }
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
+            Proveedor proveedor = (sender as FrameworkElement).DataContext as Proveedor;
+            
+            int id = proveedor.id;
+
             if (App.Current.MainWindow is MainWindow mainWindow)
             {
-                autenticacion_proveedor.proveedor = (sender as FrameworkElement).DataContext as Proveedor;
-                // Llama a la función handleClick en MainWindow
-                mainWindow.handleRouter("editarproveedor");
+                mainWindow.handleRouter("editarproveedor", id);
             }
+            
 
         }
 

@@ -147,7 +147,9 @@ namespace Proyecto23BMBoutique2
             
             if (ruta == "crearproveedor") DataContext = new vista_agregar();
             
-            if (ruta == "editarproveedor") DataContext = new vista_editar_proveedor();
+           
+            if (ruta == "editarproveedor" && parametro is int numero2)
+                DataContext = new vista_editar_proveedor(numero2);
 
             if (ruta == "listarProductos") DataContext = new ListarProductos();
 
@@ -189,12 +191,13 @@ namespace Proyecto23BMBoutique2
 
         private void btnProveedores_Click(object sender, RoutedEventArgs e)
         {
+            
             this.handleRouter("ListarProveedor");
         }
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
-            string password = input_password.Password;
+            var   password = input_password.Password;
 
             if( usuario.Trim().Length == 0 )
             {

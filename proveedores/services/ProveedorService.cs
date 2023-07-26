@@ -63,7 +63,7 @@ namespace Proyecto23BMBoutique2.proveedor.services
             {
                 Proveedor? proveedorExistente = db.Proveedores.FirstOrDefault(p => p.id == proveedorDTO.id);
 
-                    Debugger.Break();
+                    
                 if (proveedorExistente != null)
                 {
                     proveedorExistente.nombre = proveedorDTO.nombre;
@@ -90,6 +90,7 @@ namespace Proyecto23BMBoutique2.proveedor.services
                 return false;
             }
         }
+      
 
         public bool EliminarProveedor(int id)
         {
@@ -111,6 +112,7 @@ namespace Proyecto23BMBoutique2.proveedor.services
                 Errors.handle(ex);
                 return false;
             }
+
         }
     }
 }
