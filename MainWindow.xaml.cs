@@ -191,6 +191,15 @@ namespace Proyecto23BMBoutique2
         {
             this.handleRouter("ListarProveedor");
         }
+
+        private void miTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.Button_Click_1(this, e);
+            }
+        }
+
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
