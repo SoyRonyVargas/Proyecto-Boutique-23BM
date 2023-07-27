@@ -137,8 +137,10 @@ namespace Proyecto23BMBoutique2.ventas.vistas
         private List<VentaProducto> relacionarProductos()
         {
             List<VentaProducto> relaciones = new List<VentaProducto>();
-
-            foreach( VentaProducto _producto in this.productosSeleccionados )
+            this.importe = 0;
+            this.total = 0;
+            this.iva = 0;
+            foreach ( VentaProducto _producto in this.productosSeleccionados )
             {
                 
                 Producto? producto = productoService.ObtenerProductoPorId(_producto.ProductoFK);

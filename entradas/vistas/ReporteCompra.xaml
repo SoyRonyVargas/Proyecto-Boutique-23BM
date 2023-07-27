@@ -4,56 +4,125 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.entradas.vistas"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="545" d:DesignWidth="950">
-    <Grid Background="White">
+    <UserControl.Resources>
+        <!-- Estilo personalizado para el GroupBox -->
+        <Style x:Key="GroupBoxStyle" TargetType="GroupBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="GroupBox">
+                        <Grid>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}" 
+                                    CornerRadius="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <!-- Agrega cualquier contenido adicional aquí -->
+                                    <Border Grid.Row="0" Background="#FF1D5D9B" CornerRadius="5,5,0,0">
+                                        <ContentPresenter ContentSource="Header" Margin="5" >
+                                            <ContentPresenter.Resources>
+                                                <Style TargetType="ContentPresenter">
+                                                    <Setter Property="TextBlock.Foreground" Value="#FFF" />
+                                                    <Setter Property="TextBlock.FontWeight" Value="SemiBold" />
+                                                </Style>
+                                            </ContentPresenter.Resources>
+                                        </ContentPresenter>
+                                    </Border>
+                                    <ContentPresenter Grid.Row="1" Margin="5" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid       Background="#DDDDDD">
+        <Grid Width="902" HorizontalAlignment="Right" >
+    <Grid HorizontalAlignment="Left" Width="652" Background="#dddddd">
+            <Grid>
 
-        <Grid>
-            <Label Content="Registrar Compra" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" Width="191" FontSize="22"/>
+                <GroupBox Style="{StaticResource GroupBoxStyle}"  Header="Crear entrada " Margin="10,37,27,359">
+                    <Grid Height="113">
+                        <Label Content="Nombre Proveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0"/>
+                        <Button x:Name="btnbuscarproveedor" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,37,0,0"/>
+                        <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="131" Height="24"/>
 
-            <GroupBox Header="Informacion Proveedor" Margin="40,42,160,390">
-                <Grid>
-                    <Label Content="Nombre Proveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0"/>
-                    <Button x:Name="btnbuscarproveedor" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,37,0,0"/>
-                    <ComboBox x:Name="selectproveedor" HorizontalAlignment="Left" Margin="116,39,0,0" VerticalAlignment="Top" Width="131" Height="18"/>
-                    
-                    <Label Content="Producto" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="selectProducto" HorizontalAlignment="Left" Margin="116,5,0,0" VerticalAlignment="Top" Width="131" Height="18"/>
+                        <Label Content="Producto" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26"/>
+                        <ComboBox x:Name="selectproveedor" HorizontalAlignment="Left" Margin="115,37,0,0" VerticalAlignment="Top" Width="131" Height="22"/>
 
-                    <Button x:Name="btnbuscarproducto" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,3,0,0"/>
-                    <Label Content="Cantidad" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="350,1,0,0"/>
-                    <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56" Margin="350,30,0,0"/>
+                        <Button x:Name="btnbuscarproducto" Content="Agregar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="461,4,0,0" Click="btnbuscarproducto_Click"/>
+                        <Button x:Name="btnbuscarproducto_Copy" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,4,0,0" Click="btnbuscarproducto_Copy_Click"/>
+                        <TextBox x:Name="inputx_producto" HorizontalAlignment="Left" Margin="116,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Height="23"/>
+                    </Grid>
+                </GroupBox>
+                <Label Content="Total a pagar:" HorizontalAlignment="Left" Margin="802,350,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="input_producto" HorizontalAlignment="Left" Margin="809,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
+                <Button x:Name="btnregistrar"  Content="Registrar" HorizontalAlignment="Left" Margin="802,413,0,0" VerticalAlignment="Top" Width="123" Background="#FF01DDF9" Foreground="Black" BorderBrush="#FF050506" />
+            </Grid>
 
-                    <Button x:Name="btnagregarproducto"  Content="Agregar" HorizontalAlignment="Left" Margin="500,15,0,0" VerticalAlignment="Top" Background="#FF067B0D" Click="btnAgregarProducto_Click"/>
-                </Grid>
-            </GroupBox>
-            <Label Content="Total a pagar:" HorizontalAlignment="Left" Margin="802,350,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txttotalpagar" HorizontalAlignment="Left" Margin="809,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
-            <Button x:Name="btnregistrar"  Content="Registrar" HorizontalAlignment="Left" Margin="802,413,0,0" VerticalAlignment="Top" Width="123" Background="#FF01DDF9" Foreground="Black" BorderBrush="#FF050506" Click="btnregistrar_Click"/>
+            <DataGrid x:Name="gridProductosEntrada" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="10,193,10,62" Background="{x:Null}">
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Producto" Binding="{Binding Producto.descripcion}" />
+
+                    <DataGridTemplateColumn Width="150" Header="Existencias">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Replace 'TextBoxBindingProperty' with the actual property to bind from your data item -->
+                                <TextBox Loaded="CantidadTextBox_Loaded" x:Name="CantidadTextBox" Text="{Binding cantidad, UpdateSourceTrigger=PropertyChanged}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Importe" Binding="{Binding importe,StringFormat=\{0:C\}}" />
+
+                    <DataGridTextColumn Header="IVA" Binding="{Binding iva,StringFormat=\{0:C\}}" />
+
+                    <DataGridTextColumn Header="Total" Binding="{Binding total,StringFormat=\{0:C\}}" />
+
+                    <DataGridTemplateColumn Width="80" Header="Eliminar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="EliminarButton_Click" BorderBrush="#a11616" Background="#a11616" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
-
-        <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="40,180,160,30" Background="{x:Null}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding id}" />
-                <DataGridTextColumn Header="Producto" Binding="{Binding producto}" />
-                <DataGridTextColumn Header="Cantidad" Binding="{Binding cantidad}" />
-
-                <DataGridTemplateColumn Header="Editar">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Edit" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Delete">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Left" Margin="657,0,0,0">
+            <Grid Height="35" VerticalAlignment="Top" Margin="20,40,20,0">
+                <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Importe" />
+                <Label x:Name="labelImporte" FontWeight="Bold" HorizontalAlignment="Right" Content="0.00" />
+                <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            </Grid>
+            <Grid VerticalAlignment="Top" Height="35" Margin="20,80,20,0">
+                <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="IVA" />
+                <Label x:Name="labelIVA" FontWeight="Bold" HorizontalAlignment="Right" Content="0.00" />
+                <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            </Grid>
+            <Grid VerticalAlignment="Top" Height="35" Margin="20,120,20,0">
+                <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Total" />
+                <Label x:Name="labelTotal" FontWeight="Bold" HorizontalAlignment="Right" Content="0.00" />
+                <Separator Height="30" VerticalAlignment="Top" Margin="0,20,0,0"/>
+            </Grid>
+            <Button Click="handleGuardarEntrada" BorderBrush="#FF1D5D9B" Background="#FF1D5D9B" Style="{StaticResource MaterialDesignRaisedAccentButton}" Margin="20,170,20,345">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <!--<materialDesign:PackIcon Foreground="White" Kind="BatterySaver" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+                    <TextBlock Foreground="White" Text="Guardar" VerticalAlignment="Center" Margin="5 0 0 0" />
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
     </Grid>
 </UserControl>

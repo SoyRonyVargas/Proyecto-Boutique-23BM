@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.producto.vistas"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
               d:DesignHeight="545" d:DesignWidth="950">
     <UserControl.Resources>
@@ -65,7 +66,8 @@
             <DataGrid x:Name="ProductosTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
                 
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn Header="Imagen">
+                    <DataGridTextColumn Width="50" Header="ID" Binding="{Binding id}" />
+                    <DataGridTemplateColumn Width="80" Header="Imagen">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <!-- Usamos un Image control para mostrar la imagen -->
@@ -74,28 +76,38 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     
-                    <DataGridTextColumn Header="ID" Binding="{Binding id}" />
-                    <DataGridTextColumn Header="Estatus" Binding="{Binding status}" />
-                    <DataGridTextColumn Header="Descripción" Binding="{Binding descripcion}" />
-                    <DataGridTextColumn Header="Categoria" Binding="{Binding CatActual.nombre}" />
-                        
-                    <DataGridTemplateColumn Header="Editar">
+                    <DataGridTextColumn Width="80" Header="Estatus" Binding="{Binding status}" />
+                    <DataGridTextColumn Width="150" Header="Descripción" Binding="{Binding descripcion}" />
+                    <DataGridTextColumn  Width="150" Header="Categoria" Binding="{Binding CatActual.nombre}" />
+
+                    <DataGridTemplateColumn Width="145" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" Click="EditProductos_Click" />
+                                <Button Background="#FF0072CC" Click="EditProductos_Click" >
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <materialDesign:PackIcon Foreground="White" Kind="Pencil" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Foreground="White" Text="Editar" VerticalAlignment="Center" Margin="5,0,0,0" />
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn Width="145" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" Click="btnDeleteUsuario_Click"/>
+                                <Button Background="#FF0072CC"  Click="btnDeleteUsuario_Click">
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <materialDesign:PackIcon Foreground="White" Kind="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock Foreground="White" Text="Eliminar" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Button x:Name="btnAñadirProductos" Content="Añadir productos" HorizontalAlignment="Left" Margin="710,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="AñadirProductos_Click"/>
+            <Label Content="Productos" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Height="32" Width="131" FontSize="20" FontWeight="Bold"/>
 
         </Grid>
     </Grid>

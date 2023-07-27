@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.proveedores.vistas"
              mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DesignHeight="545" d:DesignWidth="950">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -64,31 +65,41 @@
             <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
             <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                    <DataGridTextColumn Width="50" Header="Id" Binding="{Binding id}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
-                    <DataGridTextColumn Header="Contacto" Binding="{Binding contacto}" />
                     <DataGridTextColumn Header="Correo" Binding="{Binding correo_electronico}" />
                     <DataGridTextColumn Header="Empresa" Binding="{Binding empresa}" />
                     <DataGridTextColumn Header="Dirección" Binding="{Binding direccion}" />
                     <DataGridTextColumn Header="Telefono" Binding="{Binding telefono}" />
 
-                    <DataGridTemplateColumn Header="Editar">
+                    <DataGridTemplateColumn Width="120" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" Click="Edit_Click" />
+                                <Button Background="#FF0072CC" Click="Edit_Click">
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <materialDesign:PackIcon FontSize="10" Width="10" Foreground="White" Kind="Pencil" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock FontSize="10" Foreground="White" Text="Editar" VerticalAlignment="Center" Margin="5,0,0,0" />
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn Width="125" Header="">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" Click="btnDeleteProveedor_Click"/>
+                                <Button Background="#FF0072CC" Click="btnDeleteProveedor_Click">
+                                    <StackPanel Orientation="Horizontal" Margin="5">
+                                        <materialDesign:PackIcon FontSize="10" Width="10" Foreground="White" Kind="Trash" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        <TextBlock FontSize="10" Foreground="White" Text="Eliminar" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Content="Crear usuario" HorizontalAlignment="Left" Margin="726,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="Button_Click" />
+            <Button Background="#FF0072CC" Content="Agregar proveedor" HorizontalAlignment="Left" Margin="697,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.455,1.344" Click="Button_Click" Width="158" />
+            <Label Content="Proveedores" HorizontalAlignment="Left" Margin="0,29,0,0" VerticalAlignment="Top" Height="32" Width="131" FontSize="20" FontWeight="Bold"/>
 
         </Grid>
     </Grid>

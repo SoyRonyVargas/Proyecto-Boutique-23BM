@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Proyecto23BMBoutique2.entradas.vistas"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="545" d:DesignWidth="900" Loaded="UserControl_Loaded">
+             d:DesignHeight="545" d:DesignWidth="950" Loaded="UserControl_Loaded">
     <Grid>
         <Grid Background="White">
             <Grid Width="855">
@@ -15,35 +16,36 @@
                 <Image Margin="382,11,334,600" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
                 <!--<Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>-->
                 <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
-                <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
+                <DataGrid x:Name="gridEntradas" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding id}" />
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
-                        <DataGridTextColumn Header="Apellido" Binding="{Binding apellidos}" />
-                        <DataGridTextColumn Header="Correo" Binding="{Binding correo}" />
-                        <DataGridTextColumn Header="Usuario" Binding="{Binding nombreUsuario}" />
-                        <DataGridTextColumn Header="Password" Binding="{Binding password}" />
-                        <DataGridTextColumn Header="Rol" Binding="{Binding Rol.nombre}" />
 
-                        <DataGridTemplateColumn Header="Editar">
+                        <DataGridTextColumn Width="50" Header="N°" Binding="{Binding id}" />
+                        <DataGridTextColumn Width="80" Header="Estado" Binding="{Binding status}" />
+                        <DataGridTextColumn Width="100" Header="Proveedor" Binding="{Binding Proveedor.nombre}" />
+                        <DataGridTextColumn Header="Importe"  Binding="{Binding importe, StringFormat=\{0:C\}}" />
+                        <DataGridTextColumn Header="IVA" Binding="{Binding iva,StringFormat=\{0:C\}}" />
+                        <DataGridTextColumn Header="Total" Binding="{Binding total, StringFormat=\{0:C\}}" />
+                        <!--<DataGridTextColumn Header="Productos" Binding="{Binding EntradaProductos.Count}" />-->
+                        <DataGridTextColumn Width="150" Header="Creado" Binding="{Binding CreatedDate,StringFormat=\{0:dd/MM/yyyy HH:mm:ss\}}" />
+
+                        <DataGridTemplateColumn Width="120" Header="">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Edit"  />
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Delete">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="Delete" />
+                                    <Button Background="#FF0072CC" Click="handleVerEntrada">
+                                        <StackPanel Orientation="Horizontal" Margin="5">
+                                            <materialDesign:PackIcon Foreground="White" Kind="Eye" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                            <TextBlock Foreground="White" Text="Ver" VerticalAlignment="Center" Margin="5 0 0 0" />
+                                        </StackPanel>
+                                    </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Button Content="Añadir Entrada " HorizontalAlignment="Left" Margin="726,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="AñadirCompra_Click"/>
+                <Button Content="Añadir Entrada" HorizontalAlignment="Left" Margin="726,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="AñadirCompra_Click"/>
 
             </Grid>
+            <Label Content="Entradas" HorizontalAlignment="Left" Margin="48,35,0,0" VerticalAlignment="Top" Height="32" Width="106" FontSize="20" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </UserControl>

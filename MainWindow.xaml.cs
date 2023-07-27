@@ -23,6 +23,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Proyecto23BMBoutique2.entradas.vistas;
 
 namespace Proyecto23BMBoutique2
 {
@@ -127,7 +128,6 @@ namespace Proyecto23BMBoutique2
         }
 
         public void handleRouter( string ruta , object? parametro = null )
-
         {
 
             if (ruta == "listasVentas") DataContext = new VentasC();
@@ -142,7 +142,16 @@ namespace Proyecto23BMBoutique2
             if (ruta == "crearUsuario") DataContext = new CrearUsuario();    
        
             if (ruta == "listasVentas") DataContext = new VentasC();
-            
+
+            // ENTRADAS 
+
+            if (ruta == "listarEntradas") DataContext = new ListarCompras();
+
+            if (ruta == "crearEntrada") DataContext = new ReporteCompra();
+
+            if (ruta == "editarEntrada" && parametro is int idEntrada)
+                DataContext = new EditarEntrada(idEntrada);
+
             if (ruta == "ListarProveedor") DataContext = new ListarProveedores();
             
             if (ruta == "crearproveedor") DataContext = new vista_agregar();
@@ -168,6 +177,11 @@ namespace Proyecto23BMBoutique2
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
         {
             this.handleRouter("listarUsuarios");
+        }
+
+        private void btnEntrada_Click(object sender, RoutedEventArgs e)
+        {
+            this.handleRouter("listarEntradas");
         }
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {

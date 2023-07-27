@@ -56,34 +56,33 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Grid Width="855">
-            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="-14,171,0,10" Background="{x:Null}">
+            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="0,129,0,28" Background="{x:Null}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                    <DataGridTextColumn Width="50" Header="Id" Binding="{Binding id}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
                     <DataGridTextColumn Header="Apellido" Binding="{Binding apellidos}" />
                     <DataGridTextColumn Header="Correo" Binding="{Binding correo}" />
                     <DataGridTextColumn Header="Usuario" Binding="{Binding nombreUsuario}" />
-                    <DataGridTextColumn Header="Password" Binding="{Binding password}" />
                     <DataGridTextColumn Header="Rol" Binding="{Binding Rol.nombre}" />
 
                     <DataGridTemplateColumn Header="Editar">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edit" Click="btnEditUsuario_Click" />
+                                <Button Background="#FF1D5D9B"  Content="Edit" Click="btnEditUsuario_Click" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Delete">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Delete" Click="btnDeleteUsuario_Click"/>
+                                <Button Background="#FF1D5D9B"  Content="Delete" Click="btnDeleteUsuario_Click"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header="Foto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Ver" Click="btnVerFoto_Click" />
+                                <Button Background="#FF1D5D9B"  Content="Ver" Click="btnVerFoto_Click" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -97,6 +96,7 @@
             </Popup>
             <Image x:Name="Imagen" HorizontalAlignment="Left" Height="101" Margin="726,59,0,0" VerticalAlignment="Top" Width="106"/>
             <Label Content="Foto de Perfil" HorizontalAlignment="Left" Height="32" Margin="731,27,0,0" VerticalAlignment="Top" Width="92"/>
+            <Label Content="Usuarios" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Height="32" Width="106" FontSize="20" FontWeight="Bold"/>
         </Grid>
     </Grid>
 </UserControl>

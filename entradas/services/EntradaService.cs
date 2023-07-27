@@ -5,6 +5,8 @@ using System.Linq;
 using System;
 using Proyecto23BMBoutique2.entradas.entities;
 using Microsoft.EntityFrameworkCore;
+using Proyecto23BMBoutique2.ventas.entities;
+using System.Diagnostics;
 
 namespace Proyecto23BMBoutique2.entrada.services
 {
@@ -13,21 +15,39 @@ namespace Proyecto23BMBoutique2.entrada.services
         private RestauranteDataContext db = new RestauranteDataContext();
 
         // Create
-        public bool AgregarEntrada(Entrada entrada)
+        public bool AgregarEntrada(Entrada entrada , List<Entrada_Has_Producto>? productos)
         {
             try
             {
                 
+                entrada.CreatedDate = DateTime.Now;
+
                 db.Entradas.Add(entrada);
                 
                 db.SaveChanges();
                 
+                foreach (Entrada_Has_Producto producto in productos)
+                {
+                    producto.Entrada = null;
+                    producto.EntradaId = entrada.id;
+                    producto.Producto = null!;
+                    
+                    entrada.EntradaProductos.Add(producto);
+
+                }
+
+                db.Entradas.Update(entrada);
+
+                db.SaveChanges();
+
                 return true;
                 
             }
             catch (Exception ex)
             {
-                
+
+                Debugger.Break();
+
                 Errors.handle(ex);
                 
                 return false;
@@ -45,6 +65,7 @@ namespace Proyecto23BMBoutique2.entrada.services
                     .ThenInclude( ep => ep.Producto )
                     .Include(entrada => entrada.Proveedor)
                     .Include(entrada => entrada.Usuario)
+                    .OrderByDescending( x => x.id )
                     .ToList();   
             }
             catch (Exception ex)
