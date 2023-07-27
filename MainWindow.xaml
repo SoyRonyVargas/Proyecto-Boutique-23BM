@@ -206,7 +206,7 @@
                                      x:Name="btnEntradas" 
                                      Height="40" 
                                      Width="200" 
-                                     Click="btnProductos_Click"
+                                     Click="btnEntrada_Click"
                                  >
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>

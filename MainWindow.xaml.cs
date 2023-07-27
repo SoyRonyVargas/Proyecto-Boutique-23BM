@@ -1,4 +1,5 @@
 ﻿using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.entradas.vistas;
 using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
@@ -34,7 +35,7 @@ namespace Proyecto23BMBoutique2
         {
 
             this.usuarioService.Load();
-            
+
             InitializeComponent();
 
             //new Ventas().Show();
@@ -101,9 +102,9 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           Bienvenida1 bienvenida = new Bienvenida1();
+            Bienvenida1 bienvenida = new Bienvenida1();
             Close();
-            bienvenida.Show();  
+            bienvenida.Show();
         }
 
         private void TBShow(object sender, RoutedEventArgs e)
@@ -122,15 +123,22 @@ namespace Proyecto23BMBoutique2
         {
             DataContext = new VentasC();
         }
-
-        public void handleRouter( string ruta )
+        private void btnEntrada_Click(object sender, RoutedEventArgs e)
         {
-            if( ruta == "crearVenta" ) DataContext = new CrearVenta();
-            
+            DataContext = new ListarCompras();
+        }
+
+        public void handleRouter(string ruta)
+        {
+            if (ruta == "crearVenta") DataContext = new CrearVenta();
+
             if (ruta == "listarUsuarios") DataContext = new ListarUsuarios();
-            
+
             if (ruta == "crearUsuario") DataContext = new CrearUsuario();
-            
+
+            if (ruta == "ReporteCompra") DataContext = new ReporteCompra();
+
+            if (ruta == "ListarCompras") DataContext = new ListarCompras();
         }
 
         private void handleListarUsuarios(object sender, RoutedEventArgs e)
@@ -154,7 +162,7 @@ namespace Proyecto23BMBoutique2
             gridLogin.Visibility = Visibility.Visible;
             input_usuario.Focus();
         }
-
+       
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;

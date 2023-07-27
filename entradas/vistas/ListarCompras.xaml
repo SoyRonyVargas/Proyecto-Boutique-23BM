@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Proyecto23BMBoutique2.entradas.vistas.ListarCompras"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Proyecto23BMBoutique2.entradas.vistas"
+             mc:Ignorable="d" 
+             d:DesignHeight="545" d:DesignWidth="900" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid Background="White">
+            <Grid Width="855">
+                <Image Margin="14,17,724,607" Source="/Vistas/VistaAdministrador/GestionUsuarios/carrito-de-compras.png" Stretch="Fill"/>
+                <Image Margin="122,12,602,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/listas-de-control.png" Stretch="Fill"/>
+                <Image Margin="511,13,214,608" Source="/Vistas/VistaAdministrador/GestionUsuarios/usuario.png" Stretch="Fill"/>
+                <Image Margin="382,11,334,600" Source="/Vistas/VistaAdministrador/GestionUsuarios/gestion-de-equipos.png" Stretch="Fill"/>
+                <!--<Image Margin="745,627,13,10" Source="/Elementos Visuales/AgregarProducto/apoyo.png" Stretch="Fill"/>-->
+                <Image Margin="639,4,13,594" Source="/Vistas/VistaAdministrador/GestionUsuarios/logo-black.png" Stretch="Fill"/>
+                <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="12,90,11,10" Background="{x:Null}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding id}" />
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
+                        <DataGridTextColumn Header="Apellido" Binding="{Binding apellidos}" />
+                        <DataGridTextColumn Header="Correo" Binding="{Binding correo}" />
+                        <DataGridTextColumn Header="Usuario" Binding="{Binding nombreUsuario}" />
+                        <DataGridTextColumn Header="Password" Binding="{Binding password}" />
+                        <DataGridTextColumn Header="Rol" Binding="{Binding Rol.nombre}" />
+
+                        <DataGridTemplateColumn Header="Editar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit"  />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Delete">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Button Content="Añadir Entrada " HorizontalAlignment="Left" Margin="726,39,0,0" VerticalAlignment="Top" Background="#FF0072CC" RenderTransformOrigin="0.455,1.344" Click="AñadirCompra_Click"/>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
