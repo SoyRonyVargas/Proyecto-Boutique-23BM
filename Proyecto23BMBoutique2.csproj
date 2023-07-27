@@ -37,6 +37,7 @@
     <None Remove="productos.png" />
     <None Remove="proveedor.png" />
     <None Remove="usuario.png" />
+    <None Remove="usuario\vistas\perfil.gif" />
     <None Remove="ventas.png" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
@@ -54,7 +55,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignExtensions" Version="3.3.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -83,6 +87,7 @@
     <Resource Include="productos.png" />
     <Resource Include="proveedor.png" />
     <Resource Include="usuario.png" />
+    <Resource Include="usuario\vistas\perfil.gif" />
     <Resource Include="ventas.png" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
     <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />

@@ -11,8 +11,8 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    [Migration("20230719172918_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230725024021_Boutique23BM")]
+    partial class Boutique23BM
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -185,6 +185,68 @@ namespace Proyecto23BMBoutique2.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Proveedores");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            contacto = "Contacto",
+                            correo_electronico = "oscar@empresa1.com",
+                            direccion = "Dirección1",
+                            empresa = "Empresa1",
+                            nombre = "Oscar",
+                            status = 1,
+                            telefono = "123456789"
+                        },
+                        new
+                        {
+                            id = 2,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            contacto = "Contacto",
+                            correo_electronico = "lucia@empresa2.com",
+                            direccion = "Dirección2",
+                            empresa = "Empresa2",
+                            nombre = "Lucía",
+                            status = 1,
+                            telefono = "987654321"
+                        },
+                        new
+                        {
+                            id = 3,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            contacto = "Contacto",
+                            correo_electronico = "carlos@empresa3.com",
+                            direccion = "Dirección3",
+                            empresa = "Empresa3",
+                            nombre = "Carlos",
+                            status = 1,
+                            telefono = "456789123"
+                        },
+                        new
+                        {
+                            id = 4,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            contacto = "Contacto",
+                            correo_electronico = "laura@empresa4.com",
+                            direccion = "Dirección4",
+                            empresa = "Empresa4",
+                            nombre = "Laura",
+                            status = 1,
+                            telefono = "789123456"
+                        },
+                        new
+                        {
+                            id = 5,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            contacto = "Contacto",
+                            correo_electronico = "miguel@empresa5.com",
+                            direccion = "Dirección5",
+                            empresa = "Empresa5",
+                            nombre = "Miguel",
+                            status = 1,
+                            telefono = "321654987"
+                        });
                 });
 
             modelBuilder.Entity("Proyecto23BMBoutique2.ventas.entities.Venta", b =>
@@ -349,6 +411,10 @@ namespace Proyecto23BMBoutique2.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("Imagen")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("RolFK")
                         .HasColumnType("int");
 
@@ -379,6 +445,7 @@ namespace Proyecto23BMBoutique2.Migrations
                         new
                         {
                             id = 1,
+                            Imagen = "123123123123123123123",
                             RolFK = 1,
                             apellidos = "Gomez",
                             correo = "prueba@gmail.com",

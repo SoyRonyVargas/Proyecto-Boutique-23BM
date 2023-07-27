@@ -12,13 +12,11 @@ namespace ProyectoBoutique23BM.Clases
 {
     public class RestauranteDataContext : DbContext
     {
-        static readonly string connectionString = "Server=localhost;port=3306;User ID=root2; Password=; Database=Boutique23BM";
+        static readonly string connectionString = "Server=localhost;port=3306;User ID=root; Password=; Database=Boutique23BM";
 
         public DbSet<Producto>Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
-
         public DbSet<Categoria> Categorias { get; set; }
-
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<VentaProducto> VentasProductos { get; set; }
@@ -40,7 +38,7 @@ namespace ProyectoBoutique23BM.Clases
             catch(Exception e)
             {
                 Console.WriteLine("Error al conectar la base de datos");
-                Debugger.Break();
+                
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -176,6 +174,7 @@ namespace ProyectoBoutique23BM.Clases
                     password = "1234",
                     nombreUsuario = "cazadordeabuelas",
                     RolFK = 1,
+                    Imagen = "123123123123123123123",
                 }
             );
 

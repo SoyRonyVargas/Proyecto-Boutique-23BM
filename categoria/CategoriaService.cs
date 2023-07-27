@@ -17,15 +17,15 @@ namespace Proyecto23BMBoutique2.categoria.services
         //}
 
         //// Read
-        //public List<Categoria> ObtenerTodasLasCategorias()
-        //{
-        //    return db.Categorias.ToList();
-        //}
+        public List<Categoria> ObtenerTodasLasCategorias()
+        {
+            return db.Categorias.ToList();
+        }
 
-        //public Categoria ObtenerCategoriaPorId(int id)
-        //{
-        //    return db.Categorias.FirstOrDefault(c => c.id == id);
-        //}
+        public Categoria ObtenerCategoriaPorId(int id)
+        {
+            return db.Categorias.FirstOrDefault(c => c.id == id);
+        }
 
         //// Update
         //public void ActualizarCategoria(Categoria categoria)

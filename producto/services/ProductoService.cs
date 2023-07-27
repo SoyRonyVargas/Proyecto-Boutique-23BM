@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Proyecto23BMBoutique2.Clases;
+using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto23BMBoutique2.producto.services
 {
@@ -30,7 +31,7 @@ namespace Proyecto23BMBoutique2.producto.services
         {
             try
             {
-                return db.Productos.ToList();
+                return db.Productos.Include(x => x.CatActual).ToList();
             }
             catch(Exception ex) 
             {
@@ -39,6 +40,21 @@ namespace Proyecto23BMBoutique2.producto.services
                 return new List<Producto> { };
             }
             
+        }
+
+        public List<Producto> ObtenerProductosPorNombre(string nombre)
+        {
+            try
+            {
+                List<Producto> productos = db.Productos.Where(p => p.descripcion.Contains(nombre)).ToList();
+
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                Errors.handle(ex);
+                return null;
+            }
         }
 
         public Producto? ObtenerProductoPorId(int id)
@@ -67,6 +83,7 @@ namespace Proyecto23BMBoutique2.producto.services
 
                 if (productoExistente != null)
                 {
+                    productoExistente.imagen = productoDTO.imagen;
                     productoExistente.descripcion = productoDTO.descripcion;
                     productoExistente.status = productoDTO.status;
                     productoExistente.CategoriaFK = productoDTO.CategoriaFK;

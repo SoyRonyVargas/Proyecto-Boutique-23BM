@@ -38,9 +38,21 @@ namespace Proyecto23BMBoutique2.ventas.vistas
             gridVentas.ItemsSource = ventas;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void handleVerVenta(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
 
+            if (sender is Button)
+            {
+                if (App.Current.MainWindow is MainWindow mainWindow)
+                {
+                    
+                    Venta venta = button.DataContext as Venta;
+
+                    mainWindow.handleRouter("editarVenta" , venta.id);
+
+                }
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
