@@ -1,8 +1,6 @@
 ﻿using Proyecto23BMBoutique2.rol.services;
 using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.ventas.vistas;
-using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
-using Proyecto23BMBoutique2.Vistas.VistaAdministrador.HacerPedido;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;

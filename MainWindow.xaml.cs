@@ -5,7 +5,6 @@ using Proyecto23BMBoutique2.usuario.services;
 using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Vistas;
-using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -38,8 +37,10 @@ namespace Proyecto23BMBoutique2
         {
 
             this.usuarioService.Load();
-            
+
             InitializeComponent();
+
+            loggedIn();
 
             //new Ventas().Show();
             //Window ventana = (Window)Activator.CreateInstance(Router.routes[0].WindowType);
@@ -105,9 +106,13 @@ namespace Proyecto23BMBoutique2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           Bienvenida1 bienvenida = new Bienvenida1();
-            Close();
-            bienvenida.Show();  
+           
+        }
+
+        private void loggedIn()
+        {
+            Dashboard bienvenida = new Dashboard();
+            DataContext = bienvenida;
         }
 
         private void TBShow(object sender, RoutedEventArgs e)

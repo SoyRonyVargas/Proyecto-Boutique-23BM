@@ -2,7 +2,6 @@
 using Proyecto23BMBoutique2.proveedor.services;
 using Proyecto23BMBoutique2.proveedores.entities;
 using Proyecto23BMBoutique2.usuario.services;
-using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -54,9 +53,6 @@ namespace Proyecto23BMBoutique2.proveedores.vistas
 
         private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Bienvenida1 bienvenida = new Bienvenida1();
-            //Close();
-            bienvenida.Show();
         }
         private void btnDeleteProveedor_Click(object sender, RoutedEventArgs e)
         {

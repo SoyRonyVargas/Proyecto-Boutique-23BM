@@ -2,7 +2,6 @@
 using Proyecto23BMBoutique2.Auth;
 using Proyecto23BMBoutique2.producto.services;
 using Proyecto23BMBoutique2.usuario.services;
-using Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
@@ -33,10 +32,8 @@ namespace Proyecto23BMBoutique2.producto.vistas
         }
         private void MenuP(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            Bienvenida1 bienvenida = new Bienvenida1();
-            //Close();
-            bienvenida.Show();
         }
+
         private void AñadirProductos_Click(object sender, RoutedEventArgs e)
         {
 

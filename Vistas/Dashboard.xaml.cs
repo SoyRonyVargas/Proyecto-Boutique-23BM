@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Proyecto23BMBoutique2.Vistas.VistaAdministrador.Bienvenida
+namespace Proyecto23BMBoutique2.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para BienvenidaControl.xaml
+    /// Lógica de interacción para Dashboard.xaml
     /// </summary>
-    public partial class BienvenidaControl : UserControl
+    public partial class Dashboard : UserControl
     {
-        public BienvenidaControl()
+        public Dashboard()
         {
             InitializeComponent();
         }

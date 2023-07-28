@@ -8,16 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Vistas\VistaAdministrador\Inventario\**" />
     <Compile Remove="Vistas\Vista-Empleado\**" />
     <Compile Remove="Vistas\Vista-Gerente\**" />
-    <EmbeddedResource Remove="Vistas\VistaAdministrador\Inventario\**" />
     <EmbeddedResource Remove="Vistas\Vista-Empleado\**" />
     <EmbeddedResource Remove="Vistas\Vista-Gerente\**" />
-    <None Remove="Vistas\VistaAdministrador\Inventario\**" />
     <None Remove="Vistas\Vista-Empleado\**" />
     <None Remove="Vistas\Vista-Gerente\**" />
-    <Page Remove="Vistas\VistaAdministrador\Inventario\**" />
     <Page Remove="Vistas\Vista-Empleado\**" />
     <Page Remove="Vistas\Vista-Gerente\**" />
   </ItemGroup>
@@ -39,19 +35,8 @@
     <None Remove="usuario.png" />
     <None Remove="usuario\vistas\perfil.gif" />
     <None Remove="ventas.png" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\cerrar-sesion.gif" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
-    <None Remove="Vistas\VistaAdministrador\Bienvenida\usuario.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\carrito-de-compras.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\gestion-de-equipos.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\listas-de-control.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\logo-black.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\orden.png" />
-    <None Remove="Vistas\VistaAdministrador\GestionUsuarios\usuario.png" />
+    <None Remove="Vistas\bienvenida.png" />
+    <None Remove="Vistas\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -89,19 +74,8 @@
     <Resource Include="usuario.png" />
     <Resource Include="usuario\vistas\perfil.gif" />
     <Resource Include="ventas.png" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\299157410_1692436947783317_6374977674242083958_n.jpg" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\carrito-de-compras.png" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\cerrar-sesion.gif" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\gestion-de-equipos.png" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\informacion.gif" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\listas-de-control.png" />
-    <Resource Include="Vistas\VistaAdministrador\Bienvenida\usuario.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\carrito-de-compras.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\gestion-de-equipos.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\listas-de-control.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\logo-black.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\orden.png" />
-    <Resource Include="Vistas\VistaAdministrador\GestionUsuarios\usuario.png" />
+    <Resource Include="Vistas\bienvenida.png" />
+    <Resource Include="Vistas\logo.png" />
   </ItemGroup>
 
 </Project>
