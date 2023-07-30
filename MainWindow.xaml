@@ -140,8 +140,36 @@
                     <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
                     <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="500">
                         <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                            <ListViewItem VerticalAlignment="Top"  Height="70" Selected="ListViewItem_Selected" >
-                                <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="BtnInicio_Click">
+                            <ListViewItem VerticalAlignment="Top"  Height="60" Selected="ListViewItem_Selected" >
+                                <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="btnDash">
+                                    <Grid Width="200">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="30" />
+                                            <ColumnDefinition Width="99"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock 
+                                        Grid.Column="1" 
+                                        Text="Dashboard" 
+                                        FontWeight="Bold"
+                                        FontSize="15"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Margin="20,0,0,0"
+                                    />
+                                        <Image 
+                                        Grid.Column="0" 
+                                        Width="30" 
+                                        HorizontalAlignment="Center" Source="/dash2.png" 
+                                    >
+                                            <Image.OpacityMask>
+                                                <ImageBrush ImageSource="/dash2.png"/>
+                                            </Image.OpacityMask>
+                                        </Image>
+                                    </Grid>
+                                </Button>
+                            </ListViewItem>
+                            <ListViewItem VerticalAlignment="Top" Height="60" Selected="ListViewItem_Selected" >
+                                <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Height="40" Width="200" Click="BtnInicio_Click">
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="30" />
@@ -166,7 +194,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <ListViewItem VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="btnProductos" Height="40" Width="200" Click="btnProductos_Click">
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
@@ -198,7 +226,7 @@
                                 </Button>
                             </ListViewItem>
 
-                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <ListViewItem VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -238,7 +266,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <ListViewItem VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -278,7 +306,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="70" >
+                            <ListViewItem VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -318,7 +346,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Bottom"  Height="70" >
+                            <ListViewItem VerticalAlignment="Bottom"  Height="60" >
                                 <Button  VerticalAlignment="Bottom" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 

@@ -6,22 +6,8 @@ using Proyecto23BMBoutique2.usuario.vistas;
 using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Vistas;
 using ProyectoBoutique23BM.Clases;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Proyecto23BMBoutique2.entradas.vistas;
 
 namespace Proyecto23BMBoutique2
@@ -40,7 +26,7 @@ namespace Proyecto23BMBoutique2
 
             InitializeComponent();
 
-            loggedIn();
+            //loggedIn();
 
             //new Ventas().Show();
             //Window ventana = (Window)Activator.CreateInstance(Router.routes[0].WindowType);
@@ -127,6 +113,10 @@ namespace Proyecto23BMBoutique2
             //bienvenida.Show();
         }
 
+        private void btnDash(object sender, RoutedEventArgs e)
+        {
+            this.handleRouter("dashboard");
+        }
         private void btnProductos_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new ListarProductos();
@@ -134,6 +124,8 @@ namespace Proyecto23BMBoutique2
 
         public void handleRouter( string ruta , object? parametro = null )
         {
+
+            if (ruta == "dashboard") DataContext = new Dashboard();
 
             if (ruta == "listasVentas") DataContext = new VentasC();
 
@@ -257,6 +249,8 @@ namespace Proyecto23BMBoutique2
             input_password.Password = "";
             
             input_usuario.Text = "";
+
+            loggedIn();
 
         }
 

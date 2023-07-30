@@ -6,6 +6,8 @@ using System.Linq;
 using System;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Proyecto23BMBoutique2.ventas.vistas;
+using Proyecto23BMBoutique2.Auth;
 
 namespace Proyecto23BMBoutique2.ventas.services
 {
@@ -13,6 +15,42 @@ namespace Proyecto23BMBoutique2.ventas.services
     {
         private readonly RestauranteDataContext db = new RestauranteDataContext();
 
+        public List<MejorVendedor> GetMejoresVendedores()
+        {
+            return this.db.Ventas
+                .Include(v => v.Vendedor)
+                .GroupBy(v => v.VendedorFK)
+                .Select(g => new MejorVendedor
+                {
+                    Vendedor = g.Select( x => x.Vendedor.nombre ).FirstOrDefault()!,
+                    total = g.Sum(v => v.total)
+                })
+                .OrderByDescending(vvt => vvt.total)
+                .Take(4)
+                .ToList();
+        }
+
+        public List<MejorProducto> GetMejoresProductos()
+        {
+            return this.db.VentasProductos
+                .Include( vp => vp.Producto )
+                .GroupBy(vp => vp.ProductoFK)
+                .Select(g => new MejorProducto()
+                {
+                    nombre = g.Select( x => x.Producto.descripcion ).FirstOrDefault()!,
+                    cantidad = g.Sum(vp => vp.cantidad)
+                })
+                .OrderByDescending(mejor_producto => mejor_producto.cantidad )
+                .Take(4)
+                .ToList();
+        }
+
+        public List<Venta> GetVentasPorUsuario()
+        {
+            return this.db.Ventas
+                .Where(venta => venta.VendedorFK == Autenticacion.usuario!.id )
+                .ToList();
+        }
         public Venta? GetVentaById(int id)
         {
             return this.db.Ventas
@@ -24,6 +62,7 @@ namespace Proyecto23BMBoutique2.ventas.services
         public List<Venta> GetAllVentas()
         {
             return this.db.Ventas
+                .Where( v => v.VendedorFK == Autenticacion.usuario.id )
                 .Include(v => v.Productos)
                 .Include(v => v.Vendedor)
                 .OrderByDescending( v => v.id )

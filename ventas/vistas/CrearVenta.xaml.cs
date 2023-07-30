@@ -257,8 +257,6 @@ namespace Proyecto23BMBoutique2.ventas.vistas
                 MessageBox.Show("Error al crear la venta");
             }
 
-            Debugger.Break();
-
         }
 
     }
