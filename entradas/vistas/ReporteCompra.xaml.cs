@@ -1,21 +1,13 @@
 ﻿using Proyecto23BMBoutique2.Auth;
-using Proyecto23BMBoutique2.Clases;
 using Proyecto23BMBoutique2.entrada.services;
 using Proyecto23BMBoutique2.entradas.entities;
 using Proyecto23BMBoutique2.producto.services;
 using Proyecto23BMBoutique2.proveedor.services;
-using Proyecto23BMBoutique2.rol.services;
-using Proyecto23BMBoutique2.ventas.entities;
-using Proyecto23BMBoutique2.ventas.services;
 using ProyectoBoutique23BM.Clases;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace Proyecto23BMBoutique2.entradas.vistas
 {
@@ -96,26 +88,9 @@ namespace Proyecto23BMBoutique2.entradas.vistas
 
         private void btnAgregarProducto_Click(object sender, RoutedEventArgs e)
         {
-                try
-                {
-                    //if (selectProducto.SelectedItem != null && selectProducto.SelectedItem != null && !string.IsNullOrEmpty(txtCantidad.Text))
-                    //{
-                    //    //entradaHasProducto.Cantidad = int.Parse(txtCantidad.Text);
-                    //    entradaHasProducto.ProductoId = int.Parse(selectProducto.SelectedValue.ToString());
-
-                    //    //service.AgregarEntrada(entradaHasProducto);
-                    //    MessageBox.Show("Producto añadido correctamente");
-                    //    if (App.Current.MainWindow is MainWindow mainWindow)
-                    //    {
-                    //        mainWindow.handleRouter("listarProductos");
-                    //    }
-                    //}
-                }
-                catch (Exception ex) { Errors.handle(ex);
-
-                }
             
         }
+
         public void UpdateSelectProveedor()
         {
             ProveedorService proveedorServices = new ProveedorService();
@@ -145,7 +120,6 @@ namespace Proyecto23BMBoutique2.entradas.vistas
         private void RenderGrid()
         {
             List<Entrada_Has_Producto> productos = relacionarProductos();
-            //Debugger.Break();
             gridProductosEntrada.ItemsSource = null;
             gridProductosEntrada.ItemsSource = productos;
         }
@@ -226,8 +200,6 @@ namespace Proyecto23BMBoutique2.entradas.vistas
 
             List<Entrada_Has_Producto>? productos = gridProductosEntrada.ItemsSource as List<Entrada_Has_Producto>;
 
-            //entrada.EntradaProductos = datosDataGrid!;
-
             bool response = entradaService.AgregarEntrada(entrada , productos);
 
             if (response)
@@ -244,8 +216,6 @@ namespace Proyecto23BMBoutique2.entradas.vistas
             {
                 MessageBox.Show("Error al crear la entrada");
             }
-
-            Debugger.Break();
 
         }
    

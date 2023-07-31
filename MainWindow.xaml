@@ -390,9 +390,15 @@
                     </StackPanel>
                 </Grid>
                 <Grid Name="Header" Height="35" VerticalAlignment="top" Background="#1D5D9B">
-                    <Border CornerRadius="10">
-
-                    </Border>
+                    <Grid VerticalAlignment="Center" Margin="15,0,30,0">
+                        <Label 
+                            x:Name="labelUsuario"
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="#FFFFFF"
+                            Content="Hola" 
+                        />
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

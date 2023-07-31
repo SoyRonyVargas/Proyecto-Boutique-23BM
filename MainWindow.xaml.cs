@@ -243,6 +243,8 @@ namespace Proyecto23BMBoutique2
 
             Autenticacion.usuario = await this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario);
 
+            labelUsuario.Content = "Hola, " + Autenticacion.usuario!.nombre;
+
             gridPrincipal.Visibility = Visibility.Visible;
             gridLogin.Visibility = Visibility.Collapsed;
 
