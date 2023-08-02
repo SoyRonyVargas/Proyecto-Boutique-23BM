@@ -4,6 +4,7 @@ using Proyecto23BMBoutique2.usuario.services;
 using ProyectoBoutique23BM.Clases;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,13 +28,14 @@ namespace Proyecto23BMBoutique2.usuario.vistas
     public partial class EditUser : UserControl
     {
         private readonly UsuarioService usuarioServices = new UsuarioService();
+        private readonly RolService rolServices = new RolService();
 
         public EditUser(int id)
         {
             InitializeComponent();
-            MostrarDatos(id);
             Idtxt.Text = id.ToString();
             GetRoles();
+            MostrarDatos(id);
             
         }
 
@@ -42,7 +44,6 @@ namespace Proyecto23BMBoutique2.usuario.vistas
 
         public void UpdateSelectRol()
         {
-            RolService rolServices = new RolService();
             SelectRol.ItemsSource = rolServices.ObtenerTodosLosRoles();
             SelectRol.DisplayMemberPath = "nombre";
             SelectRol.SelectedValuePath = "id";
@@ -109,9 +110,10 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             txtContraseña.Password = usuario.password;
             txtRepetirContraseña.Password = usuario.password;
             MostrarImagen(usuario.id);
-            RolService rolServices = new RolService();
-            Rol rolSeleccionado = rolServices.ObtenerRolPorId(usuario.id);
-            SelectRol.SelectedItem = rolSeleccionado;
+
+            int index = rolServices.ObtenerTodosLosRoles().FindIndex(r => r.id == usuario.RolFK);
+            
+            SelectRol.SelectedIndex = index; 
 
         }
         private void MostrarImagen(int id)

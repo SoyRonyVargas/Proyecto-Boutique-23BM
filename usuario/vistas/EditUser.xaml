@@ -32,7 +32,7 @@
             <Label FontSize="18" Content="Repetir contraseña:" HorizontalAlignment="Left" Height="33" Margin="291,314,0,0" VerticalAlignment="Top" Width="180" HorizontalContentAlignment="Left"/>
             <PasswordBox FontSize="18" x:Name="txtRepetirContraseña"  HorizontalAlignment="Left" Height="34" Margin="291,347,0,0"  VerticalAlignment="Top" Width="235" CaretBrush="#FF1D5D9B" SelectionBrush="#FF1D5D9B"/>
 
-            <Button x:Name="btnUpdateUser" Content="Ingresar Usuario" HorizontalAlignment="Left" Height="36" Margin="331,472,0,0" VerticalAlignment="Top" Width="140" Click="btnActualizar_Click"/>
+            <Button x:Name="btnUpdateUser" Content="Actualizar Usuario" HorizontalAlignment="Left" Height="36" Margin="370,513,0,0" VerticalAlignment="Top" Width="160" Click="btnActualizar_Click"/>
 
             <Image x:Name="Imagen" HorizontalAlignment="Left" Height="182" Margin="595,199,0,0" VerticalAlignment="Top" Width="182" Source="/usuario/vistas/perfil.gif"/>
 

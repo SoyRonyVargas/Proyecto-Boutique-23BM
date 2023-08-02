@@ -64,17 +64,12 @@
 
   <ItemGroup>
     <Resource Include="cajas.png" />
-    <Resource Include="clave.gif" />
-    <Resource Include="dash.png" />
     <Resource Include="dash2.png" />
     <Resource Include="hamburguer.png" />
     <Resource Include="login-frame.png" />
-    <Resource Include="logo-black.png" />
     <Resource Include="logo.png" />
     <Resource Include="logo2.png" />
     <Resource Include="logout.png" />
-    <Resource Include="menu - copia.png" />
-    <Resource Include="menu.png" />
     <Resource Include="perfil.gif" />
     <Resource Include="productos.png" />
     <Resource Include="proveedor.png" />
