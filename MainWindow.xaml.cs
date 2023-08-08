@@ -234,9 +234,9 @@ namespace Proyecto23BMBoutique2
             if (user!.RolFK == 2)
             {
                 modulo_dashboard.Visibility = Visibility.Visible;
-                modulo_entradas.Visibility = Visibility.Collapsed;
+                modulo_entradas.Visibility = Visibility.Visible;
                 modulo_productos.Visibility = Visibility.Visible;
-                modulo_proveedores.Visibility = Visibility.Collapsed;
+                modulo_proveedores.Visibility = Visibility.Visible;
                 modulo_ventas.Visibility = Visibility.Visible;
                 modulo_usuarios.Visibility = Visibility.Collapsed;
             }

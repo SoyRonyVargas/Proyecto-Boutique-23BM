@@ -8,6 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="545" d:DesignWidth="950">
     <UserControl.Resources>
+
+        <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="White" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <!-- Estilo personalizado para el GroupBox -->
         <Style x:Key="GroupBoxStyle" TargetType="GroupBox">
             <Setter Property="Template">
@@ -50,14 +60,20 @@
 
                 <GroupBox Style="{StaticResource GroupBoxStyle}"  Header="Crear entrada " Margin="10,37,27,359">
                     <Grid Height="113">
-                        <Label Content="Nombre Proveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0"/>
-                        <Button x:Name="btnbuscarproveedor" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,37,0,0"/>
-                        <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="131" Height="24"/>
-
                         <Label Content="Producto" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26"/>
-                        <ComboBox x:Name="selectproveedor" HorizontalAlignment="Left" Margin="115,37,0,0" VerticalAlignment="Top" Width="131" Height="22"/>
-
-                        <Button x:Name="btnbuscarproducto" Content="Agregar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="461,4,0,0" Click="btnbuscarproducto_Click"/>
+                            <ComboBox x:Name="selectproveedor" HorizontalAlignment="Left" Margin="115,37,0,0" VerticalAlignment="Top" Width="131" Height="22">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style BasedOn="{StaticResource ComboBoxItemStyle}" TargetType="ComboBoxItem" />
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+                            <Label Content="Nombre Proveedor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,35,0,0"/>
+                        <Button x:Name="btnbuscarproveedor" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,37,0,0"/>
+                            <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="325,4,0,0" VerticalAlignment="Top" Width="131" Height="24">
+                                <ComboBox.ItemContainerStyle>
+                                    <Style BasedOn="{StaticResource ComboBoxItemStyle}" TargetType="ComboBoxItem" />
+                                </ComboBox.ItemContainerStyle>
+                            </ComboBox>
+                            <Button x:Name="btnbuscarproducto" Content="Agregar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="461,4,0,0" Click="btnbuscarproducto_Click"/>
                         <Button x:Name="btnbuscarproducto_Copy" Content="Buscar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="65" Background="#FFF9F9F9" Foreground="Black" FontSize="9" Margin="255,4,0,0" Click="btnbuscarproducto_Copy_Click"/>
                         <TextBox x:Name="inputx_producto" HorizontalAlignment="Left" Margin="116,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Height="23"/>
                     </Grid>

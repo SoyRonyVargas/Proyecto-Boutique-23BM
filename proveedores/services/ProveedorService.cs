@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace Proyecto23BMBoutique2.proveedor.services
 {
@@ -33,7 +34,7 @@ namespace Proyecto23BMBoutique2.proveedor.services
         {
             try
             {
-                return db.Proveedores.ToList();
+                return db.Proveedores.AsNoTracking().ToList();
             }
             catch (Exception ex)
             {

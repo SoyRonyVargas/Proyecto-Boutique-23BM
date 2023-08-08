@@ -5,6 +5,7 @@ using Proyecto23BMBoutique2.producto.services;
 using Proyecto23BMBoutique2.proveedor.services;
 using ProyectoBoutique23BM.Clases;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,8 +25,6 @@ namespace Proyecto23BMBoutique2.entradas.vistas
         {
             InitializeComponent();
             UpdateSelectProveedor();
-            UpdateSelectProducto();
-
         }
 
         private void CantidadTextBox_Loaded(object sender, RoutedEventArgs e)
@@ -101,20 +100,26 @@ namespace Proyecto23BMBoutique2.entradas.vistas
         public void UpdateSelectProducto()
         {
             ProductoService productoServices = new ProductoService();
-            selectproveedor.ItemsSource = productoServices.ObtenerTodosLosProductos();
-            selectproveedor.DisplayMemberPath = "nombre";
-            selectproveedor.SelectedValuePath = "id";
+            comboProductos.ItemsSource = productoServices.ObtenerTodosLosProductos();
+            comboProductos.DisplayMemberPath = "nombre";
+            comboProductos.SelectedValuePath = "id";
         }
 
         private void btnbuscarproducto_Copy_Click(object sender, RoutedEventArgs e)
         {
-            string nombreProducto = input_producto.Text;
+            
+            string nombreProducto = inputx_producto?.Text ?? "";
+
+            //Debugger.Break();
 
             List<Producto> productosPorNombre = this.productoService.ObtenerProductosPorNombre(nombreProducto);
 
             comboProductos.ItemsSource = productosPorNombre;
+            
             comboProductos.DisplayMemberPath = "descripcion";
+            
             comboProductos.SelectedIndex = 0;
+
         }
 
         private void RenderGrid()

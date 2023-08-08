@@ -12,7 +12,7 @@ namespace ProyectoBoutique23BM.Clases
 {
     public class RestauranteDataContext : DbContext
     {
-        static readonly string connectionString = "Server=localhost;port=5506;User ID=root2 ; Password=; Database=Boutique23BM";
+        static readonly string connectionString = "Server=localhost;port=3306;User ID=root ; Password=; Database=Boutique23BM";
 
         public DbSet<Producto>Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }

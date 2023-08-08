@@ -46,7 +46,7 @@ namespace Proyecto23BMBoutique2.producto.services
         {
             try
             {
-                List<Producto> productos = db.Productos.Where(p => p.descripcion.Contains(nombre)).ToList();
+                List<Producto> productos = db.Productos.AsNoTracking().Where(p => p.descripcion.Contains(nombre)).ToList();
 
                 return productos;
             }
