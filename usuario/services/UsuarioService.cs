@@ -18,12 +18,12 @@ namespace Proyecto23BMBoutique2.usuario.services
 
         // Verifica si un usuario está autenticado.
         // Devuelve true si el usuario está autenticado, de lo contrario devuelve false.
-        public async Task<bool> AutenticarUsuario(string usuario, string password)
+        public bool AutenticarUsuario(string usuario, string password)
         {
             try
             {
                 // Obtener el usuario por nombre de usuario
-                Usuario? user = await this.ObtenerUsuarioPorNombreUsuario(usuario);
+                Usuario? user = this.ObtenerUsuarioPorNombreUsuario(usuario);
 
                 if (user == null) return false;
 
@@ -82,11 +82,11 @@ namespace Proyecto23BMBoutique2.usuario.services
         }
 
         // Obtiene un usuario por su nombre de usuario.
-        public async Task<Usuario?> ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
+        public Usuario? ObtenerUsuarioPorNombreUsuario(string nombreUsuario)
         {
             try
             {
-                Usuario? usuario = db.Usuarios.Where(p => p.nombreUsuario == nombreUsuario).FirstOrDefault();
+                Usuario? usuario = db.Usuarios.AsNoTracking().FirstOrDefault(p => p.nombreUsuario == nombreUsuario);
                 return usuario;
             }
             catch (Exception ex)
@@ -121,19 +121,28 @@ namespace Proyecto23BMBoutique2.usuario.services
                 if (usuarioExistente != null)
                 {
                     // Actualizar los datos del usuario
+                    
                     usuarioExistente.apellidos = usuarioDTO.apellidos;
+                    
                     usuarioExistente.password = usuarioDTO.password;
+                    
                     usuarioExistente.nombreUsuario = usuarioDTO.nombreUsuario;
+                    
                     usuarioExistente.correo = usuarioDTO.correo;
+                    
                     usuarioExistente.nombre = usuarioDTO.nombre;
+                    
                     usuarioExistente.RolFK = usuarioDTO.RolFK;
+                    
                     usuarioExistente.Imagen = usuarioDTO.Imagen;
+                    
                     db.SaveChanges();
 
                     return true;
                 }
 
                 return false;
+
             }
             catch (Exception ex)
             {

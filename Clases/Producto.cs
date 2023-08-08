@@ -20,6 +20,7 @@ namespace ProyectoBoutique23BM.Clases
         public string codigo { get; set; }
         public string descripcion { get; set; }
         public double precio { get; set; }
+        public int existencias { get; set; }
 
         [ForeignKey("CatActual")]
         public int CategoriaFK { get; set; }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Proyecto23BMBoutique2.Migrations
 {
-    public partial class Boutique23BM : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,6 +83,8 @@ namespace Proyecto23BMBoutique2.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     descripcion = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    precio = table.Column<double>(type: "double", nullable: false),
+                    existencias = table.Column<int>(type: "int", nullable: false),
                     CategoriaFK = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
@@ -200,7 +202,10 @@ namespace Proyecto23BMBoutique2.Migrations
                     EntradaId = table.Column<int>(type: "int", nullable: false),
                     ProductoId = table.Column<int>(type: "int", nullable: false),
                     id = table.Column<int>(type: "int", nullable: false),
-                    Cantidad = table.Column<int>(type: "int", nullable: false)
+                    cantidad = table.Column<int>(type: "int", nullable: false),
+                    importe = table.Column<double>(type: "double", nullable: false),
+                    iva = table.Column<double>(type: "double", nullable: false),
+                    total = table.Column<double>(type: "double", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -287,20 +292,31 @@ namespace Proyecto23BMBoutique2.Migrations
 
             migrationBuilder.InsertData(
                 table: "Productos",
-                columns: new[] { "id", "CategoriaFK", "CreatedDate", "codigo", "descripcion", "imagen", "status" },
+                columns: new[] { "id", "CategoriaFK", "CreatedDate", "codigo", "descripcion", "existencias", "imagen", "precio", "status" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P001", "Camiseta de manga corta", "imagen1.jpg", 1 },
-                    { 2, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P002", "Pantalones vaqueros", "imagen2.jpg", 1 },
-                    { 3, 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P003", "Vestido de fiesta", "imagen3.jpg", 1 },
-                    { 4, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P004", "Chaqueta de cuero", "imagen4.jpg", 1 },
-                    { 5, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Zapatos de tacón", "imagen5.jpg", 1 }
+                    { 1, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P001", "Camiseta de manga corta JOJI", 0, "https://img.elo7.com.br/product/zoom/31043A7/camiseta-algodao-pink-guy-bad-vibe-indie-retro-joji-filthy-guy.jpg", 199.99000000000001, 1 },
+                    { 2, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P002", "Pantalones De Lápiz", 0, "https://m.media-amazon.com/images/I/71ELCXal0nS._AC_UF894,1000_QL80_.jpg", 299.99000000000001, 1 },
+                    { 3, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P003", "Pantalones joggers", 0, "https://down-mx.img.susercontent.com/file/68f810f3195cf9e17de5d5a8c9bc7db4", 299.99000000000001, 1 },
+                    { 4, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P003", "Lentes De Sol Blancas Estilo Hip-Hop", 0, "https://m.media-amazon.com/images/I/31hV8MpgCQL._AC_SY580_.jpg", 659.99000000000001, 1 },
+                    { 5, 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P003", "Vestido De Terciopelo Para Mujer", 0, "https://m.media-amazon.com/images/I/71FA4gYrZJL._AC_SX342_.jpg", 1599.99, 1 },
+                    { 6, 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P003", " Vestido de Novia Vestido de Novia Top de Encaje Vestido de Dama de Honor de la Boda Vestido de Fiesta de graduación Largo Elegante Regalo Nupcial", 0, "https://m.media-amazon.com/images/I/716ZepRUgSL._AC_UF894,1000_QL80_.jpg", 6999.9899999999998, 1 },
+                    { 7, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Tenis yeezy", 0, "https://m.media-amazon.com/images/I/711gDC-38fL._AC_UY1000_.jpg", 1799.99, 1 },
+                    { 8, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Boxers calvin klein", 0, "https://calvinargentina.vteximg.com.br/arquivos/ids/181157-470-620/NB2614-001_1.jpg?v=638114762715830000", 659.88999999999999, 1 },
+                    { 9, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Zapatos De Payaso Profesional Multicolor Tamaño Mediano", 0, "https://http2.mlstatic.com/D_NQ_NP_922495-MLM31368805414_072019-W.jpg", 1595.99, 1 },
+                    { 10, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Nariz de payaso", 0, "https://media.istockphoto.com/id/851634552/es/foto/nariz-de-payaso-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=YOdX2gaDFUFz6jull7GPk6MblYu2h2Ad-GJHquSPbZQ=", 128.0, 1 },
+                    { 11, 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "P005", "Traje de payaso", 0, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGkBvYCLMI_5CjDQxby8mZ80ma_s4Y7xzNQ&usqp=CAU", 999.0, 1 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "id", "Imagen", "RolFK", "apellidos", "correo", "nombre", "nombreUsuario", "password" },
-                values: new object[] { 1, "123123123123123123123", 1, "Gomez", "prueba@gmail.com", "Adamaris", "cazadordeabuelas", "1234" });
+                values: new object[,]
+                {
+                    { 1, "123123123123123123123", 1, "Aguilar", "martin@gmail.com", "Martin", "martin", "1234" },
+                    { 2, "123123123123123123123", 2, "Robles", "edison@gmail.com", "Edison", "edison", "1234" },
+                    { 3, "123123123123123123123", 3, "Mendez", "angel@gmail.com", "Angel", "angel", "1234" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Entrada_Has_Producto_ProductoId",

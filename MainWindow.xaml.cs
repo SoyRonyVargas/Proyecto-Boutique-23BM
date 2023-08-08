@@ -9,6 +9,8 @@ using ProyectoBoutique23BM.Clases;
 using System.Windows;
 using System.Windows.Input;
 using Proyecto23BMBoutique2.entradas.vistas;
+using System.Diagnostics;
+using ControlzEx.Standard;
 
 namespace Proyecto23BMBoutique2
 {
@@ -211,7 +213,44 @@ namespace Proyecto23BMBoutique2
             }
         }
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        private void handleRevisarRoles(Usuario user)
+        {
+            modulo_dashboard.Visibility = Visibility.Collapsed;
+            modulo_entradas.Visibility = Visibility.Collapsed;
+            modulo_productos.Visibility = Visibility.Collapsed;
+            modulo_proveedores.Visibility = Visibility.Collapsed;
+            modulo_ventas.Visibility = Visibility.Collapsed;
+            modulo_usuarios.Visibility = Visibility.Collapsed;
+
+            if (user!.RolFK == 1 )
+            {
+                modulo_dashboard.Visibility = Visibility.Visible;
+                modulo_entradas.Visibility = Visibility.Visible;
+                modulo_productos.Visibility = Visibility.Visible;
+                modulo_proveedores.Visibility = Visibility.Visible;
+                modulo_ventas.Visibility = Visibility.Visible;
+                modulo_usuarios.Visibility = Visibility.Visible;
+            }
+            if (user!.RolFK == 2)
+            {
+                modulo_dashboard.Visibility = Visibility.Visible;
+                modulo_entradas.Visibility = Visibility.Collapsed;
+                modulo_productos.Visibility = Visibility.Visible;
+                modulo_proveedores.Visibility = Visibility.Collapsed;
+                modulo_ventas.Visibility = Visibility.Visible;
+                modulo_usuarios.Visibility = Visibility.Collapsed;
+            }
+            if (user!.RolFK == 3)
+            {
+                modulo_dashboard.Visibility = Visibility.Visible;
+                modulo_entradas.Visibility = Visibility.Collapsed;
+                modulo_productos.Visibility = Visibility.Visible;
+                modulo_proveedores.Visibility = Visibility.Collapsed;
+                modulo_ventas.Visibility = Visibility.Visible;
+                modulo_usuarios.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string usuario = input_usuario.Text;
             string password = input_password.Password;
@@ -233,18 +272,25 @@ namespace Proyecto23BMBoutique2
 
             }
 
-            bool response = await usuarioService.AutenticarUsuario(usuario, password);
+            bool response = usuarioService.AutenticarUsuario(usuario, password);
 
             if( !response )
             {
+                
                 MessageBox.Show("Usuario no valido");
+                
                 return;
+
             }
 
-            Autenticacion.usuario = await this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario);
+            Usuario user = this.usuarioService.ObtenerUsuarioPorNombreUsuario(usuario)!;
+
+            Autenticacion.usuario = user;
 
             labelUsuario.Content = "Hola, " + Autenticacion.usuario!.nombre;
 
+            handleRevisarRoles(user);
+            
             gridPrincipal.Visibility = Visibility.Visible;
             gridLogin.Visibility = Visibility.Collapsed;
 

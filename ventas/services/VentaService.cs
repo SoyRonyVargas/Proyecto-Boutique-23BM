@@ -8,12 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using Proyecto23BMBoutique2.ventas.vistas;
 using Proyecto23BMBoutique2.Auth;
+using Proyecto23BMBoutique2.producto.services;
 
 namespace Proyecto23BMBoutique2.ventas.services
 {
     public class VentaService
     {
         private readonly RestauranteDataContext db = new RestauranteDataContext();
+        private readonly ProductoService productoService = new ProductoService();
 
         public List<MejorVendedor> GetMejoresVendedores()
         {
@@ -74,10 +76,15 @@ namespace Proyecto23BMBoutique2.ventas.services
             try
             {
                 // Limpio la relacion
-
                 foreach ( VentaProducto producto in venta.Productos )
                 {
+
+                    int cantidad = (int)producto.cantidad;
+
+                    productoService.RestarExistencias(producto.ProductoFK , cantidad );
+
                     producto.Producto = null;
+
                 }
 
                 venta.CreatedDate = DateTime.Now;

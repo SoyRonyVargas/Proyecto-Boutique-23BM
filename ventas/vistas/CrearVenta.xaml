@@ -11,6 +11,16 @@
              d:DesignHeight="545" d:DesignWidth="950">
 
     <UserControl.Resources>
+
+        <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="White" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Yellow" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
         <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
             <Setter Property="Margin" Value="0,8" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -31,16 +41,20 @@
 
     <Grid Background="#DDDDDD">
         <Grid Width="902" HorizontalAlignment="Right" >
-            <Grid HorizontalAlignment="Left" Width="652" Background="#dddddd">
+            <Grid HorizontalAlignment="Left" Width="704" Background="#dddddd">
                 <Grid Background="#DDDDDD" Margin="-5,0,0,0">
                     <TextBox x:Name="input_nombre_producto" HorizontalAlignment="Left" Margin="37,64,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
                     <Label Content="Nombre" HorizontalAlignment="Left" Margin="37,36,0,0" VerticalAlignment="Top" />
-                    <TextBox HorizontalAlignment="Left" Margin="37,154,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
+                    <TextBox x:Name="input_codigo_producto" HorizontalAlignment="Left" Margin="37,154,0,0"  VerticalAlignment="Top" Width="146" Height="36"/>
                     <Label Content="Codigo" HorizontalAlignment="Left" Margin="37,125,0,0" VerticalAlignment="Top" />
                     <Button x:Name="btnBuscarPorNombre" Content="Buscar" HorizontalAlignment="Left" Margin="199,71,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_1"/>
-                    <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="294,64,0,0" VerticalAlignment="Top" Width="114" Height="36"/>
+                    <ComboBox x:Name="comboProductos" HorizontalAlignment="Left" Margin="294,64,0,0" VerticalAlignment="Top" Width="114" Height="36">
+                        <ComboBox.ItemContainerStyle>
+                            <Style BasedOn="{StaticResource ComboBoxItemStyle}" TargetType="ComboBoxItem" />
+                        </ComboBox.ItemContainerStyle>
+                    </ComboBox>
                     <Button Content="Agregar" HorizontalAlignment="Left" Margin="424,71,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_2"/>
-                    <Button Content="Buscar" HorizontalAlignment="Left" Margin="199,161,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29"/>
+                    <Button Content="Buscar" HorizontalAlignment="Left" Margin="199,161,0,0" VerticalAlignment="Top" Background="#FF0667B5" Height="29" Click="Button_Click_3"/>
                     <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="200"/>
@@ -65,27 +79,35 @@
 
                                     <DataGridTextColumn Width="100" Header="Producto" Binding="{Binding Producto.descripcion}" />
 
-                                    <DataGridTextColumn Width="70" Header="Precio" Binding="{Binding Producto.precio}" />
-
-                                    <DataGridTemplateColumn Width="100" Header="Cantidad">
+                                    <DataGridTemplateColumn Width="80" Header="Imagen">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <!-- Replace 'TextBoxBindingProperty' with the actual property to bind from your data item -->
+                                                <!-- Usamos un Image control para mostrar la imagen -->
+                                                <Image Source="{Binding Producto.imagen}" Width="50" Height="50" />
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTextColumn Width="70" Header="Precio" Binding="{Binding Producto.precio,StringFormat=\{0:C\}}" />
+
+                                    <DataGridTemplateColumn Width="90" Header="Cantidad">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
                                                 <TextBox Loaded="CantidadTextBox_Loaded" x:Name="CantidadTextBox" Text="{Binding cantidad, UpdateSourceTrigger=PropertyChanged}" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>
 
-                                    <DataGridTextColumn Header="Importe" Binding="{Binding importe}" />
+                                    <DataGridTextColumn Width="80" Header="Importe" Binding="{Binding importe,StringFormat=\{0:C\}}" />
 
-                                    <DataGridTextColumn Header="IVA" Binding="{Binding iva}" />
+                                    <DataGridTextColumn Width="80" Header="IVA" Binding="{Binding iva,StringFormat=\{0:C\}}" />
 
-                                    <DataGridTextColumn Header="Total" Binding="{Binding total}" />
+                                    <DataGridTextColumn  Width="80" Header="Total" Binding="{Binding total,StringFormat=\{0:C\}}" />
 
-                                    <DataGridTemplateColumn Width="80" Header="Eliminar">
+                                    <DataGridTemplateColumn Width="60" Header="">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Click="EliminarButton_Click" BorderBrush="#a11616" Background="#a11616" Width="30" Height="30" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+                                                <Button Click="EliminarButton_Click" BorderBrush="#a11616" Background="#a11616" Width="20" Height="20" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
                                                     <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" HorizontalAlignment="Center" />
                                                 </Button>
                                             </DataTemplate>
@@ -99,7 +121,7 @@
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid Width="252" Background="#FFFF" Height="545" HorizontalAlignment="Right">
+            <Grid Width="200" Background="#FFFF" Height="545" HorizontalAlignment="Right">
                 <Grid Height="35" VerticalAlignment="Top" Margin="20,40,20,0">
                     <Label FontWeight="SemiBold" HorizontalAlignment="left" Content="Importe" />
                     <Label x:Name="labelImporte" FontWeight="Bold" HorizontalAlignment="Right" Content="129.00" />
