@@ -11,8 +11,8 @@ using ProyectoBoutique23BM.Clases;
 namespace Proyecto23BMBoutique2.Migrations
 {
     [DbContext(typeof(RestauranteDataContext))]
-    [Migration("20230725024021_Boutique23BM")]
-    partial class Boutique23BM
+    [Migration("20230808041223_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,11 +133,20 @@ namespace Proyecto23BMBoutique2.Migrations
                     b.Property<int>("ProductoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Cantidad")
+                    b.Property<int>("cantidad")
                         .HasColumnType("int");
 
                     b.Property<int>("id")
                         .HasColumnType("int");
+
+                    b.Property<double>("importe")
+                        .HasColumnType("double");
+
+                    b.Property<double>("iva")
+                        .HasColumnType("double");
+
+                    b.Property<double>("total")
+                        .HasColumnType("double");
 
                     b.HasKey("EntradaId", "ProductoId");
 
@@ -339,9 +348,15 @@ namespace Proyecto23BMBoutique2.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int>("existencias")
+                        .HasColumnType("int");
+
                     b.Property<string>("imagen")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<double>("precio")
+                        .HasColumnType("double");
 
                     b.Property<int>("status")
                         .HasColumnType("int");
@@ -359,8 +374,10 @@ namespace Proyecto23BMBoutique2.Migrations
                             CategoriaFK = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             codigo = "P001",
-                            descripcion = "Camiseta de manga corta",
-                            imagen = "imagen1.jpg",
+                            descripcion = "Camiseta de manga corta JOJI",
+                            existencias = 0,
+                            imagen = "https://img.elo7.com.br/product/zoom/31043A7/camiseta-algodao-pink-guy-bad-vibe-indie-retro-joji-filthy-guy.jpg",
+                            precio = 199.99000000000001,
                             status = 1
                         },
                         new
@@ -369,38 +386,118 @@ namespace Proyecto23BMBoutique2.Migrations
                             CategoriaFK = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             codigo = "P002",
-                            descripcion = "Pantalones vaqueros",
-                            imagen = "imagen2.jpg",
+                            descripcion = "Pantalones De Lápiz",
+                            existencias = 0,
+                            imagen = "https://m.media-amazon.com/images/I/71ELCXal0nS._AC_UF894,1000_QL80_.jpg",
+                            precio = 299.99000000000001,
                             status = 1
                         },
                         new
                         {
                             id = 3,
-                            CategoriaFK = 3,
+                            CategoriaFK = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             codigo = "P003",
-                            descripcion = "Vestido de fiesta",
-                            imagen = "imagen3.jpg",
+                            descripcion = "Pantalones joggers",
+                            existencias = 0,
+                            imagen = "https://down-mx.img.susercontent.com/file/68f810f3195cf9e17de5d5a8c9bc7db4",
+                            precio = 299.99000000000001,
                             status = 1
                         },
                         new
                         {
                             id = 4,
-                            CategoriaFK = 1,
+                            CategoriaFK = 2,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            codigo = "P004",
-                            descripcion = "Chaqueta de cuero",
-                            imagen = "imagen4.jpg",
+                            codigo = "P003",
+                            descripcion = "Lentes De Sol Blancas Estilo Hip-Hop",
+                            existencias = 0,
+                            imagen = "https://m.media-amazon.com/images/I/31hV8MpgCQL._AC_SY580_.jpg",
+                            precio = 659.99000000000001,
                             status = 1
                         },
                         new
                         {
                             id = 5,
+                            CategoriaFK = 2,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P003",
+                            descripcion = "Vestido De Terciopelo Para Mujer",
+                            existencias = 0,
+                            imagen = "https://m.media-amazon.com/images/I/71FA4gYrZJL._AC_SX342_.jpg",
+                            precio = 1599.99,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 6,
+                            CategoriaFK = 3,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P003",
+                            descripcion = " Vestido de Novia Vestido de Novia Top de Encaje Vestido de Dama de Honor de la Boda Vestido de Fiesta de graduación Largo Elegante Regalo Nupcial",
+                            existencias = 0,
+                            imagen = "https://m.media-amazon.com/images/I/716ZepRUgSL._AC_UF894,1000_QL80_.jpg",
+                            precio = 6999.9899999999998,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 7,
                             CategoriaFK = 1,
                             CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             codigo = "P005",
-                            descripcion = "Zapatos de tacón",
-                            imagen = "imagen5.jpg",
+                            descripcion = "Tenis yeezy",
+                            existencias = 0,
+                            imagen = "https://m.media-amazon.com/images/I/711gDC-38fL._AC_UY1000_.jpg",
+                            precio = 1799.99,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 8,
+                            CategoriaFK = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P005",
+                            descripcion = "Boxers calvin klein",
+                            existencias = 0,
+                            imagen = "https://calvinargentina.vteximg.com.br/arquivos/ids/181157-470-620/NB2614-001_1.jpg?v=638114762715830000",
+                            precio = 659.88999999999999,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 9,
+                            CategoriaFK = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P005",
+                            descripcion = "Zapatos De Payaso Profesional Multicolor Tamaño Mediano",
+                            existencias = 0,
+                            imagen = "https://http2.mlstatic.com/D_NQ_NP_922495-MLM31368805414_072019-W.jpg",
+                            precio = 1595.99,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 10,
+                            CategoriaFK = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P005",
+                            descripcion = "Nariz de payaso",
+                            existencias = 0,
+                            imagen = "https://media.istockphoto.com/id/851634552/es/foto/nariz-de-payaso-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=YOdX2gaDFUFz6jull7GPk6MblYu2h2Ad-GJHquSPbZQ=",
+                            precio = 128.0,
+                            status = 1
+                        },
+                        new
+                        {
+                            id = 11,
+                            CategoriaFK = 1,
+                            CreatedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            codigo = "P005",
+                            descripcion = "Traje de payaso",
+                            existencias = 0,
+                            imagen = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGkBvYCLMI_5CjDQxby8mZ80ma_s4Y7xzNQ&usqp=CAU",
+                            precio = 999.0,
                             status = 1
                         });
                 });
@@ -447,10 +544,32 @@ namespace Proyecto23BMBoutique2.Migrations
                             id = 1,
                             Imagen = "123123123123123123123",
                             RolFK = 1,
-                            apellidos = "Gomez",
-                            correo = "prueba@gmail.com",
-                            nombre = "Adamaris",
-                            nombreUsuario = "cazadordeabuelas",
+                            apellidos = "Aguilar",
+                            correo = "martin@gmail.com",
+                            nombre = "Martin",
+                            nombreUsuario = "martin",
+                            password = "1234"
+                        },
+                        new
+                        {
+                            id = 2,
+                            Imagen = "123123123123123123123",
+                            RolFK = 2,
+                            apellidos = "Robles",
+                            correo = "edison@gmail.com",
+                            nombre = "Edison",
+                            nombreUsuario = "edison",
+                            password = "1234"
+                        },
+                        new
+                        {
+                            id = 3,
+                            Imagen = "123123123123123123123",
+                            RolFK = 3,
+                            apellidos = "Mendez",
+                            correo = "angel@gmail.com",
+                            nombre = "Angel",
+                            nombreUsuario = "angel",
                             password = "1234"
                         });
                 });

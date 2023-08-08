@@ -165,6 +165,7 @@ namespace Proyecto23BMBoutique2.entradas.vistas
 
         private void handleGuardarEntrada(object sender, System.Windows.RoutedEventArgs e)
         {
+            
             bool productosEnCero = hasProductosEnCero();
 
             if (productosEnCero )

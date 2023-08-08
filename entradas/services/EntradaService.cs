@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Proyecto23BMBoutique2.entradas.entities;
+using Proyecto23BMBoutique2.producto.services;
 using Microsoft.EntityFrameworkCore;
-using Proyecto23BMBoutique2.ventas.entities;
 using System.Diagnostics;
 
 namespace Proyecto23BMBoutique2.entrada.services
@@ -13,6 +13,7 @@ namespace Proyecto23BMBoutique2.entrada.services
     internal class EntradaService
     {
         private RestauranteDataContext db = new RestauranteDataContext();
+        private readonly ProductoService productoService = new ProductoService();
 
         // Create
         public bool AgregarEntrada(Entrada entrada , List<Entrada_Has_Producto>? productos)
@@ -26,13 +27,16 @@ namespace Proyecto23BMBoutique2.entrada.services
                 
                 db.SaveChanges();
                 
-                foreach (Entrada_Has_Producto producto in productos)
+                foreach (Entrada_Has_Producto producto in productos!)
                 {
+
+                    productoService.ActualizarExistencias(producto.ProductoId , producto.cantidad);
+
                     producto.Entrada = null;
                     producto.EntradaId = entrada.id;
                     producto.Producto = null!;
-                    
-                    entrada.EntradaProductos.Add(producto);
+
+                    entrada.EntradaProductos!.Add(producto);
 
                 }
 

@@ -73,6 +73,50 @@ namespace Proyecto23BMBoutique2.producto.services
             }
         }
 
+        public Producto? ActualizarExistencias(int id , int cantidad)
+        {
+            try
+            {
+                Producto? producto = db.Productos.FirstOrDefault(p => p.id == id);
+
+                producto.existencias += cantidad;
+
+                db.Productos.Update(producto);
+                
+                db.SaveChanges();
+
+                return producto;
+
+            }
+            catch (Exception ex)
+            {
+                Errors.handle(ex);
+                return null;
+            }
+        }
+
+        public bool RestarExistencias(int id, int cantidad)
+        {
+            try
+            {
+                Producto? producto = db.Productos.FirstOrDefault(p => p.id == id);
+
+                producto.existencias -= cantidad;
+
+                db.Productos.Update(producto);
+
+                db.SaveChanges();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                Errors.handle(ex);
+                return false;
+            }
+        }
+
         // Update
         public bool ActualizarProducto(Producto productoDTO)
         {

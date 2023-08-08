@@ -77,7 +77,11 @@
                     </DataGridTemplateColumn>
                     
                     <DataGridTextColumn Width="80" Header="Estatus" Binding="{Binding status}" />
+                    
                     <DataGridTextColumn Width="150" Header="Descripción" Binding="{Binding descripcion}" />
+                    
+                    <DataGridTextColumn Width="150" Header="Existencias" Binding="{Binding existencias}" />
+                    
                     <DataGridTextColumn  Width="150" Header="Categoria" Binding="{Binding CatActual.nombre}" />
 
                     <DataGridTemplateColumn Width="145" Header="">

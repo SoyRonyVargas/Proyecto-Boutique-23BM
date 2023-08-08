@@ -12,7 +12,7 @@ namespace ProyectoBoutique23BM.Clases
 {
     public class RestauranteDataContext : DbContext
     {
-        static readonly string connectionString = "Server=localhost;port=3306;User ID=root2 ; Password=; Database=Boutique23BM";
+        static readonly string connectionString = "Server=localhost;port=5506;User ID=root2 ; Password=; Database=Boutique23BM";
 
         public DbSet<Producto>Productos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
@@ -27,18 +27,11 @@ namespace ProyectoBoutique23BM.Clases
         {
             try
             {
-
-                // SI OCUPAS SQLSERVER USA ESTA
-
                 optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-
-                // SI OCUPAS MYSQL USA ESTA
-
             }
             catch(Exception e)
             {
                 Console.WriteLine("Error al conectar la base de datos");
-                
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -168,61 +161,165 @@ namespace ProyectoBoutique23BM.Clases
                 new Usuario
                 {
                     id = 1,
-                    apellidos = "Gomez",
-                    nombre = "Adamaris",
-                    correo = "prueba@gmail.com",
+                    apellidos = "Aguilar",
+                    nombre = "Martin",
+                    correo = "martin@gmail.com",
                     password = "1234",
-                    nombreUsuario = "cazadordeabuelas",
+                    nombreUsuario = "martin",
                     RolFK = 1,
                     Imagen = "123123123123123123123",
                 }
             );
+
+            modelBuilder.Entity<Usuario>().HasData(
+               new Usuario
+               {
+                   id = 2,
+                   apellidos = "Robles",
+                   nombre = "Edison",
+                   correo = "edison@gmail.com",
+                   password = "1234",
+                   nombreUsuario = "edison",
+                   RolFK = 2,
+                   Imagen = "123123123123123123123",
+               }
+           );
+
+            modelBuilder.Entity<Usuario>().HasData(
+              new Usuario
+              {
+                  id = 3,
+                  apellidos = "Mendez",
+                  nombre = "Angel",
+                  correo = "angel@gmail.com",
+                  password = "1234",
+                  nombreUsuario = "angel",
+                  RolFK = 3,
+                  Imagen = "123123123123123123123",
+              }
+          );
 
             modelBuilder.Entity<Producto>().HasData(
                  new Producto
                  {
                      id = 1,
                      status = 1,
-                     imagen = "imagen1.jpg",
+                     imagen = "https://img.elo7.com.br/product/zoom/31043A7/camiseta-algodao-pink-guy-bad-vibe-indie-retro-joji-filthy-guy.jpg",
                      codigo = "P001",
-                     descripcion = "Camiseta de manga corta",
-                     CategoriaFK = 1
+                     descripcion = "Camiseta de manga corta JOJI",
+                     CategoriaFK = 1,
+                     precio = 199.99,
+                     existencias = 0
                  },
                  new Producto
                  {
                      id = 2,
                      status = 1,
-                     imagen = "imagen2.jpg",
+                     imagen = "https://m.media-amazon.com/images/I/71ELCXal0nS._AC_UF894,1000_QL80_.jpg",
                      codigo = "P002",
-                     descripcion = "Pantalones vaqueros",
-                     CategoriaFK = 2
+                     descripcion = "Pantalones De Lápiz",
+                     CategoriaFK = 2,
+                     precio = 299.99,
+                     existencias = 0
                  },
+                  new Producto
+                  {
+                      id = 3,
+                      status = 1,
+                      imagen = "https://down-mx.img.susercontent.com/file/68f810f3195cf9e17de5d5a8c9bc7db4",
+                      codigo = "P003",
+                      descripcion = "Pantalones joggers",
+                      CategoriaFK = 2,
+                      precio = 299.99,
+                      existencias = 0
+                  },
+                  new Producto
+                  {
+                      id = 4,
+                      status = 1,
+                      imagen = "https://m.media-amazon.com/images/I/31hV8MpgCQL._AC_SY580_.jpg",
+                      codigo = "P003",
+                      descripcion = "Lentes De Sol Blancas Estilo Hip-Hop",
+                      CategoriaFK = 2,
+                      precio = 659.99,
+                      existencias = 0
+                  },
+                  new Producto
+                  {
+                      id = 5,
+                      status = 1,
+                      imagen = "https://m.media-amazon.com/images/I/71FA4gYrZJL._AC_SX342_.jpg",
+                      codigo = "P003",
+                      descripcion = "Vestido De Terciopelo Para Mujer",
+                      CategoriaFK = 2,
+                      precio = 1599.99,
+                      existencias = 0
+                  },
                  new Producto
                  {
-                     id = 3,
+                     id = 6,
                      status = 1,
-                     imagen = "imagen3.jpg",
+                     imagen = "https://m.media-amazon.com/images/I/716ZepRUgSL._AC_UF894,1000_QL80_.jpg",
                      codigo = "P003",
-                     descripcion = "Vestido de fiesta",
-                     CategoriaFK = 3
+                     descripcion = " Vestido de Novia Vestido de Novia Top de Encaje Vestido de Dama de Honor de la Boda Vestido de Fiesta de graduación Largo Elegante Regalo Nupcial",
+                     CategoriaFK = 3,
+                     precio = 6999.99,
+                     existencias = 0
                  },
                  new Producto
                  {
-                     id = 4,
+                     id = 7,
                      status = 1,
-                     imagen = "imagen4.jpg",
-                     codigo = "P004",
-                     descripcion = "Chaqueta de cuero",
-                     CategoriaFK = 1
-                 },
-                 new Producto
-                 {
-                     id = 5,
-                     status = 1,
-                     imagen = "imagen5.jpg",
+                     imagen = "https://m.media-amazon.com/images/I/711gDC-38fL._AC_UY1000_.jpg",
                      codigo = "P005",
-                     descripcion = "Zapatos de tacón",
-                     CategoriaFK = 1
+                     descripcion = "Tenis yeezy",
+                     CategoriaFK = 1,
+                     precio = 1799.99,
+                     existencias = 0
+                 },
+                 new Producto
+                 {
+                     id = 8,
+                     status = 1,
+                     imagen = "https://calvinargentina.vteximg.com.br/arquivos/ids/181157-470-620/NB2614-001_1.jpg?v=638114762715830000",
+                     codigo = "P005",
+                     descripcion = "Boxers calvin klein",
+                     CategoriaFK = 1,
+                     precio = 659.89,
+                     existencias = 0
+                 },
+                 new Producto
+                 {
+                     id = 9,
+                     status = 1,
+                     imagen = "https://http2.mlstatic.com/D_NQ_NP_922495-MLM31368805414_072019-W.jpg",
+                     codigo = "P005",
+                     descripcion = "Zapatos De Payaso Profesional Multicolor Tamaño Mediano",
+                     CategoriaFK = 1,
+                     precio = 1595.99,
+                     existencias = 0
+                 },
+                 new Producto
+                 {
+                     id = 10,
+                     status = 1,
+                     imagen = "https://media.istockphoto.com/id/851634552/es/foto/nariz-de-payaso-sobre-fondo-blanco.jpg?s=612x612&w=0&k=20&c=YOdX2gaDFUFz6jull7GPk6MblYu2h2Ad-GJHquSPbZQ=",
+                     codigo = "P005",
+                     descripcion = "Nariz de payaso",
+                     CategoriaFK = 1,
+                     precio = 128.00,
+                     existencias = 0
+                 },
+                 new Producto
+                 {
+                     id = 11,
+                     status = 1,
+                     imagen = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGkBvYCLMI_5CjDQxby8mZ80ma_s4Y7xzNQ&usqp=CAU",
+                     codigo = "P005",
+                     descripcion = "Traje de payaso",
+                     CategoriaFK = 1,
+                     precio = 999.00,
+                     existencias = 0
                  }
              );
 

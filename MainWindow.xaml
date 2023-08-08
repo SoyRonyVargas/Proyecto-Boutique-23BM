@@ -140,7 +140,7 @@
                     <!--<Border Background="Red" CornerRadius="0,0,0,10" />-->
                     <StackPanel Margin="0,45,0,0" Background="Transparent" VerticalAlignment="Top" Height="500">
                         <ListView Background="Transparent" BorderBrush="Transparent" Margin="0,00,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                            <ListViewItem VerticalAlignment="Top"  Height="60" Selected="ListViewItem_Selected" >
+                            <ListViewItem x:Name="modulo_dashboard" VerticalAlignment="Top"  Height="60" Selected="ListViewItem_Selected" >
                                 <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="BtnInicio" Height="40" Width="200" Click="btnDash">
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
@@ -168,7 +168,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top" Height="60" Selected="ListViewItem_Selected" >
+                            <ListViewItem x:Name="modulo_ventas" VerticalAlignment="Top" Height="60" Selected="ListViewItem_Selected" >
                                 <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Height="40" Width="200" Click="BtnInicio_Click">
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
@@ -194,7 +194,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="60" >
+                            <ListViewItem x:Name="modulo_productos" VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" Cursor="Hand" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" x:Name="btnProductos" Height="40" Width="200" Click="btnProductos_Click">
                                     <Grid Width="200">
                                         <Grid.ColumnDefinitions>
@@ -225,8 +225,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-
-                            <ListViewItem VerticalAlignment="Top"  Height="60" >
+                            <ListViewItem x:Name="modulo_entradas" VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -266,7 +265,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="60" >
+                            <ListViewItem x:Name="modulo_proveedores" VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -306,7 +305,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Top"  Height="60" >
+                            <ListViewItem x:Name="modulo_usuarios" VerticalAlignment="Top"  Height="60" >
                                 <Button  VerticalAlignment="Top" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 
@@ -346,7 +345,7 @@
                                     </Grid>
                                 </Button>
                             </ListViewItem>
-                            <ListViewItem VerticalAlignment="Bottom"  Height="60" >
+                            <ListViewItem  VerticalAlignment="Bottom"  Height="60" >
                                 <Button  VerticalAlignment="Bottom" 
                                      Cursor="Hand" 
                                      HorizontalAlignment="Left" 

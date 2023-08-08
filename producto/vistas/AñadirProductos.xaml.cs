@@ -64,6 +64,7 @@ namespace Proyecto23BMBoutique2.producto.vistas
                     producto.imagen = txtImagen.Text;
                     producto.status = int.Parse(txtStatus.Text);
                     producto.CategoriaFK = int.Parse(SelectCategoria.SelectedValue.ToString());
+                    producto.existencias = 0;
 
                     services.AgregarProducto(producto);
                     MessageBox.Show("Producto añadido correctamente");

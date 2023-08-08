@@ -1,24 +1,12 @@
-﻿using Proyecto23BMBoutique2.Clases;
-using Proyecto23BMBoutique2.rol.services;
+﻿using Proyecto23BMBoutique2.rol.services;
 using Proyecto23BMBoutique2.usuario.services;
 using ProyectoBoutique23BM.Clases;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Proyecto23BMBoutique2.usuario.vistas
 {
@@ -53,25 +41,69 @@ namespace Proyecto23BMBoutique2.usuario.vistas
             //UsuarioService usuarioServices = new UsuarioService();
             //UserTable.ItemsSource = usuarioServices.ObtenerTodosLosUsuarios();
         }
+        private string ConvertBitmapImageToBase64(BitmapImage bitmapImage)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                // Crear un codificador de imágenes y copiar la imagen en la secuencia de memoria
+                BitmapEncoder encoder = new PngBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+                encoder.Save(ms);
+
+                // Convertir la secuencia de memoria a una matriz de bytes y luego a base64
+                byte[] imageBytes = ms.ToArray();
+                string base64Image = Convert.ToBase64String(imageBytes);
+
+                return base64Image;
+         
+            }
+        }
         private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 Usuario usuario = new Usuario();
+
+                if (Imagen.Source is BitmapImage bitmapImage)
+                {
+                    // Convertir la imagen a base64
+                    string base64Image = ConvertBitmapImageToBase64(bitmapImage);
+                    usuario.Imagen = base64Image;
+                }
+
+                if ( usuario.Imagen == null )
+                {
+                    MessageBox.Show("El usuario debe tener una imagen");
+                    return;
+                }
+
                 usuario.id = int.Parse(Idtxt.Text);
+                
                 usuario.nombre = txtNombre.Text;
+                
                 usuario.apellidos = txtApellido.Text;
+                
                 usuario.nombreUsuario = txtUsuario.Text;
+                
                 usuario.correo = txtCorreo.Text;
+                
                 usuario.password = txtContraseña.Password;
+                
                 usuario.password = txtRepetirContraseña.Password;     
-                usuario.RolFK = int.Parse(SelectRol.SelectedValue.ToString());
-                usuario.Imagen = usuarioServices.ConvertImageToBase64(RutaImagen.Text);
-                usuarioServices.ActualizarUsuario(usuario);
-                MessageBox.Show("Usuario actualizado correctamente");
+                
+                usuario.RolFK = int.Parse(SelectRol.SelectedValue.ToString()!);
+
+                bool response = usuarioServices.ActualizarUsuario(usuario);
+
+                if( response ) MessageBox.Show("Usuario actualizado correctamente");
+                
+                if (!response) MessageBox.Show("Error al actualizar el usuario");
+
                 UpdateUserTable();
 
-            }catch (Exception ex)
+
+            }
+            catch
             {
                 MessageBox.Show("Porfavor Ingrese todos los valores");
             }

@@ -108,13 +108,6 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            
-            //int codigo = int.Parse(input_codigo.Text);
-
-            //if (codigo) return;
-
-            //this.productoService.ObtenerProductoPorId(codigo);
-
         }
 
         private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
@@ -128,9 +121,46 @@ namespace Proyecto23BMBoutique2.ventas.vistas
             comboProductos.SelectedIndex = 0;
 
         }
-
-        private void CalcularImportes()
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            
+            try
+            {
+                
+                int codigo = int.Parse(input_codigo_producto.Text);
+
+                Producto? productoSeleccionado = this.productoService.ObtenerProductoPorId(codigo);
+
+                if (productoSeleccionado == null)
+                {
+                    MessageBox.Show("Producto no encontrado");
+                    return;
+                }
+
+                VentaProducto productoNuevo = new VentaProducto();
+
+                if (this.productosSeleccionados.Where(p => p.ProductoFK == productoSeleccionado!.id).FirstOrDefault() != null)
+                {
+
+                    MessageBox.Show("Producto ya agregado");
+
+                    return;
+
+                }
+
+                productoNuevo.ProductoFK = productoSeleccionado!.id;
+
+                productosSeleccionados.Add(productoNuevo);
+
+                RenderGrid();
+
+                input_codigo_producto.Text = "";
+
+            }
+            catch
+            {
+                MessageBox.Show("Ingresa un codigo valido");
+            }
 
         }
 
@@ -161,8 +191,6 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
             }
 
-            //Debugger.Break();   
-
             labelImporte.Content = this.importe.ToString("C2");
             labelIVA.Content = this.iva.ToString("C2");
             labelTotal.Content = this.total.ToString("C2");
@@ -174,7 +202,6 @@ namespace Proyecto23BMBoutique2.ventas.vistas
         private void RenderGrid()
         {
             List<VentaProducto> productos = relacionarProductos();
-            //Debugger.Break();
             gridProductosSeleccionados.ItemsSource = null;
             gridProductosSeleccionados.ItemsSource = productos;
         }
@@ -182,27 +209,31 @@ namespace Proyecto23BMBoutique2.ventas.vistas
         private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
         {
 
-            VentaProducto productoNuevo = new VentaProducto();
-
-            Producto? productoSeleccionado = comboProductos.SelectedItem as Producto;
-
-            if (this.productosSeleccionados.Where(p => p.ProductoFK == productoSeleccionado!.id).FirstOrDefault() != null)
+            try
             {
-                
-                MessageBox.Show("Producto ya agregado");
-                
-                return;
+                VentaProducto productoNuevo = new VentaProducto();
+
+                Producto? productoSeleccionado = comboProductos.SelectedItem as Producto;
+
+                if (this.productosSeleccionados.Where(p => p.ProductoFK == productoSeleccionado!.id).FirstOrDefault() != null)
+                {
+
+                    MessageBox.Show("Producto ya agregado");
+
+                    return;
+
+                }
+
+                productoNuevo.ProductoFK = productoSeleccionado!.id;
+
+                productosSeleccionados.Add(productoNuevo);
+
+                RenderGrid();
+            }
+            catch
+            {
 
             }
-
-            productoNuevo.ProductoFK = productoSeleccionado!.id;
-
-            productosSeleccionados.Add(productoNuevo);
-
-            RenderGrid();
-
-            //Debugger.Break();
-
         }
 
         private bool hasProductosEnCero()
@@ -238,6 +269,18 @@ namespace Proyecto23BMBoutique2.ventas.vistas
             
             List<VentaProducto>? datosDataGrid = gridProductosSeleccionados.ItemsSource as List<VentaProducto>;
 
+            foreach( VentaProducto ventaProducto in datosDataGrid )
+            {
+                Producto productoExistencia = productoService.ObtenerProductoPorId(ventaProducto.ProductoFK)!;
+
+                if( ventaProducto.cantidad > productoExistencia.existencias )
+                {
+                    MessageBox.Show($"La cantidad del producto {productoExistencia.descripcion} es mayor a las existencias disponibles ({productoExistencia.existencias} disponibles)");
+                    return;
+                }
+
+            }
+
             venta.Productos = datosDataGrid!;
 
             bool response = ventaService.AddVenta(venta);
@@ -259,5 +302,6 @@ namespace Proyecto23BMBoutique2.ventas.vistas
 
         }
 
+       
     }
 }
