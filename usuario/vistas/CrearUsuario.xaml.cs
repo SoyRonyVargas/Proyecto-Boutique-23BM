@@ -57,6 +57,11 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                         usuarioServices.AgregarUsuario(usuario);
 
                         MessageBox.Show("Usuario actualizado correctamente");
+
+                        if (App.Current.MainWindow is MainWindow mainWindow)
+                        {
+                            mainWindow.handleRouter("listarUsuarios");
+                        }
                     }
                     else MessageBox.Show("La contraseña no coincide");
                 }
@@ -87,23 +92,7 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                 else MessageBox.Show("No has ingresado todos los datos necesarios");
             }
         }
-        private void EditarUser(Usuario request)
-        {
-            UsuarioService usuarioServices = new UsuarioService();
-            Usuario usuario = new Usuario();
-            
-            //t.Text = usuario.id.ToString();
-            txtNombre.Text = usuario.nombre.ToString();
-            txtApellido.Text = usuario.apellidos.ToString();
-            txtUsuario.Text = usuario.nombreUsuario.ToString();
-            txtCorreo.Text = usuario.correo.ToString();
-            txtContraseña.Password = usuario.password.ToString();
-            txtRepetirContraseña.Password = usuario.password.ToString();
-            usuarioServices.ActualizarUsuario(usuario);
-            MessageBox.Show("Usuario actualizado correctamente");
-            //UpdateUserTable();
-            
-        }
+
         public void GetRoles()
         {
             SelectRol.ItemsSource = services.GetRoles();

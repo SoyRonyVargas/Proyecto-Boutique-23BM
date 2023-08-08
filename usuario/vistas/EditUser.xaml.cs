@@ -70,8 +70,13 @@ namespace Proyecto23BMBoutique2.usuario.vistas
                 usuarioServices.ActualizarUsuario(usuario);
                 MessageBox.Show("Usuario actualizado correctamente");
                 UpdateUserTable();
+                if (App.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.handleRouter("listarUsuarios");
+                }
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Porfavor Ingrese todos los valores");
             }

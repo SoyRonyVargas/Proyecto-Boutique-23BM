@@ -56,7 +56,7 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Grid Width="855">
-            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="0,129,0,28" Background="{x:Null}">
+            <DataGrid x:Name="UserTable" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="0,150,0,28" Background="{x:Null}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="50" Header="Id" Binding="{Binding id}" />
                     <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" />
@@ -94,8 +94,8 @@
                     <Image x:Name="imagenPopup" Stretch="Uniform" />
                 </Border>
             </Popup>
-            <Image x:Name="Imagen" HorizontalAlignment="Left" Height="101" Margin="726,59,0,0" VerticalAlignment="Top" Width="106"/>
-            <Label Content="Foto de Perfil" HorizontalAlignment="Left" Height="32" Margin="731,27,0,0" VerticalAlignment="Top" Width="92"/>
+            <Image x:Name="Imagen" HorizontalAlignment="Left" Height="101" Margin="716,32,0,0" VerticalAlignment="Top" Width="106"/>
+            <Label Content="Foto de Perfil" HorizontalAlignment="Left" Height="32" Margin="730,0,0,0" VerticalAlignment="Top" Width="92"/>
             <Label Content="Usuarios" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Height="32" Width="106" FontSize="20" FontWeight="Bold"/>
         </Grid>
     </Grid>
